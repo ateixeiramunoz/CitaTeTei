@@ -79,6 +79,14 @@
       background-attachment: fixed;
     }
 
+    #accesologin{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+    }
+
 
 
 
@@ -123,19 +131,29 @@
       <!--Desplegablessssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss-->
 
         <!--Desplegable modal login-->
-            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body"> <!-- LOGIN -->
-                                            
-                        </div>
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="loginModalLabel">LOGIN</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="accesologin" class="d-flex container flex-column justify-content-center "> <!-- LOGIN -->
+                    <img src="img/minilogoazul.png" class="col-2 ">
+                    <div>
+                      <input type="radio" name="cliente" id="botonempresa" value="botonempresa"style="margin-top: -20px;" required />
+                      <label for="botonempresa">Empresa  </label>
+                      <input type="radio" name="cliente" id="botoncliente" value="botoncliente" style="margin-top: -20px;" required />
+                      <label for="boton cliente">Cliente</label> <br><br>
                     </div>
-                </div>
-            </div>
+                    <input type="text" name="usuariologin" id="usuario" placeholder="Usuario" required/><br><br>
+                    <input type="password" name=" password" id="contraseñalogin" placeholder="Contraseña" required/><br><br>
+                    <a href="">¿Has olvidado tu contraseña?</a><br><br>
+                    <button onclick="startSignIn()">Logearse con Google</button>
+                  </div>
+              </div>
+          </div>
+      </div>
 
         <!--Desplegable modal Cliente-->
             <div class="modal fade" id="clienteModal" tabindex="-1" aria-labelledby="clienteModalLabel" aria-hidden="true">
@@ -179,7 +197,7 @@
       
           <!--Eslogannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn-->
           <main>
-            <div class="row py-lg-5 border-bottom justify-content-center align-items-center " style="background-image: url('/img/tijeras.jpg');" id="fotoytextop">
+            <div class="row py-lg-5 border-bottom justify-content-center align-items-center " style="background-image: url('img/tijeras.jpg');" id="fotoytextop">
               <div class="col-lg-6 col-md-8 mx-auto" id="debajodelheader" >
                 <h1 class="text-center">CitaTe</h1>
                 <p class="lead text-body-secondary text-center">Citate es una aplicación de gestión de citas de peluquería</p>
