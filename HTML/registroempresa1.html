@@ -40,6 +40,8 @@ body{
 }
 .limpio{border: none;}
 
+.boton:hover{background: rgb(141, 132, 132);}
+
 
  </style>
 
@@ -54,10 +56,10 @@ body{
 
 <div class="cabecera row container-fluid  d-flex  align-items-center ">
 
-    <a class="col-4 col-md-2 col-lg-2 nolink btn">Funcionalidades</a>
-    <a class="col-3 col-md-2 col-lg-2 nolink btn">Categorías</a>
-    <a class="col-2 col-md-1 col-lg-2 nolink btn">Precios</a>
-    <a class="col-2 col-md-3 col-lg-2 nolink btn">Preguntas frecuentes</a>
+    <a class="col-5 col-md-2 col-lg-2 nolink btn">Funcionalidades</a>
+    <a class="col-3 col-md-2 col-lg-2 nolink btn ">Categorías</a>
+    <a class="col-3 col-md-1 col-lg-2 nolink btn">Precios</a>
+    <a class="col-4 col-md-3 col-lg-2 nolink btn">Preguntas frecuentes</a>
     <a class="col-5  col-md-3 col-lg-2 nolink btn">Canal de empleo</a>
     <a class="col-1 col-md-1 col-lg-2 nolink btn">Blog</a>
 
@@ -66,29 +68,34 @@ body{
 
 
     <!--Cuerpo-->
+    <br>
+    
 
-    <div>
+    <article class= "row d-flex  justify-content-center" >
 
-        <div class=" container d-flex row  justify-content-center align-items-center " style="border: none;">
+    <div class= "col-12">
+      
+         
+            
+            <h3 class="col-12"> EL MEJOR SOFTWARE DE RESERVA DE CITAS</h3>
             
             
-            <h3 class="col-11 offset-1"> EL MEJOR SOFTWARE DE RESERVA DE CITAS</h3>
-            
-            <div class="col-6 ">Foto</div>
-            <div class="col-3 offset-1"><a class="nolink btn " href="RegistroEmpresa3.html">Probar</a></div>       
+            <div class="col-10    btn btn-dark " ; ><a class="nolink  " href="RegistroEmpresa3.html">Probar</a></div>       
 
         </div>
 
-    </div>
+      </article>
+
+    
 
 
 
     <article class= "row d-flex  justify-content-center" >
 
-             <!-- class btn de bootstrap hace que se comporte como un boton, cuando haces hover cambia de color-->  
+             <!-- class btn de bootstrap hace que se comporte como un boton, cuando hace hover cambia de-->  
 
 
-        <div class= "col-5 col-md-5 col-lg-3 d-flex flex-column justify-content-center">
+        <div class= "col-11 col-md-3 col-lg-3 d-flex flex-column justify-content-center">
        <a class="nolink btn p-2">Calendario de citas</a>
        <a class="nolink btn p-2">Gestion de clientes</a>
        <a class="nolink btn p-2">Procesamiento de pagos</a>
@@ -96,7 +103,7 @@ body{
         </div>
         
 
-        <div class= "col-4 col-md-5 col-lg-4 ">
+        <div class= "col-11 col-md-7 col-lg-7 ">
             <p>LA HERRAMIENTA QUE NECESITAS DONDE LA NECESITAS</p>
             <div id="myCarousel" class="limpio carousel slide" data-bs-ride="carousel">
                 <!--Indicadores de la parte inferior del carrusel y cada no de los sliders del carrousel-->
@@ -108,25 +115,35 @@ body{
            
             </div>
                 <!--Incluye todos los slides del carrousel-->
-            <div class="limpio carousel-inner">
+            <div class="limpio carousel-inner row  ">
+
+
+
                 <!--Primer slide-->
-              <div class="limpio carousel-item carousel-item-next carousel-item-start">
+              <div  class="limpio carousel-item carousel-item-next carousel-item-start  ">
                 <svg class="bd-placeholder-img" width="100%" height="100%" style="background-image: url('img/2.jpg');" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
                 <div class="limpio container">
                   <div class="limpio carousel-caption text-start">
-                    <a class="btn btn-lg btn-primary" href="RegistroEmpresa3.html">Registrate</a></p>
+                    <p><a class="btn btn-lg btn-dark" href="img/">Ver galeria</a></p>
                   </div>
                 </div>
               </div>
+
+
+
                 <!--Segundo slide-->
-              <div class="limpio carousel-item">
+              <div class="limpio carousel-item ">
                 <svg class="bd-placeholder-img" width="100%" height="100%" style="background-image: url('img/3.jpg');" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
                 <div class="limpio container">
                   <div class="limpio carousel-caption">
+                    <p><a class="btn btn-lg btn-dark" href="RegistroEmpresa3.html">Resgistrate</a></p>
                    
-                    <p><a class="btn btn-lg btn-primary" href="#">Contacto</a></p>
+                    
                   </div>
+                  
+                  
                 </div>
+                
               </div>
               <!--Tercer slide-->
               <div class="limpio carousel-item active carousel-item-start">
@@ -134,7 +151,7 @@ body{
                 <div class="limpio container">
                   <div class="limpio carousel-caption text-end">
                     
-                    <p><a class="btn btn-lg btn-primary" href="img/">Ver galeria</a></p>
+                    <p><a class="btn btn-lg btn-dark" href="img/">Contacto</a></p>
                   </div>
                 </div>
               </div>
@@ -160,7 +177,7 @@ body{
     <!--Foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooterrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr-->
         
     <footer>
-        <footer class="d-flex flex-wrap justify-content-between align-items-center  border-top" style="position: relative;">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center  border-top " style="position: relative;">
             <p class="col-12 col-md-4 mb-0 text-body-secondary text-center text-md-start">© 2023 Company, Inc</p>
 
             <a href="/" class="col-12 col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 link-body-emphasis text-decoration-none">
