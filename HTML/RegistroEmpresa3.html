@@ -54,14 +54,36 @@
 
             <!--BOTON SIGUIENTE PANTALLA-->
             <div class="d-flex gap-2 justify-content-center py-5">
-                <button class="btn btn-primary d-inline-flex align-items-center text" type="button" id="configuracion">
-                    <b>Configura tu negocio</b>
-                    <svg class="bi ms-1" width="0" height="20">
-                        <use xlink:href="#arrow-right-short"></use>
-                    </svg>
+                <button class="btn btn-primary d-inline-flex align-items-center text" type="button" id="configuracion" data-bs-toggle="modal" data-bs-target="#configuracionModal">
+                  <b>Configura tu negocio</b>
+                  <svg class="bi ms-1" width="0" height="20">
+                    <use xlink:href="#arrow-right-short"></use>
+                  </svg> 
                 </button>
-
-            </div>
+                <div class="modal fade" id="configuracionModal" tabindex="-1" aria-labelledby="configuracionModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="configuracionModalLabel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body"><!-- Contenido de la ventana emergente -->
+                        <h1>Protección de datos</h1>
+                        <div style="display: inline-flex;">
+                            <input type="checkbox" name="Terminosdeuso" id ="terminosdeuso" value="terminosdeuso"required style="margin-top: -20px;"  />
+                            <label for="terminosdeuso"> &nbspAcepto las condiciones de uso y servicio</label><br/><br>
+                        </div>
+                        <div style="display: inline-flex;">
+                            <input type="checkbox" name="Terminosdeuso" id ="terminosdeuso" value="terminosdeuso"required style="margin-top: -20px;"  />
+                            <label for="terminosdeuso"> &nbspConsentimiento para recibir nuevas ofertas <b>(Opcional)</b></label><br/><br>
+                        </div>
+                        <a href="RegistroEmpresa4.html" class="btn btn-primary" id="continuar">Continuar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+              
     </div>
     </main>
 
