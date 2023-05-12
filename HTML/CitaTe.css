@@ -1,0 +1,132 @@
+/************************************
+REGLAS GENERALES
+************************************/
+
+/*El carrousel me limita el contenido del body por eso he puesto esto*/
+html,body {
+   height: 100%;
+}
+
+body{
+   background: linear-gradient(#2E4059,#E0E1DD);
+}
+
+
+/************************************
+CLASES PROPIAS 
+************************************/
+
+
+
+
+/************************************
+ESTRUCTURA GENERAL
+************************************/
+header{
+   margin-bottom: 10px;
+  }
+
+main{
+   min-height:90vh;
+}  
+
+footer{
+
+}
+
+
+/************************************
+ESTRUCTURA DETALLADA
+************************************/
+
+/* HEADER */
+
+
+/*Desplegable en Registrate para poder elegir Cliente o empresa*/
+.dropdown:hover .dropdown-menu {
+   display: block;
+}
+/*Tamaño logo citate*/
+#logocitate{
+width: 200px;
+}
+
+
+
+/* MAIN */
+
+/*Altura de las fotos correspondientes al carrusel*/
+.carousel-item {
+   height: 30vh;
+}
+
+
+/* PERFIL */
+.logo_empresa{max-width: 200px;}
+
+/* FOOTER */
+
+
+
+
+/* FORMULARIOS */
+
+#registrocliente{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+#botonlogin{
+ background-color: #1B263B;
+ margin-right: 10px;
+}
+#botonregister{
+ background-color: #1B263B;
+ margin-right: 10px;
+}
+#botoncliente{
+ background-color: #1B263B;
+ color: white;
+ 
+}
+#botonempresa{
+ background-color: #1B263B;
+ color: white;
+}
+#clienteempresa{
+ background-color: #1B263B;
+}
+#botonidioma{
+ color: #ffffff ;
+
+}
+#botonayuda{
+ color: #ffffff;
+}
+footer{
+ background-color: #E3E4E0;
+}
+#reservaservicios{
+ background-color: #1B263B;
+ border: #1B263B;
+}
+#fotoytexto{
+ background-attachment: fixed;
+}
+
+#accesologin{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+
+}   
+
+
+/************************************
+MEDIA QUERIES
+************************************/
+
+
+
