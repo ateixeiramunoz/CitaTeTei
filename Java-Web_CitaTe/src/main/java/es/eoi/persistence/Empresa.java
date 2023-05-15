@@ -27,6 +27,7 @@ public class Empresa implements Serializable {
     private String caracteristicasEmpresa;
 
     private MetodoPago metodoPago;
+    private String TipoDeNegocio;
 
 
 
