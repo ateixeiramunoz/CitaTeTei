@@ -232,3 +232,7 @@ Diego
 .navegacion h2{
    text-align: center;
 } 
+
+.navegacion #padding{
+   padding: 20px;
+}
