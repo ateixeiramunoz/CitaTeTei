@@ -32,6 +32,10 @@ public class Empresa implements Serializable {
 
 
 
+
+
+
+
 // CONSTRUCTOR
 
     public Empresa() {

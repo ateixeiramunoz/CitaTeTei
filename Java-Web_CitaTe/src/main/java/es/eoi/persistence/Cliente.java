@@ -3,6 +3,10 @@ package es.eoi.persistence;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "cliente")
 public class Cliente implements Serializable {
