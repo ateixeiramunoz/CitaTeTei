@@ -1,0 +1,20 @@
+package es.eoi.CitaTe.entities;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@Entity
+@Table(name = "rol")
+public class Rol {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_rol", nullable = false)
+    private Long id;
+    private String nombreRol;
+
+}
