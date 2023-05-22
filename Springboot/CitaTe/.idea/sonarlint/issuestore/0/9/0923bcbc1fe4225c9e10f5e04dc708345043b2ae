@@ -1,0 +1,4 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(±˜Î„
+p	java:S116"VRename this field "hora_inicio" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·Ó¼Àÿÿÿÿÿ
+m	java:S116"SRename this field "hora_fin" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÝ¼žûÿÿÿÿ
