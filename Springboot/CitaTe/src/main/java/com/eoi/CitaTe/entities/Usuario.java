@@ -12,16 +12,26 @@ import lombok.*;
 @Table(name = "usuario")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario", nullable = false)
     private Long id;
 
     private String email;
     private String password;
     private boolean activo;
-    //private Empleado empleado;
-    //private Cliente cliente;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "empleado_id", referencedColumnName = "id_empleado")
+    private Empleado empleado;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id_cliente")
+    private Cliente cliente;
+
+    //@OneToMany
     //private Rol rol;
+
+
 
 
 

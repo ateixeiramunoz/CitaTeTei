@@ -22,12 +22,12 @@ public class MainController {
 
     @GetMapping("/registroEmpresa1")
     public String regEmp1() {
-        return "registroempresa1.html";
+        return "RegistroEmpresa1.html";
     }
 
     @GetMapping("/registroEmpresa2")
     public String regEmp2() {
-        return "registroEmpresa2.html";
+        return "RegistroEmpresa2.html";
     }
 
     @GetMapping("/registroEmpresa3")
@@ -68,14 +68,18 @@ public class MainController {
     public String regEmp10(){
         return "RegistroEmpresa10.html";
     }
-
-
-
-
-
-
-
-
+    @GetMapping("/registroEmpresa11")
+    public String regEmp11(){
+        return "RegistroEmpresa11.html";
+    }
+    @GetMapping("/registroEmpresa12")
+    public String regEmp12(){
+        return "RegistroEmpresa12.html";
+    }
+    @GetMapping("/homepostregistro")
+    public String homepregistro(){
+        return "HomePostRegistro.html";
+    }
 
 
 }

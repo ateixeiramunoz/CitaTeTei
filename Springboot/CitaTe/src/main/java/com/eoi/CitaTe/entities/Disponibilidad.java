@@ -21,6 +21,9 @@ public class Disponibilidad {
     private Date fecha;
     private Time hora_inicio;
     private Time hora_fin;
-   // private Empleado empleado;
+
+
+   @OneToOne(mappedBy = "disponibilidad")
+   private Empleado empleado;
 
 }

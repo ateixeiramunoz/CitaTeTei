@@ -71,13 +71,51 @@
           </div>
         </form>
       </div>
-
-      <div class="row  d-flex  justify-content-center">
-        <a class="col-8 mb-5 mt-3 btn btn-lg btn-dark" href="RegistroEmpresa9.html">Añadir Servicio</a>
+      <div class="btn" data-bs-toggle="modal" data-bs-target="#servicioModal" id="botonservicio">
+        <a class="col-8 mb-5 mt-3 btn btn-lg btn-dark" >Añadir Servicio</a>
       </div>
+      <div class="modal fade" id="servicioModal" tabindex="-1" aria-labelledby="servicioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="servicioLabel">Añadir Servicio</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex container flex-column justify-content-center " id="servicio" > <!-- LOGIN -->
+              <img src="img/minilogoazul.png" class="col-2 "> <br><br>
+              <input type="text" name="nombreservicio" id="nombreservicio" placeholder="Nombre del servicio"><br><br>
+              <p>Servicios sugeridos:</p>
+              <div style="display: inline-flex;">
+                <input type="checkbox" name="sugeridos" id ="sugeridos1" value="sugeridos"required style="margin-top: -20px;"  />
+                <label for="sugeridos1"> &nbspAfeitado a navaja</label><br/><br>
+              </div><br>
+              <div style="display: inline-flex;">
+                <input type="checkbox" name="sugeridos" id ="sugeridos2" value="sugeridos"required style="margin-top: -20px;"  />
+                <label for="sugeridos2"> &nbspBarba </label><br/><br>
+              </div><br>
+              <div style="display: inline-flex;">
+                <input type="checkbox" name="sugeridos" id ="sugeridos3" value="sugeridos"required style="margin-top: -20px;"  />
+                <label for="sugeridos3"> &nbspCita doble</label><br/><br>
+              </div><br>
+              <div style="display: inline-flex;">
+                <input type="checkbox" name="sugeridos" id ="sugeridos4" value="sugeridos"required style="margin-top: -20px;"  />
+                <label for="sugeridos4"> &nbspPeinado</label><br/><br>
+              </div>
+              <h4>Duración del servicio</h4>
+              <div>
+                <input type="time" name="duracionservicio" id="duracionservicio">
+                <input type="number" name="precio" id="precio" placeholder="Precio" min="1">
+              </div>
 
-      <a href="RegistroEmpresa9.html" class="btn btn-primary" id="continuar">Continuar</a>
-    
+            </div>
+            <a href="registroEmpresa8" class="btn btn-primary" id="continuar1">Continuar</a>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      <a href="registroEmpresa9" class="btn btn-primary" id="continuar">Continuar</a>
+
     </section>
   </main>
   <footer class="d-flex flex-wrap justify-content-between align-items-center border-top px-3">

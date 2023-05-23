@@ -3,6 +3,9 @@ package com.eoi.CitaTe.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -19,7 +22,27 @@ public class Empleado {
     private String apellido1Empleado;
     private String apellido2Empleado;
 
-   // private Empresa empresa;
-    //private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "empresa_id", referencedColumnName = "id_empresa")
+    private Empresa empresa;
+
+
+    @OneToOne(mappedBy ="empleado")
+    private Usuario usuario;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "disponibilidad_id", referencedColumnName = "id_disponibilidad")
+    private Disponibilidad disponibilidad;
+
+
+    @ManyToMany(mappedBy = "empleados", cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private Set<Servicio> servicios = new HashSet<>();
+
+
+    public void addServicio(Servicio servicio){
+        servicios.add(servicio);
+        servicio.getEmpleados().add(this);
+    }
 
 }

@@ -35,6 +35,7 @@
         <main class="d-flex flex-wrap justify-content-center " id="main">
             <div class="row">
 
+                <form action="/registroEmpresa3">
                 <div class="modal-body text-center" id="registroempresas" >
                     <label for="nombreEmpresa">Nombre de Empresa:</label><br>
                     <input type="text" name="Nombre de Empresa" id="nombreEmpresa" required/> <br><br>
@@ -58,11 +59,12 @@
                         <input type="checkbox" name="Terminosdeuso" id ="terminosdeuso" value="terminosdeuso" required style="margin-top: -20px;"  />
                         <label for="terminosdeuso"> &nbspHe leído y estoy de acuerdo con los <b>Terminos de uso</b></label><br/><br>
                     </div><br>
-                    <form action="RegistroEmpresa3.html">
-                        <input type="submit" name="registrarse" value="Registrarse" /> <br><br>
-                    </form>
-                    <button onclick="startSignIn()">Registrarse con Google</button><br><br>
-                
+
+                        <input  class="btn btn-dark" type="submit" name="registrarse" value="Registrarse" /> <br><br>
+
+                    <button class="btn btn-dark" onclick="startSignIn()">Registrarse con Google</button><br><br>
+
+                </form>
                 </div>
             </div>
         </main>

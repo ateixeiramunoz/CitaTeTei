@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.sql.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -16,7 +18,9 @@ public class Facturacion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_facturacion", nullable = false)
     private Long id;
-    //private DateTimeFormat fecha;
-   // private Pago pago;
+    private Date fecha;
+
+    //@OneToOne(mappedBy = "Facturacion")
+   //private Pago pago;
 
 }

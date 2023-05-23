@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registroempresa1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registroempresa1.html" afterDir="false" />
-    </list>
+    <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,13 +13,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -42,19 +34,23 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "desarollo",
-    "last_opened_file_path": "C:/Users/checa/Escritorio/Programación/Curso JAVA/Proyecto_Grupo4/RamaDesarrolloGitHub/CitaTe/Springboot/CitaTe",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui"
+    "last_opened_file_path": "C:/Users/Alexander/OneDrive/Escritorio/EOI/Programacion/Java Avanzado/SpringBoot/miPrimerProyectoSpringboot",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexander\OneDrive\Escritorio\CitaTe_23-05\Te\CitaTe\src\main\resources" />
+      <recent name="X:\Cursos JAVA\Spring\Te\CitaTe\src\main\resources\templates" />
       <recent name="C:\Users\checa\Escritorio\Programación\Curso JAVA\Proyecto_Grupo4\Actualizacion 22-05\CitaTe\src\main\resources\static" />
       <recent name="C:\Users\Alexander\OneDrive\Escritorio\CitaTe\CitaTe\src\main\resources\templates" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.eoi.CitaTe.abstraccomponents" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="CitaTeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="CitaTeApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.eoi.CitaTe.CitaTeApplication" />
       <module name="springboot" />
       <extension name="coverage">
@@ -69,7 +65,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CitaTeApplication" />
+        <item itemvalue="Application.CitaTeApplication (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -83,5 +79,33 @@
       <updated>1684694463242</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/desarollo" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CitaTe$CitaTeApplication.ic" NAME="CitaTeApplication Coverage Results" MODIFIED="1684789401935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.eoi.CitaTe.*</FILTER>
+    </SUITE>
   </component>
 </project>

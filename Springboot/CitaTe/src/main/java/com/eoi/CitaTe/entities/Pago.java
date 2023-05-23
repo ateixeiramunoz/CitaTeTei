@@ -15,7 +15,10 @@ public class Pago {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_pago", nullable = false)
     private Long id;
-//    private Facturacion facturacion;
+
+   // @OneToOne(cascade = CascadeType.ALL)
+   // @JoinColumn(name = "facturacion_id", referencedColumnName = "id_facturacion")
+   // private Facturacion facturacion;
 //    private Empresa empresa;
 
 }

@@ -17,6 +17,9 @@ public class Valoracion {
     private Long id;
     private String comentario;
     private boolean activo;
-    private int valoracion;
-//    private Reserva reserva;
+
+    private int puntuacion;
+
+    @OneToOne(mappedBy = "valoracion")
+    private Reserva reserva;
 }

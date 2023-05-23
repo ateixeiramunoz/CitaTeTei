@@ -215,10 +215,12 @@ Diego
 #barradeprogreso{
    margin-bottom: 10px;
 }
+ /************************************ Se puede quitar???
 #continuar{
    background-color: #1B263B;
    border-color: #1B263B; ;
 }
+************************************/
 
 .navegacion {
    display: flex;

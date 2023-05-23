@@ -34,7 +34,7 @@
                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="botonregister">Registrate</a>
                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="clienteempresa">
                            <li><a class="dropdown-item btn botoncliente nolink" href="#" data-bs-toggle="modal" data-bs-target="#clienteModal">Cliente</a></li>
-                           <li><a class="dropdown-item btn botonempresa nolink" href="#" data-bs-toggle="modal" data-bs-target="#empresaModal">Empresa</a></li>
+                           <li><a class="dropdown-item btn botonempresa nolink" href="/registroEmpresa1" >Empresa</a></li>
                        </ul>
                    </li>
                    <li class="nav-item"><a href="#" class="nav-link btn" id="botonayuda">Ayuda</a></li>
@@ -80,17 +80,23 @@
                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                        </div>
                        <div class="modal-body" id="registrocliente">
-                           <h1>Register</h1>
-                           <input type="text" name="Nombre" id="nombre" placeholder="Nombre" size="20" required/> <br><br>
-                           <input type="text" name="email" id="email" placeholder="Correo electrónico" required><br><br>
-                           <input type="password" name="password" id="password" placeholder="Contraseña" required/> <br><br>
-                           <input type="password" name="repetirpassword" id="repetirpassword" placeholder="Repita la contraseña" required/><br><br>
-                           <div style="display: inline-flex;">
-                               <input type="checkbox" name="Terminosdeuso" id ="terminosdeuso" value="terminosdeuso" required style="margin-top: -20px;"  />
-                               <label for="terminosdeuso"> &nbspHe leído y estoy de acuerdo con los <b>Terminos de uso</b></label><br/><br>
-                           </div>
-                           <input type="submit" name="registrarse" value="Registrarse"/> <br><br>
+                           <form>
+                               <h1>Register</h1><br><br>
+                               <input type="text" name="nombreUsuario" id="nombre" placeholder="Nombre" size="20" required/><br><br>
+                               <input type="text" name="apellido1" id="apellido1" placeholder="Primer Apellido" required><br><br>
+                               <input type="text" name="apellido2" id="apellido2" placeholder="Segundo Apellido" required><br><br>
+                               <input type="text" name="telefono" id="tc" placeholder="Teléfono de contacto" ><br><br>
+                               <input type="text" name="emailUsuario" id="email" placeholder="Correo electrónico" required><br><br>
+                               <input type="password" name="passwordUsuario" id="password" placeholder="Contraseña" required/> <br><br>
+                               <input type="password" name="repetirpasswordUsuario" id="repetirpassword" placeholder="Repita la contraseña" required/><br><br>
+                               <div style="display: inline-flex;">
+                                   <input type="checkbox" name="Terminosdeuso" id ="terminosdeuso" value="terminosdeuso" required style="margin-top: -20px;"  />
+                                   <label for="terminosdeuso"> &nbspHe leído y estoy de acuerdo con los <b>Terminos de uso</b></label><br/><br>
+                               </div>
+                               <input type="submit" name="registrarse" value="Registrarse"/> <br><br>
+                           </form>
                            <button onclick="startSignIn()">Registrarse con Google</button>
+
 
                        </div>
                    </div>

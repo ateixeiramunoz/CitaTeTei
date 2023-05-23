@@ -18,6 +18,8 @@ public class CatalogoDeServicio {
     private String nombre;
     private  String precio;
     private String descripcion;
-   // private Empresa empresa;
+
+    @OneToOne(mappedBy = "catalogoDeServicio")
+    private Empresa empresa;
 
 }

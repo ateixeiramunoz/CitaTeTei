@@ -58,18 +58,22 @@
                             </div>
                             <div class="modal-body"><!-- Contenido de la ventana emergente -->
                                 <h1>Protección de datos</h1>
-                                <div style="display: inline-flex;">
-                                    <input type="checkbox" name="Terminosdeuso1" id="terminosdeuso1" value="terminosdeuso1" required
-                                           style="margin-top: -20px;" />
-                                    <label for="terminosdeuso1"> &nbspAcepto las condiciones de uso y servicio</label><br /><br>
-                                </div>
-                                <div style="display: inline-flex;">
-                                    <input type="checkbox" name="Terminosdeuso2" id="terminosdeuso2" value="terminosdeuso2" required
-                                           style="margin-top: -20px;" />
-                                    <label for="terminosdeuso2"> &nbspConsentimiento para recibir nuevas ofertas
-                                        <b>(Opcional)</b></label><br /><br>
-                                </div>
-                                <a href="RegistroEmpresa4.html" class="btn btn-primary" id="continuar">Continuar</a>
+                                <form action="/registroEmpresa4">
+                                    <div style="display: inline-flex;">
+                                        <input type="checkbox" name="Terminosdeuso1" id="terminosdeuso1" value="terminosdeuso1" required
+                                               style="margin-top: -20px;" />
+                                        <label for="terminosdeuso1"> &nbspAcepto las condiciones de uso y servicio</label><br /><br>
+                                    </div>
+                                    <div style="display: inline-flex;">
+                                        <input type="checkbox" name="Terminosdeuso2" id="terminosdeuso2" value="terminosdeuso2" required
+                                               style="margin-top: -20px;" />
+                                        <label for="terminosdeuso2"> &nbspConsentimiento para recibir nuevas ofertas
+                                            <b>(Opcional)</b></label><br /><br>
+                                    </div>
+                                    <input  class="btn btn-dark" type="submit" name="continuar" value="Continuar" />
+
+                                </form>
+
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,9 @@ package com.eoi.CitaTe.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -26,8 +29,22 @@ public class Empresa {
     @Lob
     private byte[] logoEmpresa;
 
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+    private Set<Empleado> empleados = new HashSet<>();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "catalogoDeServicio_id", referencedColumnName = "id_catalogoDeServicio")
+    private CatalogoDeServicio catalogoDeServicio;
+
+
+
 //    private Set<String> tipoEmpresa = new HashSet;
 //    private MetodoPagoMensual metodoPagoMensual;
 //    private Pago pago;
 
+
+    public void addEmpleado(Empleado empleado){
+        empleados.add(empleado);
+        empleado.setEmpresa(this);
+    }
 }

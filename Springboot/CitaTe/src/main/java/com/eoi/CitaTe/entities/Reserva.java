@@ -3,6 +3,10 @@ package com.eoi.CitaTe.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.datetime.standard.DateTimeFormatterRegistrar;
+
+import java.sql.Date;
+import java.sql.Time;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,12 +21,27 @@ public class Reserva {
     @Column(name = "id_reserva", nullable = false)
     private Long id;
     private boolean estadoReserva;
-//    private DateTimeFormat fechaReserva;
+    private Date fechaReserva;
     private double hora_inicio;
     private double hora_fin;
-//    private Valoracion valoracion;
-//    private Disponibilidad disponibilidad;
-//    private Cliente cliente;
-//    private Servicio servicio;
+
+
+    @OneToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "valoracion_id", referencedColumnName = "id_valoracion")
+    private Valoracion valoracion;
+
+
+
+//    private Disponibilidad disponibilidad; no hacer fk
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id_cliente")
+    private Cliente cliente;
+
+
+////////////////////////////////////////////////////
+    @Transient
+    private Servicio servicio;
+    ///////////////////////////////////////////
 
 }
