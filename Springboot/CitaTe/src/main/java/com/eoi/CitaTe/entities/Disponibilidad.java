@@ -18,6 +18,7 @@ public class Disponibilidad {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_disponibilidad", nullable = false)
     private Long id;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     private Time hora_inicio;
     private Time hora_fin;
