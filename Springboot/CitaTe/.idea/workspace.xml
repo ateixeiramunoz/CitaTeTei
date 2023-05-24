@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="webjars">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/repositories/UsuarioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/details/MiUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/service/MiUserDetailService.java" afterDir="false" />
+    <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="empezamos a implementar la security">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/MiSecurityConfi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/config/MiSecurityConfi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/repositories/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/repositories/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/config/MiSecurityConfi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/config/MiSecurityConfi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/details/MiUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/details/MiUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/service/MiUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/service/MiUserDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684924219381</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="empezamos a implementar la security">
+      <created>1684951422583</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684951422583</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,7 +144,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dependencias" />
     <MESSAGE value="webjars" />
-    <option name="LAST_COMMIT_MESSAGE" value="webjars" />
+    <MESSAGE value="empezamos a implementar la security" />
+    <option name="LAST_COMMIT_MESSAGE" value="empezamos a implementar la security" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CitaTe$CitaTeApplication.ic" NAME="CitaTeApplication Coverage Results" MODIFIED="1684789401935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

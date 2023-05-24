@@ -1,13 +1,19 @@
 package com.eoi.CitaTe.security.service;
 
+import com.eoi.CitaTe.entities.Rol;
 import com.eoi.CitaTe.entities.Usuario;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
 import com.eoi.CitaTe.security.details.MiUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 public class MiUserDetailService  implements UserDetailsService {
@@ -19,13 +25,13 @@ public class MiUserDetailService  implements UserDetailsService {
     UsuarioRepository usuarioRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
         // llamamos a los detaller de usuario que anteriormente hemos creado
 
         MiUserDetails userDetails = new MiUserDetails();
 
-        Optional<Usuario> usuarioObtenidoDeLaBD = usuarioRepository.findByUsername(username);
+        Optional<Usuario> usuarioObtenidoDeLaBD = usuarioRepository.findByEmail(email);
 
         if (usuarioObtenidoDeLaBD.isPresent()){
             userDetails.setUsername(usuarioObtenidoDeLaBD.get().getEmail());
@@ -38,4 +44,9 @@ public class MiUserDetailService  implements UserDetailsService {
 
         return null;
     }
+
+    ////////// cosas que no se lo que son
+
+
+
 }

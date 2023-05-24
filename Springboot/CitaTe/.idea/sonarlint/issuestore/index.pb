@@ -7,8 +7,6 @@ x
 Hsrc/main/java/com/eoi/CitaTe/abstraccomponents/GenericServiceConJPA.java,7\0\70fe4b1115f45bbd63ec8b505107ab503bfb5f9d
 y
 Isrc/main/java/com/eoi/CitaTe/abstraccomponents/MiControladorGenerico.java,3\d\3df6799bf241a811c3758a484b0c28128a0308ea
-l
-<src/main/java/com/eoi/CitaTe/controllers/MainController.java,1\8\18c5cf7d309909cfe9f6c198bea0d493056c61a8
 r
 Bsrc/main/java/com/eoi/CitaTe/abstraccomponents/GenericService.java,e\2\e280a36df41babf3c6bd1319b756415207820fe3
 d
@@ -21,9 +19,7 @@ b
 2src/main/java/com/eoi/CitaTe/entities/Empresa.java,7\c\7cb769fbdb498d6d083b9e15173fa9df78660e91
 i
 9src/main/java/com/eoi/CitaTe/entities/Disponibilidad.java,5\d\5de4671b7a296f1dff99c1c1d3038f761c9097ad
-c
-3src/main/java/com/eoi/CitaTe/CitaTeApplication.java,c\a\caba0d7b0706635db242e628dc65a8d644429f33
-j
-:src/main/java/com/eoi/CitaTe/security/MiSecurityConfi.java,a\b\ab04dab0dc87f70fd443d0e77594b2d35491cef5
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+l
+<src/main/java/com/eoi/CitaTe/controllers/MainController.java,1\8\18c5cf7d309909cfe9f6c198bea0d493056c61a8
+b
+2src/main/java/com/eoi/CitaTe/entities/Cliente.java,5\5\5571b4020f1d7a62eda8c4957f455258613a2a64

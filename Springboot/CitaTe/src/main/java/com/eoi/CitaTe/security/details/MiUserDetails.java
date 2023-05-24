@@ -53,7 +53,7 @@ public class MiUserDetails implements UserDetails {
      */
     @Override
     public String getPassword() {
-        return this.password;
+        return this.passwordDeLaEntitie;
     }
 
     /**
@@ -64,7 +64,7 @@ public class MiUserDetails implements UserDetails {
      */
     @Override
     public String getUsername() {
-        return this.username;
+        return this.email;
     }
 
 
