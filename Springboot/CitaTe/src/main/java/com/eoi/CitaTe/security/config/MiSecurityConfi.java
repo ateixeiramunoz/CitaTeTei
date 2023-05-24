@@ -1,4 +1,4 @@
-package com.eoi.CitaTe.security;
+package com.eoi.CitaTe.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,6 +37,8 @@ public class MiSecurityConfi {
         return http.build();
     }
 
+
+    ////////////// quitar /////////////////////////////
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user =
@@ -48,6 +50,8 @@ public class MiSecurityConfi {
 
         return new InMemoryUserDetailsManager(user);
     }
+
+    ////////////// quitar /////////////////////////////
 
 
     }
