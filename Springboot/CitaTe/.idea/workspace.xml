@@ -4,21 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="empezamos a implementar la security">
+    <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="creamos findByEmail en el repositorio de usuario y configuramos un userDetails propio para que el userName sea el email de nuestra entidad usuario">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/4.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/repositories/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/repositories/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/config/MiSecurityConfi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/config/MiSecurityConfi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/details/MiUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/details/MiUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/service/MiUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/security/service/MiUserDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Home.html" afterDir="false" />
     </list>
-=======
-    <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="solventamos problema con los slide" />
->>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +29,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="desarollo" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="JpbToolWindowState">
@@ -46,24 +47,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;desarollo&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alexander/OneDrive/Documentos/GitHub/CitaTe/Springboot/CitaTe&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "webjars",
+    "last_opened_file_path": "C:/Users/Alexander/Downloads/CitaTe-webjars/CitaTe-webjars/Springboot/CitaTe",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\resources\static" />
+      <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\resources\static\img" />
       <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\java\com\eoi\CitaTe" />
       <recent name="C:\Users\Alexander\OneDrive\Escritorio\CitaTe_23-05\Te\CitaTe\src\main\resources" />
       <recent name="X:\Cursos JAVA\Spring\Te\CitaTe\src\main\resources\templates" />
-      <recent name="C:\Users\checa\Escritorio\Programación\Curso JAVA\Proyecto_Grupo4\Actualizacion 22-05\CitaTe\src\main\resources\static" />
-      <recent name="C:\Users\Alexander\OneDrive\Escritorio\CitaTe\CitaTe\src\main\resources\templates" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.eoi.CitaTe.abstraccomponents" />
@@ -79,6 +80,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="CitaTe" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CitaTe" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -119,9 +133,6 @@
       <option name="project" value="LOCAL" />
       <updated>1684951422583</updated>
     </task>
-<<<<<<< Updated upstream
-    <option name="localTasksCounter" value="4" />
-=======
     <task id="LOCAL-00004" summary="creamos findByEmail en el repositorio de usuario y configuramos un userDetails propio para que el userName sea el email de nuestra entidad usuario">
       <created>1684954331806</created>
       <option name="number" value="00004" />
@@ -129,15 +140,7 @@
       <option name="project" value="LOCAL" />
       <updated>1684954331806</updated>
     </task>
-    <task id="LOCAL-00005" summary="solventamos problema con los slide">
-      <created>1684969030288</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1684969030288</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
->>>>>>> Stashed changes
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,13 +170,8 @@
     <MESSAGE value="dependencias" />
     <MESSAGE value="webjars" />
     <MESSAGE value="empezamos a implementar la security" />
-<<<<<<< Updated upstream
-    <option name="LAST_COMMIT_MESSAGE" value="empezamos a implementar la security" />
-=======
     <MESSAGE value="creamos findByEmail en el repositorio de usuario y configuramos un userDetails propio para que el userName sea el email de nuestra entidad usuario" />
-    <MESSAGE value="solventamos problema con los slide" />
-    <option name="LAST_COMMIT_MESSAGE" value="solventamos problema con los slide" />
->>>>>>> Stashed changes
+    <option name="LAST_COMMIT_MESSAGE" value="creamos findByEmail en el repositorio de usuario y configuramos un userDetails propio para que el userName sea el email de nuestra entidad usuario" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CitaTe$CitaTeApplication.ic" NAME="CitaTeApplication Coverage Results" MODIFIED="1684789401935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
