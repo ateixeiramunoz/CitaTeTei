@@ -17,6 +17,7 @@ public class Menu {
     private Long id;
     private String url;
     private String descripcion;
+    @Basic(optional = false)
     private boolean activo;
 
 }

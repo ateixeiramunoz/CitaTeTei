@@ -16,6 +16,7 @@ public class Valoracion {
     @Column(name = "id_valoracion", nullable = false)
     private Long id;
     private String comentario;
+    @Basic(optional = false)
     private boolean activo;
 
     private int puntuacion;

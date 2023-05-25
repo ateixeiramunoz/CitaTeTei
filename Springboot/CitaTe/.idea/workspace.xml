@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="creamos findByEmail en el repositorio de usuario y configuramos un userDetails propio para que el userName sea el email de nuestra entidad usuario">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Empresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Empresa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Valoracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Valoracion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registroempresa1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registroempresa1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "git-widget-placeholder": "webjars",
-    "last_opened_file_path": "C:/Users/Alexander/Downloads/CitaTe-webjars/CitaTe-webjars/Springboot/CitaTe",
+    "last_opened_file_path": "/Users/agramirez/Desktop/PROYECTOS CURSO JAVA/Repositorio/CitaTe/Springboot/CitaTe",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>

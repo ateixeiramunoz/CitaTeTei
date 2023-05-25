@@ -38,7 +38,7 @@ public class Empresa {
 
 
 
-//    private Set<String> tipoEmpresa = new HashSet;
+//    private Set<String> tipoEmpresa = new HashSet; ---> DUDA.
 //    private MetodoPagoMensual metodoPagoMensual;
 //    private Pago pago;
 
