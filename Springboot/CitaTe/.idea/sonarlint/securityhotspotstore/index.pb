@@ -25,8 +25,6 @@ b
 2src/main/java/com/eoi/CitaTe/entities/Cliente.java,5\5\5571b4020f1d7a62eda8c4957f455258613a2a64
 c
 3src/main/java/com/eoi/CitaTe/CitaTeApplication.java,c\a\caba0d7b0706635db242e628dc65a8d644429f33
-b
-2src/main/java/com/eoi/CitaTe/entities/Usuario.java,5\2\52c8703e78e042d8c86fea99cd129448c3586a38
 p
 @src/main/java/com/eoi/CitaTe/security/details/MiUserDetails.java,a\9\a9fb37562668f6226b2edb066d3bc16636619f31
 v
