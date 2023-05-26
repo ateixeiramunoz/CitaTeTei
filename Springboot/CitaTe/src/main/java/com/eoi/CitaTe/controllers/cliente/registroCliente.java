@@ -1,6 +1,6 @@
 package com.eoi.CitaTe.controllers.cliente;
 
-import com.eoi.CitaTe.entities.Usuario;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;

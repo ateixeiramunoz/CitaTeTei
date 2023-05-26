@@ -5,16 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="creamos findByEmail en el repositorio de usuario y configuramos un userDetails propio para que el userName sea el email de nuestra entidad usuario">
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/configuration/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/controllers/UsuarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/errorcontrol/CustomExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/errorcontrol/MyErrorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/errorcontrol/exceptions/MiEntidadNoEncontradaException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/errorcontrol/exceptions/ParametrosIncorrectosException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/services/UsuarioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragmentos/footer1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragmentos/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragmentos/headerRegistro.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Empresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Empresa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Valoracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Valoracion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registroempresa1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registroempresa1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/abstraccomponents/MiControladorGenerico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/abstraccomponents/MiControladorGenerico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/controllers/cliente/registroCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/controllers/cliente/registroCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa10.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa11.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa12.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa3.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa4.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa5.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa6.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa7.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa8.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa9.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/RegistroEmpresa9.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,20 +73,21 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "webjars",
-    "last_opened_file_path": "/Users/agramirez/Desktop/PROYECTOS CURSO JAVA/Repositorio/CitaTe/Springboot/CitaTe",
+    "git-widget-placeholder": "desarollo",
+    "last_opened_file_path": "C:/Users/Alexander/OneDrive/Documentos/GitHub/CitaTe/Springboot/CitaTe/src/main/resources/static",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\resources\static" />
-      <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\resources\static\img" />
+      <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\resources\templates" />
+      <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\resources\templates\fragmentos" />
       <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\java\com\eoi\CitaTe" />
-      <recent name="C:\Users\Alexander\OneDrive\Escritorio\CitaTe_23-05\Te\CitaTe\src\main\resources" />
-      <recent name="X:\Cursos JAVA\Spring\Te\CitaTe\src\main\resources\templates" />
+      <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\resources\static\img" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.eoi.CitaTe.controllers" />
       <recent name="com.eoi.CitaTe.abstraccomponents" />
     </key>
   </component>

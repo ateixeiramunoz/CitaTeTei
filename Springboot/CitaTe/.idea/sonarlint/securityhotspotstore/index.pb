@@ -1,18 +1,10 @@
 
-r
-Bsrc/main/java/com/eoi/CitaTe/abstraccomponents/GenericService.java,e\2\e280a36df41babf3c6bd1319b756415207820fe3
-x
-Hsrc/main/java/com/eoi/CitaTe/abstraccomponents/GenericServiceConJPA.java,7\0\70fe4b1115f45bbd63ec8b505107ab503bfb5f9d
-y
-Isrc/main/java/com/eoi/CitaTe/abstraccomponents/MiControladorGenerico.java,3\d\3df6799bf241a811c3758a484b0c28128a0308ea
 l
 <src/main/java/com/eoi/CitaTe/entities/MetodoPagoMensual.java,a\c\ac2e426ae8d4f640561f05da4ccde63c57f4b4d6
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 i
 9src/main/java/com/eoi/CitaTe/entities/Disponibilidad.java,5\d\5de4671b7a296f1dff99c1c1d3038f761c9097ad
-l
-<src/main/java/com/eoi/CitaTe/controllers/MainController.java,1\8\18c5cf7d309909cfe9f6c198bea0d493056c61a8
 p
 @src/main/java/com/eoi/CitaTe/security/details/MiUserDetails.java,a\9\a9fb37562668f6226b2edb066d3bc16636619f31
 v
