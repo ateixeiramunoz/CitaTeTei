@@ -17,7 +17,7 @@ public class Usuario {
     private Long id;
 
     private String email;
-    private String password;
+    private String pass;
     private boolean activo;
 
     @OneToOne(cascade = CascadeType.ALL)

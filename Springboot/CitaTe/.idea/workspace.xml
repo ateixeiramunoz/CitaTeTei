@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="" />
+    <list default="true" id="47045a2a-3e79-4253-af2a-0e7016dda739" name="Changes" comment="creamos findByEmail en el repositorio de usuario y configuramos un userDetails propio para que el userName sea el email de nuestra entidad usuario">
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Empresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Empresa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Valoracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eoi/CitaTe/entities/Valoracion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registroempresa1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registroempresa1.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +28,14 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="desarollo" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -34,16 +53,19 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Alexander/OneDrive/Escritorio/EOI/Programacion/Java Avanzado/SpringBoot/miPrimerProyectoSpringboot",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "webjars",
+    "last_opened_file_path": "/Users/agramirez/Desktop/PROYECTOS CURSO JAVA/Repositorio/CitaTe/Springboot/CitaTe",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\resources\static" />
+      <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\resources\static\img" />
+      <recent name="C:\Users\Alexander\OneDrive\Documentos\GitHub\CitaTe\Springboot\CitaTe\src\main\java\com\eoi\CitaTe" />
       <recent name="C:\Users\Alexander\OneDrive\Escritorio\CitaTe_23-05\Te\CitaTe\src\main\resources" />
       <recent name="X:\Cursos JAVA\Spring\Te\CitaTe\src\main\resources\templates" />
-      <recent name="C:\Users\checa\Escritorio\Programación\Curso JAVA\Proyecto_Grupo4\Actualizacion 22-05\CitaTe\src\main\resources\static" />
-      <recent name="C:\Users\Alexander\OneDrive\Escritorio\CitaTe\CitaTe\src\main\resources\templates" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.eoi.CitaTe.abstraccomponents" />
@@ -63,6 +85,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="CitaTe" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CitaTe" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.CitaTeApplication (1)" />
@@ -78,6 +113,35 @@
       <option name="presentableId" value="Default" />
       <updated>1684694463242</updated>
     </task>
+    <task id="LOCAL-00001" summary="dependencias">
+      <created>1684920107585</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684920107585</updated>
+    </task>
+    <task id="LOCAL-00002" summary="webjars">
+      <created>1684924219381</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684924219381</updated>
+    </task>
+    <task id="LOCAL-00003" summary="empezamos a implementar la security">
+      <created>1684951422583</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684951422583</updated>
+    </task>
+    <task id="LOCAL-00004" summary="creamos findByEmail en el repositorio de usuario y configuramos un userDetails propio para que el userName sea el email de nuestra entidad usuario">
+      <created>1684954331806</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684954331806</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,6 +166,13 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dependencias" />
+    <MESSAGE value="webjars" />
+    <MESSAGE value="empezamos a implementar la security" />
+    <MESSAGE value="creamos findByEmail en el repositorio de usuario y configuramos un userDetails propio para que el userName sea el email de nuestra entidad usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="creamos findByEmail en el repositorio de usuario y configuramos un userDetails propio para que el userName sea el email de nuestra entidad usuario" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CitaTe$CitaTeApplication.ic" NAME="CitaTeApplication Coverage Results" MODIFIED="1684789401935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

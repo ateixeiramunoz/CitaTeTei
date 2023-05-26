@@ -66,6 +66,14 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.10</version>
+		</dependency>
+
+		<!-- Webjars -->
+
+		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator</artifactId>
 			<version>0.46</version>
@@ -81,6 +89,13 @@
 			<artifactId>bootstrap-icons</artifactId>
 			<version>1.10.5</version>
 		</dependency>
+
+		<!-- Webjars -->
+
+		<!-- //////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+		<!-- Security -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -99,6 +114,14 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>6.0.9</version>
+		</dependency>
+
+		<!-- Security -->
+
 
 
 
