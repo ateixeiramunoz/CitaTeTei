@@ -18,14 +18,11 @@
 <body id="contenedor" class="container-fluid d-flex flex-column text-center">
 <div class="row justify-content-end">
 
-    <!--LOGO-->
-    <header class="d-flex flex-wrap justify-content-center align-items-center" id="headerregistroempresa3">
-        <div class="col-sm-12 col-md-4 text-center">
-            <img src="img/logoazul.png" alt="citatelogo" id="logocitate" width="80px">
-        </div>
+    <!--Header-->
 
-    </header><br><br>
+    <<div th:replace="~{fragmentos/header :: header}"></div>
 
+    <!--Header-->
     <main>
 
         <!--ESLOGAN-->
@@ -81,23 +78,12 @@
         </section>
     </main>
 
-<!--FOOTER-->
-<footer class="d-flex flex-wrap justify-content-between align-items-center border-top px-3">
-    <p class="col-12 col-md-4 mb-0 text-body-secondary text-center text-md-start">© 2023 Company, Inc</p>
+    <!--Fooooterrrrr-->
 
-    <a href="/"
-       class="col-12 col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 link-body-emphasis text-decoration-none">
-        <img src="img/minilogoazul.png" width="50" alt="Logo de la empresa">
-    </a>
+    <div th:replace="~{fragmentos/footer1 :: footer}"></div>
 
-    <ul class="nav col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Quiénes somos</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Politica de privacidad</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Condiciones</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contacto</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Ayuda</a></li>
-    </ul>
-</footer>
+    <!--Fooooterrrrr-->
+
 </div>
 </body>
 
