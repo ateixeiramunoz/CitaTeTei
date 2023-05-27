@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<link href="/webjars/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
 
 
   <link rel="stylesheet" href="CitaTe.css">
 
+<div th:fragment="modal">
+  <div  class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="alert alert-danger"  th:if="${param.error}">
+      Invalid username and password.
+    </div>
+    <div class="alert alert-success" th:if="${param.logout}">
+      You have been logged out.
+    </div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">LOGIN</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="accesologin" class=" modal-body d-flex container flex-column justify-content-center "> <!-- LOGIN -->
+          <img src="img/minilogoazul.png" class="col-2 ">
 
-<div th:fragment="modal" class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">LOGIN</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div id="accesologin" class=" modal-body d-flex container flex-column justify-content-center "> <!-- LOGIN -->
-        <img src="img/minilogoazul.png" class="col-2 ">
+          <form th:action="@{/login}" method="post">
 
-        <form th:action="@{/login}" method="post">
+            <div>
+              <input type="radio" name="cliente" id="botonempresa" value="botonempresa" style="margin-top: -20px;" required />
+              <label for="botonempresa">Empresa</label>
+              <input type="radio" name="cliente" id="botoncliente" value="botoncliente" style="margin-top: -20px;" required />
+              <label for="botoncliente">Cliente</label>
 
-          <div>
-            <input type="radio" name="cliente" id="botonempresa" value="botonempresa" style="margin-top: -20px;" required />
-            <label for="botonempresa">Empresa</label>
-            <input type="radio" name="cliente" id="botoncliente" value="botoncliente" style="margin-top: -20px;" required />
-            <label for="botoncliente">Cliente</label>
+              <br><br>
+            </div>
 
-            <br><br>
-          </div>
+            <div><input type="text" name="usuariologin" id="usuario" placeholder="Usuario" required/></div><br><br>
+            <div><input type="password" name=" password" id="contraseñalogin" placeholder="Contraseña" required/></div><br>
+            <div><input class="btn btn-primary" type="submit" value="Sign In"/></div>
 
-          <div><input type="text" name="usuariologin" id="usuario" placeholder="Usuario" required/></div><br><br>
-          <div><input type="password" name=" password" id="contraseñalogin" placeholder="Contraseña" required/></div><br>
-          <div><input class="btn btn-primary" type="submit" value="Sign In"/></div>
+          </form>
 
-        </form>
+          <br><br>
+          <a href="">¿Has olvidado tu contraseña?</a><br><br>
+          <button onclick="startSignIn()">Logearse con Google</button>
 
-        <br><br>
-        <a href="">¿Has olvidado tu contraseña?</a><br><br>
-        <button onclick="startSignIn()">Logearse con Google</button>
-
+        </div>
       </div>
     </div>
   </div>

@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -23,6 +24,9 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private PasswordEncoder codificadorContraseña;
+
 
         @Override
         @Profile("local")
@@ -36,7 +40,7 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             Usuario usuario = new Usuario();
             usuario.setEmail("cliente@citate.com");
             usuario.setActivo(true);
-            usuario.setPass("puto");
+            usuario.setPass(codificadorContraseña.encode("prueba"));
 
 
             usuarioRepository.save(usuario);
@@ -46,7 +50,7 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
 
             usuario2.setEmail("empleado@citate.com");
             usuario2.setActivo(true);
-            usuario2.setPass("puto");
+            usuario2.setPass(codificadorContraseña.encode("prueba"));
             usuarioRepository.save(usuario2);
 
 

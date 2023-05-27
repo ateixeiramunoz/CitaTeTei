@@ -1,7 +1,6 @@
 package com.eoi.CitaTe.security.details;
 
-import com.eoi.CitaTe.entities.Cliente;
-import com.eoi.CitaTe.entities.Empleado;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,8 +28,7 @@ public class MiUserDetails implements UserDetails {
     private Collection<? extends GrantedAuthority> grantedAuthorities;
 
     //Campos del Usuario de nuestra App
-    private String email;
-    private String passwordDeLaEntitie;
+
 
     // en lugar de usar isAccountNonLocked usariamos nuestro activo de la entidad
     private boolean activo;
@@ -53,7 +51,7 @@ public class MiUserDetails implements UserDetails {
      */
     @Override
     public String getPassword() {
-        return this.passwordDeLaEntitie;
+        return this.password;
     }
 
     /**
@@ -64,7 +62,7 @@ public class MiUserDetails implements UserDetails {
      */
     @Override
     public String getUsername() {
-        return this.email;
+        return this.username;
     }
 
 
