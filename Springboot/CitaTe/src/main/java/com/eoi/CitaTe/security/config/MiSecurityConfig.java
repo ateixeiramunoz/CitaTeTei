@@ -48,7 +48,8 @@ public class MiSecurityConfig {
                 .permitAll());
 
         // Configuramos el sistema de cierre de sesión de la aplicación como el cierre de sesión predeterminado de Spring Security.
-        http.logout((logout) -> logout.permitAll());
+        http.logout((logout) -> logout.permitAll()
+                .logoutSuccessUrl("/"));
 
         // Devolvemos el objeto HttpSecurity configurado para que Spring Boot y Spring Security realicen su magia.
         return http.build();

@@ -12,6 +12,9 @@ public class MainController {
     @GetMapping("/login")
     public String login(Model model)
     {        return "login.html";    }
+    @GetMapping("/logout")
+    public String logout(Model model)
+    {        return "/citaTeP1";    }
 
     @GetMapping("/")
     public String home(){
