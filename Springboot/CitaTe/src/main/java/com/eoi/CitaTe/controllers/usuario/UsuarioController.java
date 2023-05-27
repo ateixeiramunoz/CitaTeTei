@@ -1,4 +1,4 @@
-package com.eoi.CitaTe.controllers;
+package com.eoi.CitaTe.controllers.usuario;
 
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;

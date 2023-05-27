@@ -18,9 +18,9 @@
      * <p>Los principios de programación de Spring que se aplican con esta clase incluyen:</p>
      * <ul>
      *     <li>Inversión de control (IoC): La clase utiliza la anotación @Autowired para aplicar la inyección de dependencias y obtener una
-     *     instancia del servicio genérico {@link GenericServiceWithJPA} necesario para acceder a los datos de la entidad. Esto permite la
+     *     nstancia del servicio genérico {@link //GenericServiceWithJPA} necesario para acceder a los datos de la entidad. Esto permite la
      *     separación de responsabilidades y facilita la prueba y la flexibilidad de intercambio de implementaciones.</li>
-     *     <li>Inyección de dependencias (DI): El controlador se inyecta con una instancia del servicio genérico {@link GenericServiceWithJPA}
+     *     <li>Inyección de dependencias (DI): El controlador se inyecta con una instancia del servicio genérico {@link //GenericServiceWithJPA}
      *     mediante el constructor, lo que permite obtener acceso a los métodos CRUD del servicio y realizar operaciones en la entidad correspondiente.
      *     Esto facilita la reutilización de código y mejora la mantenibilidad y escalabilidad de la aplicación.</li>
      *     <li>Principio de abstracción: La clase proporciona una abstracción común para operaciones CRUD comunes en los controladores que trabajan
@@ -52,6 +52,7 @@
      */
 
     public abstract class MiControladorGenerico<T> {
+
 
         protected Class<T> tClass;
 
@@ -104,7 +105,7 @@
         /**
          * Maneja la solicitud POST para crear una nueva entidad.
          *
-         * @param entity La entidad a crear.
+        // * @param entity La entidad a crear.
          * @param model  El objeto Model para agregar los atributos necesarios.
          * @return El nombre de la plantilla para mostrar los detalles de la entidad creada.
          */
@@ -118,7 +119,7 @@
         /**
          * Maneja la solicitud PUT para actualizar una entidad existente.
          *
-         * @param id     El identificador de la entidad a actualizar.
+        // * @param id     El identificador de la entidad a actualizar.
          * @param entity La entidad actualizada.
          * @param model  El objeto Model para agregar los atributos necesarios.
          * @return El nombre de la plantilla para mostrar los detalles de la entidad actualizada.
