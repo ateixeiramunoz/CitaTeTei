@@ -20,6 +20,6 @@ public class registroCliente {
                                @RequestParam("repetirpasswordUsuario") String repetirpasswordUsuario
     ){
 
-        return "/HomePostRegistro.html";
+        return "/Home.html";
     }
 }

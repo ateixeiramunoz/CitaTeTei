@@ -28,6 +28,8 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
         @Profile("local")
         @Transactional
         public void onApplicationEvent(ContextRefreshedEvent event) {
+
+
             if (configuracionRealizada)
                 return;
 

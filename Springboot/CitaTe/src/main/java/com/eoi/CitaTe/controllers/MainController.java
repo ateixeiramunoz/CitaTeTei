@@ -9,9 +9,9 @@ public class MainController {
 
 
    ///Esto es un follon porque tiene el retun tiene que ir al modal de login hay que hacerlo con fragments seguramente//
-/*    @GetMapping("/login")
+    @GetMapping("/login")
     public String login(Model model)
-    {        return "login";    }*/
+    {        return "fragmentos/modalLogin.html";    }
 
     @GetMapping("/")
     public String home(){
