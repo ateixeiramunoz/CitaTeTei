@@ -83,10 +83,13 @@
               </a>
             </li>
             <li>
-              <a href="/" class="nav-link link-body-emphasis">
+              <form class="mx-auto" sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
                 <i class="bi bi-box-arrow-in-left"></i>
-                Cerrar sesión
-              </a>
+                <input data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-custom-class="custom-tooltip"
+                       data-bs-title="Haz click para salir de la aplicación" class="mx-auto btn btn-danger" type="submit" value="Cerrar Sesión"/>
+              </form>
+
             </li>
           </ul>
           <hr>
@@ -95,7 +98,7 @@
             <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
                data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-              <strong>Nombre persona</strong>
+              <span sec:authentication="name"></span>
             </a>
             <ul class="dropdown-menu text-small shadow">
               <li><a class="dropdown-item" href="#">Settings</a></li>
