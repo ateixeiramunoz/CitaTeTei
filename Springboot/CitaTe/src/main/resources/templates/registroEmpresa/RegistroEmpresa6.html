@@ -12,16 +12,21 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="CitaTe.css">
-  <style></style>
+
+
+  <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <link href="/webjars/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
 
 
 </head>
 
-<body id="contenedor" class="container-fluid d-flex flex-column ">
+<body class="container">
 
 <!--Header-->
 
-<div th:replace="~{fragmentos/header :: header}"></div>
+<div th:replace="~{fragmentos/headerRegistro :: header}"></div>
 
 <!--Header-->
 
@@ -88,4 +93,7 @@
   <div th:replace="~{fragmentos/footer1 :: footer}"></div>
 
   <!--Fooooterrrrr-->
+
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
 </body>

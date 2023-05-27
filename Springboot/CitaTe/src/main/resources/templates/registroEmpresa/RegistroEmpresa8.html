@@ -13,62 +13,71 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="carousel.css">
   <link rel="stylesheet" href="CitaTe.css">
-  <style></style>
+
+
+  <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <link href="/webjars/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
 
 </head>
 
-<body id="contenedor" class="container-fluid d-flex flex-column ">
+<body class="container">
 <!--Header-->
 
-<div th:replace="~{fragmentos/header :: header}"></div>
+<div th:replace="~{fragmentos/headerRegistro :: header}"></div>
 
 <!--Header-->
 
   <main>
-    <section class="navegacion">
-      <div class="progress" id=barradeprogreso>
-        <div class="progress-bar" role="progressbar" style=" width: 80%; background-color: #76C893;"></div>
+    <section>
+      <div class="progress"   id=barradeprogreso>
+        <div class="progress-bar" role="progressbar" style=" width: 71%; background-color: #168AAD;"></div>
 
       </div>
       <h2>EMPIEZA A AÑADIR TUS SERVICIOS</h2><br>
 
 
       <div class="col">
-        <form class="col-11" action="URL A LA QUE ENVIO EL FORMULARIO" method="post" enctype="multipart/form-data">
+        <form class="col-11" action="URL A LA QUE ENVIO EL FORMULARIO" method="post"  enctype="multipart/form-data">
 
 
           <div class="m-4">
-            <input class="col-1" type="radio" name="servicio">
-            <label class="col-3">Afeitado</label>
+            <input class="col-1" type="radio"  name="servicio">
+            <label class="col-3" >Afeitado</label>
             <input class="ms-5 col-2" type="button" name="Tiempo" value="Tiempo">
             <input class="ms-5 col-2" type="button" name="precio" value="Precio">
           </div>
 
 
-          <div class="m-4">
-            <input class="col-1" type="radio" name="servicio">
-            <label class="col-3">Corte basico</label>
+          <div class="m-4" >
+            <input class="col-1" type="radio"  name="servicio">
+            <label class="col-3" >Corte basico</label>
             <input class="ms-5 col-2" type="button" name="Tiempo" value="Tiempo">
             <input class="ms-5 col-2" type="button" name="precio" value="Precio">
 
           </div>
 
           <div class="m-4">
-            <input class="col-1" type="radio" name="servicio">
-            <label class="col-3">Corte barba</label>
+            <input class="col-1" type="radio"  name="servicio">
+            <label class="col-3" >Corte barba</label>
             <input class="ms-5 col-2" type="button" name="Tiempo" value="Tiempo">
             <input class="ms-5 col-2" type="button" name="precio" value="Precio">
           </div>
 
           <div class="m-4">
-            <input class="col-1" type="radio" name="servicio">
-            <label class="col-3">Tinte</label>
+            <input class="col-1" type="radio" name="servicio" >
+            <label class="col-3" >Tinte</label>
             <input class="ms-5 col-2" type="button" name="Tiempo" value="Tiempo">
             <input class="ms-5 col-2" type="button" name="precio" value="Precio">
           </div>
         </form>
       </div>
+
+
+      </form>
+      </div>
+
       <div class="btn" data-bs-toggle="modal" data-bs-target="#servicioModal" id="botonservicio">
         <a class="col-8 mb-5 mt-3 btn btn-lg btn-dark" >Añadir Servicio</a>
       </div>
@@ -79,7 +88,7 @@
               <h5 class="modal-title" id="servicioLabel">Añadir Servicio</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body d-flex container flex-column justify-content-center " id="servicio" > <!-- LOGIN -->
+            <div class="modal-body d-flex container flex-column justify-content-center" id="servicio">
               <img src="img/minilogoazul.png" class="col-2 "> <br><br>
               <input type="text" name="nombreservicio" id="nombreservicio" placeholder="Nombre del servicio"><br><br>
               <p>Servicios sugeridos:</p>
@@ -110,17 +119,19 @@
           </div>
         </div>
       </div>
-      </div>
-      </div>
+
       <a href="registroEmpresa9" class="btn btn-primary" id="continuar">Continuar</a>
 
     </section>
-  </main>
+  </main><br><br>
 
   <!--Fooooterrrrr-->
 
   <div th:replace="~{fragmentos/footer1 :: footer}"></div>
 
   <!--Fooooterrrrr-->
+
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
 
 </body>
