@@ -236,3 +236,10 @@ Diego
 .navegacion #padding{
    padding: 20px;
 }
+#archivo {
+   display: none;
+   pointer-events: none;
+ }
+ 
+ 
+
