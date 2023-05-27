@@ -1,7 +1,7 @@
 package com.eoi.CitaTe.configuration;
 
 import com.eoi.CitaTe.entities.Usuario;
-import com.eoi.CitaTe.repositories.UsuarioRepository;
+import com.eoi.CitaTe.repositories.*;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +23,35 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
     boolean configuracionRealizada = false;
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    @Autowired
+    private DisponibilidadRepository disponibilidadRepository;
+    @Autowired
+    private EmpleadoRepository empleadoRepository;
+    @Autowired
+    private EmpresaRepository empresaRepository;
+
+    @Autowired
+    private FacturacionRepository facturacionRepository;
+
+    @Autowired
+    private MenuRepository menuRepository;
+
+    @Autowired
+    private MetodoPagoMensualRepository metodoPagoMensualRepository;
+    @Autowired
+    private PagoRepository pagoRepository;
+    @Autowired
+    private ReservaRepository reservaRepository;
+    @Autowired
+    private RolRepository rolRepository;
+    @Autowired
+    private ServicioRepository servicioRepository;
+    @Autowired
+    private ValoracionRepository valoracionRepository;
 
     @Autowired
     private PasswordEncoder codificadorContraseña;

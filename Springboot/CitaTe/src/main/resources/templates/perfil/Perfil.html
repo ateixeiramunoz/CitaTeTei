@@ -83,6 +83,14 @@
             </a>
           </li>
           <li>
+            <form class="mx-auto" sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+              <i class="bi bi-box-arrow-in-left">
+              <input type="submit" value="Cerrar Sesión"/>
+              </i>
+            </form>
+
+
+
             <a href="#" class="nav-link link-body-emphasis">
               <i class="bi bi-box-arrow-in-left"></i>
               Cerrar sesión
