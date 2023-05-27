@@ -43,7 +43,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
 
     /**
      * Constructor de la clase UsuarioController.
-     * Se utiliza para crear una instancia del controlador.
+     * Se utiliza para crear una instancia del controlador.h
      */
     public UsuarioController() {
         super();

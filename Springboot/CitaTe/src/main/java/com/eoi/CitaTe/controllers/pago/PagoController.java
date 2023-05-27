@@ -8,10 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("${url.pagoController}")
+@RequestMapping("${url.pago}")
 
 public class PagoController extends MiControladorGenerico<Pago> {
-    @Value("${url.pagoController}")
+    @Value("${url.pago}")
     private String urlBase;
     private String entityName = "pagos";
 

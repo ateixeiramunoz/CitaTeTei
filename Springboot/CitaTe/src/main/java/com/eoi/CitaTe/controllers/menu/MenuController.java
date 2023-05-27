@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("${url.menuController}")
+@RequestMapping("${url.menu}")
 public class MenuController extends MiControladorGenerico<Menu> {
-    @Value("${url.menuController}")
+    @Value("${url.menu}")
     private String urlBase;
     private String entityName = "menus";
 

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("${url.reservaController}")
+@RequestMapping("${url.reserva}")
 public class ReservaController extends MiControladorGenerico<Reserva> {
-    @Value("${url.reservaController}")
+    @Value("${url.reserva}")
     private String urlBase;
     private String entityName = "reservas";
 

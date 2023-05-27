@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("${url.facturacionController}")
+@RequestMapping("${url.facturacion}")
 public class FacturacionController extends MiControladorGenerico<Facturacion> {
-    @Value("${url.facturacionController}")
+    @Value("${url.facturacion}")
     private String urlBase;
     private String entityName = "facturaciones";
 
