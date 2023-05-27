@@ -1,6 +1,6 @@
 package com.eoi.CitaTe.configuration;
 
-import com.eoi.CitaTe.entities.Usuario;
+import com.eoi.CitaTe.entities.*;
 import com.eoi.CitaTe.repositories.*;
 
 import jakarta.transaction.Transactional;
@@ -66,11 +66,26 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             if (configuracionRealizada)
                 return;
 
+            Empresa empresa = new Empresa();
+
+            empresa.setCif("B999999999");
+            empresa.setNombreEmpresa("Ache");
+            empresa.setDireccion(new Direccion("principal",5,"Madrid","Getafe",28001,"sin_defenir"));
+            empresa.setDescripcionEmpresa("La mejor peluqueria");
+            empresa.setContacto(new Contacto("612314123","","ayuda@gmail.com"));
+            empresaRepository.save(empresa);
+
+            Cliente cliente = new Cliente();
+            cliente.setNombreCliente("Adolfo");
+            cliente.setApellido1Cliente("Ramirez");
+            cliente.setApellido2Cliente("Rodriguez");
+            cliente.setTelefono("633159753");
+
             Usuario usuario = new Usuario();
             usuario.setEmail("cliente@citate.com");
             usuario.setActivo(true);
+            usuario.setCliente(cliente);
             usuario.setPass(codificadorContraseña.encode("prueba"));
-
 
             usuarioRepository.save(usuario);
 
@@ -81,7 +96,6 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             usuario2.setActivo(true);
             usuario2.setPass(codificadorContraseña.encode("prueba"));
             usuarioRepository.save(usuario2);
-
 
             configuracionRealizada = true;
         }

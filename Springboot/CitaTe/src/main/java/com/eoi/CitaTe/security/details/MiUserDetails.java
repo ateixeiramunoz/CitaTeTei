@@ -29,6 +29,8 @@ public class MiUserDetails implements UserDetails {
 
     //Campos del Usuario de nuestra App
 
+    private String nombreCliente;
+
 
     // en lugar de usar isAccountNonLocked usariamos nuestro activo de la entidad
     private boolean activo;

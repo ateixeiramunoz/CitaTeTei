@@ -36,6 +36,7 @@ public class MiUserDetailService  implements UserDetailsService {
         if (usuarioObtenidoDeLaBD.isPresent()){
             userDetails.setUsername(usuarioObtenidoDeLaBD.get().getEmail());
             userDetails.setPassword(usuarioObtenidoDeLaBD.get().getPass());
+            userDetails.setNombreCliente(usuarioObtenidoDeLaBD.get().getCliente().getNombreCliente());
 
             // faltaria incluir si es empleado o si es  con setGrantedAuthorities(getAuthorities(usuarioObtenidoDeLaBD.get().getRoles()));
 
