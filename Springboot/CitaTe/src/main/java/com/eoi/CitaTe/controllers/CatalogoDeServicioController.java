@@ -1,20 +1,20 @@
-package com.eoi.CitaTe.controllers.cliente;
+package com.eoi.CitaTe.controllers;
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
-import com.eoi.CitaTe.entities.Cliente;
+import com.eoi.CitaTe.entities.CatalogoDeServicio;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("${url.cliente}")
-public class ClienteController extends MiControladorGenerico<Cliente> {
-    @Value("${url.cliente}")
+@RequestMapping("${url.catalogoDeServicio}")
+public class CatalogoDeServicioController extends MiControladorGenerico<CatalogoDeServicio> {
+    @Value("${url.catalogoDeServicio}")
     private String urlBase;
-    private String entityName = "clientes";
+    private String entityName = "catalogoDeServicios";
 
-    public ClienteController() {
+    public CatalogoDeServicioController() {
         super();
     }
 

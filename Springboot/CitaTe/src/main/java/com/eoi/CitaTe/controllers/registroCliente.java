@@ -1,11 +1,11 @@
-package com.eoi.CitaTe.controllers.cliente;
+package com.eoi.CitaTe.controllers;
 
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+//h
 @Controller
 public class registroCliente {
 
@@ -20,6 +20,6 @@ public class registroCliente {
                                @RequestParam("repetirpasswordUsuario") String repetirpasswordUsuario
     ){
 
-        return "/Home.html";
+        return "/HomePostRegistro.html";
     }
 }
