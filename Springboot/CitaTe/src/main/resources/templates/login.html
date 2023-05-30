@@ -10,15 +10,15 @@
 <div class="container">
 
     <div class="alert alert-danger"  th:if="${param.error}">
-        Invalid username and password.
+       Usuario o contraseña incorrecto.
     </div>
     <div class="alert alert-success" th:if="${param.logout}">
-        You have been logged out.
+        Has sido desconectado.
     </div>
     <form th:action="@{/login}" method="post">
-        <div><label> User Name : <input  class="form-control" type="text" name="username"/> </label></div>
-        <div><label> Password: <input  class="form-control" type="password" name="password"/> </label></div>
-        <div><input class="btn btn-primary" type="submit" value="Sign In"/></div>
+        <div><label> Usuario : <input  class="form-control" type="text" name="username" required/> </label></div>
+        <div><label> Contraseña: <input  class="form-control" type="password" name="password" required/> </label></div>
+        <div><input class="btn btn-primary" type="submit" value="Entrar"/></div>
     </form>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 

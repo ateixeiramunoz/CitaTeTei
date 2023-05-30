@@ -196,6 +196,10 @@ padding: 15px
 
 }
 
+.gris{
+   color: grey;
+}
+
 /************************************
 Sandra
 ************************************/
@@ -275,6 +279,13 @@ Diego
       width: 200px;
     }
 
+    #logocitatefooter{
+
+          width: 90px;
+
+        }
+
+
     /*El carrousel me limita el contenido del body por eso he puesto esto*/
 
 
@@ -297,4 +308,12 @@ Diego
         background-color: #1B263B;
         border-color: #1B263B; ;
     }
+
+    /*Para modificar el tamaño del carrousel*/
+
+    .carousel-item {
+       height: 400px;
+     }
+
+
 

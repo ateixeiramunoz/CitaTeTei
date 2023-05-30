@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 
-  <header th:fragment="header" class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
+  <div th:fragment="header" >
 
+  <!--Cabecera con la imagen de Citate -->
+  <header class="d-flex flex-wrap justify-content-center align-items-center">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
       <div class="col-sm-12 col-md-4 text-center" >
-        <img src="img/logoazul.png" alt="citatelogo" id="logocitate" width="140px">
+        <img class="p-3" src="img/logoazul.png" alt="citatelogo" id="logocitate">
       </div>
     </a>
 
     <!-- Menu Con "Login", "Registrate", "Idioma" y "Ayuda" -->
-    <ul class="nav nav-pills col-12 col-md-4 text-center"  >
-
-      <!--Establecemos que perfil solo se vea si esta isAuthenticated() -->
-
+    <ul class="nav nav-pills text-center" >
       <li class="nav-item" sec:authorize="isAuthenticated()"><a href="/perfil" class="nav-link active btn " >Perfil</a></li>
-      <li class="nav-item" sec:authorize="!isAuthenticated()"><a href="#" class="nav-link active btn" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" id="botonlogin">Login</a></li>
+      <li class="nav-item" sec:authorize="!isAuthenticated()"><a href="#" class="nav-link active btn " aria-current="page"  data-bs-toggle="modal" data-bs-target="#loginModal" id="botonlogin">Login</a></li>
       <li class="nav-item dropdown" sec:authorize="!isAuthenticated()">
         <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="botonregister">Registrate</a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="clienteempresa">
-          <li><a class="dropdown-item btn botoncliente nolink" href="#" data-bs-toggle="modal" data-bs-target="#clienteModal">Cliente</a></li>
-          <li><a class="dropdown-item btn botonempresa nolink" href="/registroEmpresa1" >Empresa</a></li>
+          <li class="nolink"><a class="dropdown-item btn" style="color: grey;" href="#" data-bs-toggle="modal" data-bs-target="#clienteModal" >Cliente</a></li>
+          <li class="nolink"><a class="dropdown-item btn" style="color: grey;" href="/registroEmpresa1" >Empresa</a></li>
         </ul>
       </li>
-       <li>
-         <form class="mx-auto" sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
-           <input data-bs-toggle="tooltip" data-bs-placement="top"
-                  data-bs-custom-class="custom-tooltip"
-                  data-bs-title="Haz click para salir de la aplicación" class="mx-auto btn btn-danger" type="submit" value="Cerrar Sesión"/>
-         </form>
-      </li>
-      <li class="nav-item"><a href="#" class="nav-link btn" id="botonayuda">Ayuda</a></li>
+      <li class="nav-item"><a href="#" class="nav-link btn"  id="botonidioma">Idioma</a></li>
+      <li class="nav-item"><a href="#" class="nav-link btn"  id="botonayuda">Ayuda</a></li>
     </ul>
   </header>
+  </div>

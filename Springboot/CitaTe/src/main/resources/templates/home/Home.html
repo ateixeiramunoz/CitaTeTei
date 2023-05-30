@@ -19,11 +19,15 @@
 </head>
 
 
-<body class="container">
+
+<body class="container-fluid d-flex flex-column ">
 
 <!--Header-->
 
 <div th:replace="~{fragmentos/headerRegistro :: header}"></div>
+
+<div class="container">
+
 
 <!--Borrar esta linea-->
 <h1>Hola: <span sec:authentication="name"></span> </h1>
@@ -84,7 +88,7 @@
 
                         <!--Botooonnnnnnnnnnnnn Reserva servicioooooooooooooooooooosssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss-->
             <div class="d-flex gap-2 justify-content-center py-5">
-                <button class="btn btn-primary d-inline-flex align-items-center text" type="button"  id="reservaservicios" >
+                <button class="btn btn-dark d-inline-flex align-items-center text" type="button"  id="reservaservicios" >
                   <a href="/citaTeP1" class="nolink">Reserva servicios cerca de ti</a>
                   <svg class="bi ms-1" width="0" height="20"><use xlink:href="#arrow-right-short"></use></svg>
                 </button>
@@ -93,7 +97,7 @@
 
                             <!--Caroooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooousel-->
 
-          <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div id="myCarousel" class="carousel slide mb-5 " data-bs-ride="carousel" >
                 <!--Indicadores de la parte inferior del carrusel y cada no de los sliders del carrousel-->
             <div class="carousel-indicators">
 
@@ -103,10 +107,10 @@
 
             </div>
                 <!--Incluye todos los slides del carrousel-->
-            <div class="carousel-inner row">
+            <div class="carousel-inner row" >
                 <!--Primer slide-->
                 <div class="carousel-item carousel-item-next carousel-item-start">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" style="background-image: url('img/1.jpeg');" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" style="background-image: url('img/n2.jpeg');" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <!-- <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect> -->
                     </svg>
                     <div class="container">
@@ -119,7 +123,7 @@
                 </div>
                 <!--Segundo slide-->
                 <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" style="background-image: url('img/2.jpg');" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" style="background-image: url('img/n3.jpeg');" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <!-- <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect> -->
                      </svg>
                      <div class="container">
@@ -132,7 +136,7 @@
                  </div>
                  <!--Tercer slide-->
                 <div class="carousel-item active carousel-item-start">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" style="background-image: url('img/1.jpeg');" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" style="background-image: url('img/n1.jpg');" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <!-- <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect> -->
                     </svg>
                     <div class="container">
@@ -143,6 +147,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
             <!--Control de la dirección de los slides-->
             <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -153,9 +159,16 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
+
+
           </div>
-    
+
+
         </main>
+
+
+</div>
+
 
            <!--Fooooterrrrr-->
 
