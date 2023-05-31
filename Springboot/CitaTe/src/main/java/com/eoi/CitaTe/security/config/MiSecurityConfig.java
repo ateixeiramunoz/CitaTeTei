@@ -3,6 +3,7 @@ package com.eoi.CitaTe.security.config;
 import com.eoi.CitaTe.security.service.MiUserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -12,6 +13,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @Configuration
+@EnableMethodSecurity        //habilitamos la security también en los metodos para desde el propio metodo configurar el rol de quien lo puede usar
 @EnableWebSecurity
 public class MiSecurityConfig {
 
