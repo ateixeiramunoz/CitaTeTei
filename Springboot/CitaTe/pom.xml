@@ -15,6 +15,12 @@
 	<description>Proyecto Guía de Springboot</description>
 	<properties>
 		<java.version>20</java.version>
+		<sonar.host.url>http://localhost:9000</sonar.host.url>
+		<sonar.projectKey>squ_c44911bac48445dbd00c4dea39269f9a52d9ac24</sonar.projectKey>
+		<sonar.projectName>CitaTe</sonar.projectName>
+		<sonar.language>java</sonar.language>
+		<sonar.scm.provider>git</sonar.scm.provider>
+		<sonar.token>fc1ac571462c75dd4e1511a430b280597754134e</sonar.token>
 	</properties>
 	<dependencies>
 		<dependency>
