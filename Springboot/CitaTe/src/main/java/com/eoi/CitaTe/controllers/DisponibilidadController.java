@@ -18,10 +18,10 @@ public class DisponibilidadController extends MiControladorGenerico<Disponibilid
             super();
         }
 
-        @PostConstruct
-        private void init() {
-            super.entityName = urlBase;
-            super.entityPrefix = entityName + "/";
-        }
+    @PostConstruct
+    private void init() {
+        super.entityName = entityName;
+        super.url = url;
+    }
     }
 

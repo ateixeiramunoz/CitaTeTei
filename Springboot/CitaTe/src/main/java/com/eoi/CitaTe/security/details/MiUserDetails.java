@@ -29,7 +29,9 @@ public class MiUserDetails implements UserDetails {
 
     //Campos del Usuario de nuestra App
 
-    private String nombreCliente;
+    private String nombreUsuario;
+    private String apellidoUsuario;
+
 
 
     // en lugar de usar isAccountNonLocked usariamos nuestro activo de la entidad
@@ -64,8 +66,13 @@ public class MiUserDetails implements UserDetails {
      */
     @Override
     public String getUsername() {
-        return this.username;
+
+        String nombrecompleto = this.nombreUsuario + " " + this.apellidoUsuario;
+
+        return nombrecompleto;
     }
+
+
 
 
     /**

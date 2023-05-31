@@ -21,7 +21,7 @@ public class ServicioController extends MiControladorGenerico<Servicio> {
 
     @PostConstruct
     private void init() {
-        super.entityName = urlBase;
-        super.entityPrefix = entityName + "/";
+        super.entityName = entityName;
+        super.url = url;
     }
 }

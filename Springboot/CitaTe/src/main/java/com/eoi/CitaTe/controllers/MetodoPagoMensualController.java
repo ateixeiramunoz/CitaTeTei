@@ -22,7 +22,7 @@ public class MetodoPagoMensualController extends MiControladorGenerico<MetodoPag
 
     @PostConstruct
     private void init() {
-        super.entityName = urlBase;
-        super.entityPrefix = entityName + "/";
+        super.entityName = entityName;
+        super.url = url;
     }
 }

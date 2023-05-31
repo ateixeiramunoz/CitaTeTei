@@ -20,7 +20,7 @@ public class FacturacionController extends MiControladorGenerico<Facturacion> {
 
     @PostConstruct
     private void init() {
-        super.entityName = urlBase;
-        super.entityPrefix = entityName + "/";
+        super.entityName = entityName;
+        super.url = url;
     }
 }

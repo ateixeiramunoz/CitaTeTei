@@ -66,6 +66,8 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             if (configuracionRealizada)
                 return;
 
+            // Empresas///////////////////////////////////////////////////
+
             Empresa empresa = new Empresa();
 
             empresa.setCif("B999999999");
@@ -74,12 +76,39 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             empresa.setDescripcionEmpresa("La mejor peluqueria");
             empresa.setContacto(new Contacto("612314123","","ayuda@gmail.com"));
             empresaRepository.save(empresa);
+            // Empresas ///////////////////////////////////////////////////
+
+            // Empleado ///////////////////////////////////////////////////
+
+            Empleado empleado = new Empleado();
+
+            empleado.setNombreEmpleado("Antonio");
+            empleado.setApellido1Empleado("Martinez");
+            empleado.setApellido2Empleado("Sanchez");
+            empleado.setEmpresa(empresa);
+            empleadoRepository.save(empleado);
+
+
+            // Empleado ///////////////////////////////////////////////////
+
+
+            //// Clientes///////////////////////////////////////////////////
 
             Cliente cliente = new Cliente();
             cliente.setNombreCliente("Adolfo");
             cliente.setApellido1Cliente("Ramirez");
             cliente.setApellido2Cliente("Rodriguez");
             cliente.setTelefono("633159753");
+
+            Cliente cliente2 = new Cliente();
+            cliente.setNombreCliente("Pepe");
+            cliente.setApellido1Cliente("Molina");
+            cliente.setApellido2Cliente("Rodriguez");
+            cliente.setTelefono("631415925");
+            //// clientes///////////////////////////////////////////////////
+
+
+            //// Usuarios ////////////////////////////////////////////////
 
             Usuario usuario = new Usuario();
             usuario.setEmail("cliente@citate.com");
@@ -94,10 +123,32 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
 
             usuario2.setEmail("empleado@citate.com");
             usuario2.setActivo(true);
+            usuario2.setEmpleado(empleado);
             usuario2.setPass(codificadorContraseña.encode("prueba"));
             usuarioRepository.save(usuario2);
 
+            // Creamos un bucle para añadir un par de usuarios mas y poder comprobar paginacion
+
+//            for (int i = 0; i <30 ; i++) {
+//
+//                usuario2 = new Usuario();
+//
+//                usuario2.setEmail("empleado" + i + "@citate.com");
+//                usuario2.setActivo(true);
+//                usuario2.setPass(codificadorContraseña.encode("prueba"));
+//                usuarioRepository.save(usuario2);
+//
+//            }
+
+
+
+
             configuracionRealizada = true;
+
+
+
+
+
         }
 
 

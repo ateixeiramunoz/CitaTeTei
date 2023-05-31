@@ -19,8 +19,8 @@ public class EmpresaController extends MiControladorGenerico<Empresa> {
     }
 
     @PostConstruct
-    private void init(){
-        super.entityName = urlBase;
-        super.entityPrefix = entityName + "/";
+    private void init() {
+        super.entityName = entityName;
+        super.url = url;
     }
 }

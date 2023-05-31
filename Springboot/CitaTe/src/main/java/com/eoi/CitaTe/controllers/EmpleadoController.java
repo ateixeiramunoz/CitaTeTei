@@ -20,8 +20,8 @@ public class EmpleadoController extends MiControladorGenerico<Empleado> {
     }
 
     @PostConstruct
-    private void init(){
-        super.entityName = urlBase;
-        super.entityPrefix = entityName + "/";
+    private void init() {
+        super.entityName = entityName;
+        super.url = url;
     }
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--/*  Each token will be replaced by their respective titles in the resulting page. */-->
+    <meta charset="UTF-8">
+    <title>Calendario</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link href="/webjars/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="CitaTe.css">
+
+
+    <script src="/js/app.js"></script>
+
+</head>
+<body>
+<div class="container">
+
+    <table class="calendario">
+        <tbody>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Activo</th>
+
+        </tr>
+        <tr th:each="usuario : ${usuarios}">
+            <div class="calendario2" >
+                <td th:text=${usuario.id}></td>
+                <td th:text=${usuario.email}></td>
+                <td th:text=${usuario.activo}></td>
+                <td th:text=${cliente.activo}></td>
+                <td>
+                    <a th:href="@{/usuarios/{id}(id=${usuario.id})}" class="btn btn-primary">Editar</a>
+                    <a th:href="@{/usuarios/delete/{id}(id=${usuario.id})}" class="btn btn-danger">Eliminar</a>
+                </td> <!-- Columna para los botones de edición y eliminación -->
+            </div>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+    <!--añadimos botones para cambiar de pagina-->
+<!--    <div class="pagination">-->
+<!--        <ul>-->
+<!--            <li th:class="${usuarios.first ? 'disabled' : ''}">-->
+<!--                <a th:href="@{/?numeroPagina=${usuarios.number - 1}}">&laquo;</a>-->
+<!--            </li>-->
+<!--            <li th:each="page : ${usuarios.number.sequence(usuarios.totalPages)}"-->
+<!--                th:class="${page == usuarios.number ? 'active' : ''}">-->
+<!--                <a th:href="@{/?numeroPagina=${page}}">[[${page}]]</a>-->
+<!--            </li>-->
+<!--            <li th:class="${usuarios.last ? 'disabled' : ''}">-->
+<!--                <a th:href="@{/?numeroPagina=${usuarios.number + 1}}">&raquo;</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+
+</div>
+
+<!--Fooooterrrrr-->
+
+<div th:replace="~{fragmentos/footer1 :: footer}"></div>
+
+<!--Fooooterrrrr-->
+
+
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -2,13 +2,19 @@ package com.eoi.CitaTe.controllers;
 
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
+import com.eoi.CitaTe.entities.Empresa;
 import com.eoi.CitaTe.entities.Usuario;
+import com.eoi.CitaTe.repositories.UsuarioRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Controlador para la entidad Usuario.
@@ -39,14 +45,16 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     @Value("${url.usuario}")
     private String urlBase;
 
-    private String entityName = "usuarios";
+    private String entityName = "usuario";
+    private final UsuarioRepository usuarioRepository;
 
     /**
      * Constructor de la clase UsuarioController.
      * Se utiliza para crear una instancia del controlador.
      */
-    public UsuarioController() {
+    public UsuarioController(UsuarioRepository usuarioRepository) {
         super();
+        this.usuarioRepository = usuarioRepository;
     }
 
     /**
@@ -62,7 +70,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     @PostConstruct
     private void init() {
         super.entityName = urlBase;
-        super.entityPrefix = entityName + "/";
+        super.url = url;
     }
 
 
@@ -71,7 +79,25 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     public String create(Model model) {
         Usuario entity = new Usuario();
         model.addAttribute("entity", entity);
-        return entityPrefix+"entity-details"; // Nombre de la plantilla para mostrar los detalles de la entidad creada
+        model.addAttribute("url", url);
+        model.addAttribute("entityName", entityName);
+        model.addAttribute("nombreVista", "entity-details");
+        return "index"; // Nombre de la plantilla para mostrar todas las entidades
+    }
+
+
+    // controlador para devolver los usuario paginados
+
+
+    @GetMapping("/paginados")
+    public String obtenerUsuariosPaginados(
+            @RequestParam(defaultValue = "0") int numeroPagina,
+            @RequestParam(defaultValue = "10") int tamanoPagina,
+            Model model) {
+        Pageable pageable = PageRequest.of(numeroPagina, tamanoPagina);
+        Page<Usuario> usuarioPage = usuarioRepository.findAll(pageable);
+        model.addAttribute("usuarios", usuarioPage);
+        return "usuarios/usuariosPaginados";
     }
 
 }
