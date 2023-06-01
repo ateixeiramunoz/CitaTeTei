@@ -4,6 +4,7 @@
 
 
     import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.security.access.prepost.PreAuthorize;
     import org.springframework.ui.Model;
     import org.springframework.web.bind.annotation.*;
 
@@ -77,7 +78,7 @@
             model.addAttribute("url", url);
             model.addAttribute("entityName", entityName);
             model.addAttribute("nombreVista", "all-entities");
-            return "index"; // Nombre de la plantilla para mostrar todas las entidades
+            return entityName + "/" + "all-entities"; // Nombre de la plantilla para mostrar todas las entidades
         }
 
 
@@ -90,16 +91,13 @@
          * @throws MiEntidadNoEncontradaException Si la entidad no se encuentra en la base de datos.
          */
         @GetMapping("/{id}")
-        public String getById(@PathVariable Object id,  Model model) throws MiEntidadNoEncontradaException {
-            this.url = entityName + "/";
+        public String getById(@PathVariable Object id, Model model) throws MiEntidadNoEncontradaException {
             try {
-
                 T entity = service.getById(id);
                 model.addAttribute("entity", entity);
                 model.addAttribute("url", url);
                 model.addAttribute("entityName", entityName);
-                model.addAttribute("nombreVista", "entity-details");
-                return "index"; // Nombre de la plantilla para mostrar los detalles de una entidad
+                return entityName + "/" + "entity-details"; // Nombre de la plantilla para mostrar los detalles de una entidad
 
             } catch (MiEntidadNoEncontradaException ex) {
                 model.addAttribute("mensaje", "Entidad no encontrada");
@@ -120,7 +118,7 @@
         public String create(Model model) {
             T entity=null;
             model.addAttribute("entity", entity);
-            return url + "/"+ "entity-details"; // Nombre de la plantilla para mostrar los detalles de la entidad creada
+            return entityName + "/" + "entity-details"; // Nombre de la plantilla para mostrar los detalles de la entidad creada
         }
 
         /**
@@ -131,16 +129,13 @@
          * @param model  El objeto Model para agregar los atributos necesarios.
          * @return El nombre de la plantilla para mostrar los detalles de la entidad actualizada.
          */
-        @PostMapping(value={"","/"})
-        public String update( @ModelAttribute T entity, Model model)
-        {
-            this.url = entityName + "/";
+        @PostMapping(value = {"", "/"})
+        public String update(@ModelAttribute T entity, Model model) {
             T updatedEntity = service.update((T) entity);
             model.addAttribute("entity", updatedEntity);
-            return url + "/" +"entity-details"; // Nombre de la plantilla para mostrar los detalles de la entidad actualizada
+            return entityName + "/" + "entity-details"; // Nombre de la plantilla para mostrar los detalles de la entidad actualizada
 
         }
-
 
         /**
          * Maneja la solicitud DELETE para eliminar una entidad por su identificador.
@@ -148,10 +143,10 @@
          * @param id El identificador de la entidad a eliminar.
          * @return La URL de redirección a la página de listar todas las entidades después de eliminar una entidad.
          */
-        @DeleteMapping("/{id}")
+        @GetMapping("/delete/{id}")
+        @PreAuthorize("hasAuthority('ROLE_ADMIN')")
         public String delete(@PathVariable Object id) {
-            this.url = entityName + "/";
             service.delete(id);
-            return "redirect:/"+ url + "/" +"all"; // Redireccionar a la página de listar todas las entidades después de eliminar una entidad
+            return "redirect:/" + url + "/" + "all"; // Redireccionar a la página de listar todas las entidades después de eliminar una entidad
         }
     }
