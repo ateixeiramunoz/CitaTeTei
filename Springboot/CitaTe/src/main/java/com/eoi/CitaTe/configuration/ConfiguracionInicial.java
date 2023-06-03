@@ -31,6 +31,8 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
     private DisponibilidadRepository disponibilidadRepository;
     @Autowired
     private EmpleadoRepository empleadoRepository;
+
+
     @Autowired
     private EmpresaRepository empresaRepository;
 

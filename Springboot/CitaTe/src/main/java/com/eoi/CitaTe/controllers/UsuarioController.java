@@ -2,19 +2,19 @@ package com.eoi.CitaTe.controllers;
 
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
-import com.eoi.CitaTe.entities.Empresa;
+import com.eoi.CitaTe.dto.UsuarioDTO;
 import com.eoi.CitaTe.entities.Usuario;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
+import com.eoi.CitaTe.services.UsuarioService;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Controlador para la entidad Usuario.
@@ -40,6 +40,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 @RequestMapping("${url.usuario}")
+@RequiredArgsConstructor
 public class UsuarioController extends MiControladorGenerico<Usuario> {
 
     @Value("${url.usuario}")
@@ -52,10 +53,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
      * Constructor de la clase UsuarioController.
      * Se utiliza para crear una instancia del controlador.
      */
-    public UsuarioController(UsuarioRepository usuarioRepository) {
-        super();
-        this.usuarioRepository = usuarioRepository;
-    }
+
 
     /**
      * Método de inicialización para establecer el valor de entityName y entityPrefix.
@@ -67,22 +65,18 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
      * En este caso, se utiliza para asegurar que entityName y entityPrefix se establezcan correctamente después de la construcción del objeto.
      * @Author Alejandro Teixeira Muñoz
      */
-    @PostConstruct
-    private void init() {
-        super.entityName = urlBase;
-        super.url = url;
-    }
+
 
 
     @Override
     @GetMapping("/create")
     public String create(Model model) {
-        Usuario entity = new Usuario();
+        UsuarioDTO entity = new UsuarioDTO();
         model.addAttribute("entity", entity);
-        model.addAttribute("url", url);
-        model.addAttribute("entityName", entityName);
-        model.addAttribute("nombreVista", "entity-details");
-        return "index"; // Nombre de la plantilla para mostrar todas las entidades
+//        model.addAttribute("url", url);
+//        model.addAttribute("entityName", entityName);
+
+        return "altaUsuario"; // Nombre de la plantilla para mostrar todas las entidades
     }
 
 
@@ -99,6 +93,39 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
         model.addAttribute("usuarios", usuarioPage);
         return "usuarios/usuariosPaginados";
     }
+
+
+    /// Pruebas DTO dia 03/06
+
+    private final UsuarioService usuarioService;
+
+
+
+
+
+
+
+    @PostMapping(value = {"", "/"})
+    public String update(@ModelAttribute UsuarioDTO usuarioDTO, Model model) {
+        usuarioService.CrearUsuario(usuarioDTO);
+        model.addAttribute("entity", usuarioDTO);
+        return entityName + "/" + "creadoOK"; // Nombre de la plantilla para mostrar los detalles de la entidad actualizada
+
+    }
+
+//    @PostMapping("/crearUsuario")
+//    public String  crearUsuario(@ModelAttribute("entity") UsuarioDTO usuarioDTO, Model model){
+//
+//
+//        usuarioService.CrearUsuario(usuarioDTO);
+//
+//        model.addAttribute(usuarioDTO);
+//
+//
+//        return entityName + "/" + "creadoOK";
+//
+//    }
+
 
 }
 

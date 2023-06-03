@@ -39,6 +39,7 @@ public class MiSecurityConfig {
                 .requestMatchers("/citaTeP1").permitAll()
                 .requestMatchers("/CitaTe.css").permitAll()
                 .requestMatchers("/img/**").permitAll()
+                .requestMatchers("/ **").permitAll()
 
                 .anyRequest().authenticated()
 
