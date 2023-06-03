@@ -46,6 +46,8 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     @Value("${url.usuario}")
     private String urlBase;
 
+
+    private String url = "usuarios";
     private String entityName = "usuario";
     private final UsuarioRepository usuarioRepository;
 
@@ -74,9 +76,9 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
         UsuarioDTO entity = new UsuarioDTO();
         model.addAttribute("entity", entity);
 //        model.addAttribute("url", url);
-//        model.addAttribute("entityName", entityName);
+        model.addAttribute("entityName", entityName);
 
-        return "altaUsuario"; // Nombre de la plantilla para mostrar todas las entidades
+        return "usuarios/altaUsuario"; // Nombre de la plantilla para mostrar todas las entidades
     }
 
 
@@ -101,30 +103,14 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
 
 
 
-
-
-
-
-    @PostMapping(value = {"", "/"})
-    public String update(@ModelAttribute UsuarioDTO usuarioDTO, Model model) {
+    @PostMapping(value = {"/pepe"})
+    public String update(@ModelAttribute UsuarioDTO usuarioDTO) {
         usuarioService.CrearUsuario(usuarioDTO);
-        model.addAttribute("entity", usuarioDTO);
-        return entityName + "/" + "creadoOK"; // Nombre de la plantilla para mostrar los detalles de la entidad actualizada
+
+        return "registroEmpresa/registroEmpresa12";
 
     }
 
-//    @PostMapping("/crearUsuario")
-//    public String  crearUsuario(@ModelAttribute("entity") UsuarioDTO usuarioDTO, Model model){
-//
-//
-//        usuarioService.CrearUsuario(usuarioDTO);
-//
-//        model.addAttribute(usuarioDTO);
-//
-//
-//        return entityName + "/" + "creadoOK";
-//
-//    }
 
 
 }

@@ -129,13 +129,13 @@
          * @param model  El objeto Model para agregar los atributos necesarios.
          * @return El nombre de la plantilla para mostrar los detalles de la entidad actualizada.
          */
-//        @PostMapping(value = {"", "/"})
-//        public String update(@ModelAttribute T entity, Model model) {
-//            T updatedEntity = service.update((T) entity);
-//            model.addAttribute("entity", updatedEntity);
-//            return entityName + "/" + "entity-details"; // Nombre de la plantilla para mostrar los detalles de la entidad actualizada
-//
-//        }
+        @PostMapping(value = {"", "/"})
+        public String update(@ModelAttribute T entity, Model model) {
+            T updatedEntity = service.update((T) entity);
+            model.addAttribute("entity", updatedEntity);
+            return entityName + "/" + "entity-details"; // Nombre de la plantilla para mostrar los detalles de la entidad actualizada
+
+        }
 
         /**
          * Maneja la solicitud DELETE para eliminar una entidad por su identificador.

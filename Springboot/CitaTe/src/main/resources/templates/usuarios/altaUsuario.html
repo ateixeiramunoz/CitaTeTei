@@ -9,7 +9,7 @@
 <h1>Crear Usuario</h1>
 
 
-<form  th:object="${entity}" th:action="@{/usuarios}" method="POST" th:method="POST">
+<form th:object="${entity}" th:action="@{/usuarios/pepe}" method="POST" th:method="POST">
   <div class="mb-3">
     <label  class="form-label">Email</label>
     <input type="email" th:field="*{email}" required><br><br>
