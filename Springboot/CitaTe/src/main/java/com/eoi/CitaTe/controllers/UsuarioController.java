@@ -2,6 +2,7 @@ package com.eoi.CitaTe.controllers;
 
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
+import com.eoi.CitaTe.dto.ClienteDTO;
 import com.eoi.CitaTe.dto.UsuarioDTO;
 import com.eoi.CitaTe.entities.Usuario;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
@@ -73,8 +74,10 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     @Override
     @GetMapping("/create")
     public String create(Model model) {
-        UsuarioDTO entity = new UsuarioDTO();
-        model.addAttribute("entity", entity);
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        ClienteDTO clienteDTO = new ClienteDTO();
+        model.addAttribute("usuarioDTO", usuarioDTO);
+        model.addAttribute("clienteDTO", clienteDTO);
 //        model.addAttribute("url", url);
         model.addAttribute("entityName", entityName);
 
@@ -104,8 +107,9 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
 
 
     @PostMapping(value = {"/pepe"})
-    public String update(@ModelAttribute UsuarioDTO usuarioDTO) {
-        usuarioService.CrearUsuario(usuarioDTO);
+    public String update(@ModelAttribute UsuarioDTO usuarioDTO,
+                         @ModelAttribute ClienteDTO clienteDTO) {
+        usuarioService.CrearUsuario(usuarioDTO, clienteDTO);
 
         return "registroEmpresa/registroEmpresa12";
 

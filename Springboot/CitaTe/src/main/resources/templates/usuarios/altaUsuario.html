@@ -4,26 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+  <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <link href="/webjars/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="../CitaTe.css">
+
 </head>
 <body>
-<h1>Crear Usuario</h1>
 
 
-<form th:object="${entity}" th:action="@{/usuarios/pepe}" method="POST" th:method="POST">
+<div class="modal-body" id="registrocliente">
+
+
+<form th:object="${usuarioDTO}" th:action="@{/usuarios/pepe}" method="POST" th:method="POST">
   <div class="mb-3">
     <label  class="form-label">Email</label>
-    <input type="email" th:field="*{email}" required><br><br>
+    <input type="text" class="form-control" id="email" name="email" th:field="*{email}">
   </div>
+
   <div class="mb-3">
     <label  class="form-label">Contraseña</label>
-    <input type="text" class="form-control" id="pass" name="pass" th:field="*{pass}">
+    <input type="password" class="form-control" id="pass" name="pass" th:field="*{pass}">
   </div>
   <div class="mb-3">
     <input type="hidden" class="form-control" id="activo" name="activo" th:field="*{activo}">
   </div>
 
+  <div class="mb-3">
+    <label  class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" th:field="${clienteDTO.nombreCliente}">
+  </div>
+
+  <div class="mb-3">
+    <label  class="form-label">Primer Apellido</label>
+    <input type="text" class="form-control" id="apellido1" name="apellido1" th:field="${clienteDTO.apellido1Cliente}">
+  </div>
+
+  <div class="mb-3">
+    <label  class="form-label">Segundo Apellido</label>
+    <input type="text" class="form-control" id="apellido2" name="apellido2" th:field="${clienteDTO.apellido2Cliente}">
+  </div>
+
+
+  <div class="mb-3">
+    <label  class="form-label">Telefono</label>
+    <input type="text" class="form-control" id="telefono" name="apellido2" th:field="${clienteDTO.telefono}">
+  </div>
+
+  <div style="display: inline-flex;">
+    <input type="checkbox" name="Terminosdeuso" id ="terminosdeuso" value="terminosdeuso" required style="margin-top: -20px;"  />
+    <label for="terminosdeuso"> &nbspHe leído y estoy de acuerdo con los <b>Terminos de uso</b></label><br/><br>
+  </div>
+
   <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+
+</div>
+
+
+<!--Fooooterrrrr-->
+
+<div th:replace="~{fragmentos/footer1 :: footer}"></div>
+
+<!--Fooooterrrrr-->
+
+
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 
 </div>
 </body>
