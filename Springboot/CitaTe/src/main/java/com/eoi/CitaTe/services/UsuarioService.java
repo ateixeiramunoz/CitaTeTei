@@ -20,9 +20,12 @@ public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
 
     @Autowired
     private PasswordEncoder codificadorContraseñas;
-    public void CrearUsuario(UsuarioDTO usuarioDTO, ClienteDTO clienteDTO){
-        Usuario usuario = new Usuario();
-        Cliente cliente = new Cliente();
+    @Autowired
+    private EmpleadoRepository empleadoRepository;
+    @Autowired
+    private EmpresaRepository empresaRepository;
+
+    public void CrearCliente(UsuarioDTO usuarioDTO, ClienteDTO clienteDTO){
 
         usuario.setEmail(usuarioDTO.getEmail());
         usuario.setPass(codificadorContraseñas.encode(usuarioDTO.getPass()));

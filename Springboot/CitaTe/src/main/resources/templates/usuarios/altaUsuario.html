@@ -16,11 +16,13 @@
 <div class="modal-body" id="registrocliente">
 
 
-<form th:object="${usuarioDTO}" th:action="@{/usuarios/pepe}" method="POST" th:method="POST">
+<form th:object="${usuarioDTO}" th:action="@{/usuarios/alta}" method="POST" th:method="POST">
   <div class="mb-3">
     <label  class="form-label">Email</label>
     <input type="text" class="form-control" id="email" name="email" th:field="*{email}">
   </div>
+
+
 
   <div class="mb-3">
     <label  class="form-label">Contraseña</label>

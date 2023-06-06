@@ -21,11 +21,13 @@ public class Empresa {
 
     private String nombreEmpresa;
     private String cif;
-    @Embedded
-    private Direccion direccion;
+//    @Embedded
+//    private Direccion direccion;
     private String descripcionEmpresa;
-    @Embedded
-    private Contacto contacto;
+    //Como introducimos el horario desde los html????
+    private String horario;
+//    @Embedded
+//    private Contacto contacto;
     @Lob
     private byte[] logoEmpresa;
 

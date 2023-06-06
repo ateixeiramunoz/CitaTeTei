@@ -7,7 +7,6 @@ import com.eoi.CitaTe.dto.UsuarioDTO;
 import com.eoi.CitaTe.entities.Usuario;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
 import com.eoi.CitaTe.services.UsuarioService;
-import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -106,14 +105,6 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
 
 
 
-    @PostMapping(value = {"/pepe"})
-    public String update(@ModelAttribute UsuarioDTO usuarioDTO,
-                         @ModelAttribute ClienteDTO clienteDTO) {
-        usuarioService.CrearUsuario(usuarioDTO, clienteDTO);
-
-        return "registroEmpresa/registroEmpresa12";
-
-    }
 
 
 
