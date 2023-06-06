@@ -50,6 +50,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     private String url = "usuarios";
     private String entityName = "usuario";
     private final UsuarioRepository usuarioRepository;
+    private final UsuarioService usuarioService;
 
     /**
      * Constructor de la clase UsuarioController.
@@ -83,6 +84,16 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
         return "usuarios/altaUsuario"; // Nombre de la plantilla para mostrar todas las entidades
     }
 
+    @PostMapping(value = {"/alta"})
+    public String update(@ModelAttribute UsuarioDTO usuarioDTO,
+                         @ModelAttribute ClienteDTO clienteDTO) {
+        usuarioService.CrearCliente(usuarioDTO, clienteDTO);
+
+        return "registroEmpresa/registroEmpresa12";
+
+    }
+
+
 
     // controlador para devolver los usuario paginados
 
@@ -99,9 +110,8 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     }
 
 
-    /// Pruebas DTO dia 03/06
 
-    private final UsuarioService usuarioService;
+
 
 
 

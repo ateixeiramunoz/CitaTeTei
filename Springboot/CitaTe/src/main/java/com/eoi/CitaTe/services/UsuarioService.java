@@ -2,9 +2,12 @@ package com.eoi.CitaTe.services;
 
 import com.eoi.CitaTe.abstraccomponents.GenericServiceConJPA;
 import com.eoi.CitaTe.dto.ClienteDTO;
+import com.eoi.CitaTe.dto.EmpleadoDTO;
+import com.eoi.CitaTe.dto.EmpresaDTO;
 import com.eoi.CitaTe.dto.UsuarioDTO;
-import com.eoi.CitaTe.entities.Cliente;
-import com.eoi.CitaTe.entities.Usuario;
+import com.eoi.CitaTe.entities.*;
+import com.eoi.CitaTe.repositories.EmpleadoRepository;
+import com.eoi.CitaTe.repositories.EmpresaRepository;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +53,67 @@ public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
 
 
         usuarioRepository.save(usuario);
+    }
+
+
+
+    public void CrearEmpresa(UsuarioDTO usuarioDTO, EmpresaDTO empresaDTO, EmpleadoDTO empleadoDTO){
+
+
+        empresa.setDescripcionEmpresa(empresaDTO.getDescripcionEmpresa());
+        empresa.setNombreEmpresa(empresaDTO.getNombreEmpresa());
+        empresa.setCif(empresaDTO.getCif());
+        empresa.setLogoEmpresa(empresaDTO.getLogoEmpresa());
+//        empresa.setContacto(empresaDTO.getContacto());
+
+        empresaRepository.save(empresa);
+
+        empleado.setNombreEmpleado(empleadoDTO.getNombreEmpleado());
+        empleado.setApellido1Empleado(empleadoDTO.getApellido1Empleado());
+        empleado.setApellido2Empleado(empleadoDTO.getApellido2Empleado());
+
+        empleado.setEmpresa(empresa);
+
+
+        usuario.setEmail(usuarioDTO.getEmail());
+        usuario.setPass(codificadorContraseñas.encode(usuarioDTO.getPass()));
+        usuario.setActivo(true);
+
+        usuario.setEmpleado(empleado);
+        //usuario.setRol(jefe)
+
+        // Configurar mas adelante rol de jefe para este usuario.
+
+        usuarioRepository.save(usuario);
+
+      //  private Set<Empleado> empleados = new HashSet<>();
+      //  private CatalogoDeServicio catalogoDeServicio;
+
+        //private Disponibilidad disponibilidad;
+        //private Set<Servicio> servicios = new HashSet<>();
+
+    }
+
+    // Hecho el registro de la empresa como "Propietario" añadimos este método para poder añadir empleados.
+    public void CrearEmpleado(UsuarioDTO usuarioDTO, EmpleadoDTO empleadoDTO){
+
+        usuario.setEmail(usuarioDTO.getEmail());
+        usuario.setPass(codificadorContraseñas.encode(usuarioDTO.getPass()));
+        usuario.setActivo(true);
+
+        empleado.setNombreEmpleado(empleadoDTO.getNombreEmpleado());
+        empleado.setApellido1Empleado(empleadoDTO.getApellido1Empleado());
+        empleado.setApellido2Empleado(empleadoDTO.getApellido2Empleado());
+
+        //empleado.setEmpresa(empleadoDTO.getEmpresa());  PREGUNTAR en tutorio
+
+        usuario.setEmpleado(empleado);
+        //usuario.setRol(empleado)
+
+        usuarioRepository.save(usuario);
+
+
+
+
     }
 }
