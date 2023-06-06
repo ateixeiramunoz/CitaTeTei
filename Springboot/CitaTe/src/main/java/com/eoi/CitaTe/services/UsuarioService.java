@@ -11,12 +11,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Service
 @RequiredArgsConstructor
 public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
 
     @Autowired
     UsuarioRepository usuarioRepository;
+
+    Usuario usuario = new Usuario();
+    Cliente cliente = new Cliente();
+    Empresa empresa = new Empresa();
+    Empleado empleado = new Empleado();
+
+
 
     @Autowired
     private PasswordEncoder codificadorContraseñas;
