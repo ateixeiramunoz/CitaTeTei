@@ -22,9 +22,9 @@ public class EmpresaDTO {
     private Long id;
     private String nombreEmpresa;
     private String cif;
-    private Direccion direccion;
+   // private Direccion direccion;
     private String descripcionEmpresa;
-    private Contacto contacto;
+    //private Contacto contacto;
     private byte[] logoEmpresa;
     private Set<Empleado> empleados = new HashSet<>();
     private CatalogoDeServicio catalogoDeServicio;
