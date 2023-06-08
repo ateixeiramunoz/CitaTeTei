@@ -1,10 +1,7 @@
 package com.eoi.CitaTe.services;
 
 import com.eoi.CitaTe.abstraccomponents.GenericServiceConJPA;
-import com.eoi.CitaTe.dto.ClienteDTO;
-import com.eoi.CitaTe.dto.EmpleadoDTO;
-import com.eoi.CitaTe.dto.EmpresaDTO;
-import com.eoi.CitaTe.dto.UsuarioDTO;
+import com.eoi.CitaTe.dto.*;
 import com.eoi.CitaTe.entities.*;
 import com.eoi.CitaTe.repositories.EmpleadoRepository;
 import com.eoi.CitaTe.repositories.EmpresaRepository;
@@ -24,12 +21,6 @@ public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    Usuario usuario = new Usuario();
-    Cliente cliente = new Cliente();
-    Empresa empresa = new Empresa();
-    Empleado empleado = new Empleado();
-
-
 
     @Autowired
     private PasswordEncoder codificadorContraseñas;
@@ -39,6 +30,8 @@ public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
     private EmpresaRepository empresaRepository;
 
     public void CrearCliente(UsuarioDTO usuarioDTO, ClienteDTO clienteDTO){
+        Usuario usuario = new Usuario();
+        Cliente cliente = new Cliente();
 
         usuario.setEmail(usuarioDTO.getEmail());
         usuario.setPass(codificadorContraseñas.encode(usuarioDTO.getPass()));
@@ -57,14 +50,32 @@ public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
 
 
 
-    public void CrearEmpresa(UsuarioDTO usuarioDTO, EmpresaDTO empresaDTO, EmpleadoDTO empleadoDTO){
+    public void CrearEmpresa(UsuarioDTO usuarioDTO, EmpresaDTO empresaDTO, EmpleadoDTO empleadoDTO, DireccionDTO direccionDTO){
 
+        Cliente cliente = new Cliente();
+        Empresa empresa = new Empresa();
+        Empleado empleado = new Empleado();
+        Usuario usuario = new Usuario();
+        Direccion direccion = new Direccion();
+
+
+        direccion.setProvincia(direccionDTO.getProvincia());
+        direccion.setCodigoPostal(direccionDTO.getCodigoPostal());
+        direccion.setNumero(direccionDTO.getNumero());
+        direccion.setCiudad(direccionDTO.getCiudad());
+        direccion.setCalle(direccionDTO.getCalle());
+
+
+
+        empresa.setDireccion(direccion);
 
         empresa.setDescripcionEmpresa(empresaDTO.getDescripcionEmpresa());
         empresa.setNombreEmpresa(empresaDTO.getNombreEmpresa());
         empresa.setCif(empresaDTO.getCif());
         empresa.setLogoEmpresa(empresaDTO.getLogoEmpresa());
-//        empresa.setContacto(empresaDTO.getContacto());
+        empresa.setTipoNegocio(empresaDTO.getTipoNegocio());
+
+//      empresa.setContacto(empresaDTO.getContacto());
 
         empresaRepository.save(empresa);
 
@@ -73,6 +84,8 @@ public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
         empleado.setApellido2Empleado(empleadoDTO.getApellido2Empleado());
 
         empleado.setEmpresa(empresa);
+
+        empleadoRepository.save(empleado);
 
 
         usuario.setEmail(usuarioDTO.getEmail());
@@ -96,6 +109,9 @@ public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
 
     // Hecho el registro de la empresa como "Propietario" añadimos este método para poder añadir empleados.
     public void CrearEmpleado(UsuarioDTO usuarioDTO, EmpleadoDTO empleadoDTO){
+
+        Empleado empleado = new Empleado();
+        Usuario usuario = new Usuario();
 
         usuario.setEmail(usuarioDTO.getEmail());
         usuario.setPass(codificadorContraseñas.encode(usuarioDTO.getPass()));

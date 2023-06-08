@@ -1,10 +1,7 @@
 package com.eoi.CitaTe.controllers;
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
-import com.eoi.CitaTe.dto.ClienteDTO;
-import com.eoi.CitaTe.dto.EmpleadoDTO;
-import com.eoi.CitaTe.dto.EmpresaDTO;
-import com.eoi.CitaTe.dto.UsuarioDTO;
+import com.eoi.CitaTe.dto.*;
 import com.eoi.CitaTe.entities.Empresa;
 import com.eoi.CitaTe.repositories.EmpresaRepository;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
@@ -18,10 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("${url.empresa}")
@@ -44,7 +38,7 @@ public class EmpresaController extends MiControladorGenerico<Empresa> {
 
 
     //Enviar los datos al registro de empresa
-    @Override
+
     @GetMapping("/createEmpresa")
     public String create(Model model) {
         UsuarioDTO usuarioDTO = new UsuarioDTO();
@@ -60,16 +54,80 @@ public class EmpresaController extends MiControladorGenerico<Empresa> {
         return "registroEmpresa/registroEmpresa2"; // Nombre de la plantilla para mostrar todas las entidades
     }
 
-    private final UsuarioService usuarioService;
 
+    @PostMapping("/createEmpresa3")
+    public String create1(Model model,
+                          @ModelAttribute EmpresaDTO empresaDTO,
+                          @ModelAttribute UsuarioDTO usuarioDTO,
+                          @ModelAttribute EmpleadoDTO empleadoDTO){
+
+        model.addAttribute("usuarioDTO", usuarioDTO);
+        model.addAttribute("empresaDTO", empresaDTO);
+        model.addAttribute("empleadoDTO", empleadoDTO);
+//        model.addAttribute("url", url);
+        model.addAttribute("entityName", entityName);
+
+
+        return "registroEmpresa/registroEmpresa3"; // Nombre de la plantilla para mostrar todas las entidades
+    }
+
+    @PostMapping("/createEmpresa4")
+    public String create2(Model model,
+                          @ModelAttribute EmpresaDTO empresaDTO,
+                          @ModelAttribute UsuarioDTO usuarioDTO,
+                          @ModelAttribute EmpleadoDTO empleadoDTO){
+
+        model.addAttribute("usuarioDTO", usuarioDTO);
+        model.addAttribute("empresaDTO", empresaDTO);
+        model.addAttribute("empleadoDTO", empleadoDTO);
+//        model.addAttribute("url", url);
+        model.addAttribute("entityName", entityName);
+
+        return "registroEmpresa/registroEmpresa4"; // Nombre de la plantilla para mostrar todas las entidades
+    }
+
+
+    @PostMapping("/createEmpresa5")
+    public String create3(Model model,
+                          @ModelAttribute EmpresaDTO empresaDTO,
+                          @ModelAttribute UsuarioDTO usuarioDTO,
+                          @ModelAttribute EmpleadoDTO empleadoDTO,
+                          @ModelAttribute DireccionDTO direccionDTO){
+
+        model.addAttribute("usuarioDTO", usuarioDTO);
+        model.addAttribute("empresaDTO", empresaDTO);
+        model.addAttribute("empleadoDTO", empleadoDTO);
+        model.addAttribute("direccionDTO", direccionDTO);
+//        model.addAttribute("url", url);
+        model.addAttribute("entityName", entityName);
+
+        return "registroEmpresa/registroEmpresa5"; // Nombre de la plantilla para mostrar todas las entidades
+    }
+
+
+
+
+
+
+
+    //// alta//////////////////////////////////////
+
+    private final UsuarioService usuarioService;
+    private final EmpresaService empresaService;
 
     @PostMapping(value = {"/altaEmpresa"})
     public String update(@ModelAttribute UsuarioDTO usuarioDTO,
                          @ModelAttribute EmpresaDTO empresaDTO,
-                         @ModelAttribute EmpleadoDTO empleadoDTO) {
-        usuarioService.CrearEmpresa(usuarioDTO, empresaDTO, empleadoDTO);
+                         @ModelAttribute EmpleadoDTO empleadoDTO,
+                         @ModelAttribute DireccionDTO direccionDTO) {
 
+        usuarioService.CrearEmpresa(usuarioDTO, empresaDTO, empleadoDTO, direccionDTO);
 
-        return "registroEmpresa/registroEmpresa12";
+        return "/registroEmpresa/registroEmpresa6";
     }
+
+
+
+
+
 }

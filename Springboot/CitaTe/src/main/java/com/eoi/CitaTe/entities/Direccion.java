@@ -16,5 +16,5 @@ public class Direccion {
     private String provincia;
     private String ciudad;
     private int codigoPostal;
-    private String urlLocalizacion; // Revisar como conseguimos la url de google maps
+  //  private String urlLocalizacion; // Revisar como conseguimos la url de google maps
 }
