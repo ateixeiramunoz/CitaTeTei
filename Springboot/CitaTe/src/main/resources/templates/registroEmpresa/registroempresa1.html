@@ -7,10 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
-  <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-  <link href="/webjars/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="CitaTe.css">
+  <link rel="stylesheet" th:href="@{/CitaTe.css}">
+
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
+  <script th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
 
 </head>
 
@@ -140,8 +141,7 @@
 
   <!--Fooooterrrrr-->
 
-
-  <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
 </body>
 
