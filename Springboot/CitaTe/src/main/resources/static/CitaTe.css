@@ -162,6 +162,11 @@ Alex
 .nolink{
    color:white;text-decoration: none; font-weight: 500;
 }
+.nolink:hover {
+    color: black;
+}
+
+
 
 .titupag{margin-bottom: 50px;}
 

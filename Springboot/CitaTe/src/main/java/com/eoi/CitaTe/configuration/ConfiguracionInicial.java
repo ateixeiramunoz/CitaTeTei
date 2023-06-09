@@ -109,6 +109,30 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             cliente.setTelefono("631415925");
             //// clientes///////////////////////////////////////////////////
 
+            /// valoraciones///////////////////////////////////////////////
+
+//            private String comentario;
+//
+//            private boolean activo;
+//
+//            private int puntuacion;
+//
+//            private Reserva reserva;
+
+            Valoracion valoracion = new Valoracion();
+            valoracion.setComentario("Mu chala la peluqueria");
+            valoracion.setPuntuacion(5);
+
+            Valoracion valoracion2 = new Valoracion();
+            valoracion2.setComentario("Mu caro saecio");
+            valoracion2.setPuntuacion(1);
+
+            valoracionRepository.save(valoracion);
+            valoracionRepository.save(valoracion2);
+
+            /// valoraciones///////////////////////////////////////////////
+
+
 
             //// Usuarios ////////////////////////////////////////////////
 

@@ -15,12 +15,14 @@ public class Valoracion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_valoracion", nullable = false)
     private Long id;
+
     private String comentario;
-    @Basic(optional = false)
+
+    @Basic(optional = true)
     private boolean activo;
 
     private int puntuacion;
 
-    @OneToOne(mappedBy = "valoracion")
-    private Reserva reserva;
+//    @OneToOne(mappedBy = "valoracion")
+//    private Reserva reserva;
 }

@@ -133,7 +133,7 @@
         public String update(@ModelAttribute T entity, Model model) {
             T updatedEntity = service.update((T) entity);
             model.addAttribute("entity", updatedEntity);
-            return entityName + "/" + "entity-details"; // Nombre de la plantilla para mostrar los detalles de la entidad actualizada
+            return "redirect:/" + url  + "all"; // Nombre de la plantilla para mostrar los detalles de la entidad actualizada
 
         }
 
@@ -143,10 +143,11 @@
          * @param id El identificador de la entidad a eliminar.
          * @return La URL de redirección a la página de listar todas las entidades después de eliminar una entidad.
          */
+
         @GetMapping("/delete/{id}")
-        @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-        public String delete(@PathVariable Object id) {
-            service.delete(id);
-            return "redirect:/" + url + "/" + "all"; // Redireccionar a la página de listar todas las entidades después de eliminar una entidad
+//      @PreAuthorize("hasAuthority('ROLE_ADMIN')")             // A tener en cuenta, si autoriza aqui aunque crees el metodo
+        public String delete(@PathVariable Object id) {         //  con @Override en el controlador de la entidad prevalece esta Authorize
+            service.delete(id);                                 // es conveniente utilizar  @PreAuthorize("hasAuthority('ROLE_ADMIN')") en cada controlador propio
+            return "redirect:/" + url +  "all"; // Redireccionar a la página de listar todas las entidades después de eliminar una entidad
         }
     }
