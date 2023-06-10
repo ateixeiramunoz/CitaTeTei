@@ -95,7 +95,7 @@
                     </a>
                 </div>
                 <div class="btn ">
-                    <a th:if="${paginaAnterior}" th:href="@{paginados(numeroPagina=${paginaAnterior}, tamanoPagina=${tamanoPagina})}">
+                    <a th:if="${paginaAnterior >= 0}" th:href="@{paginados(numeroPagina=${paginaAnterior}, tamanoPagina=${tamanoPagina})}">
                         Página anterior
                     </a>
                 </div>

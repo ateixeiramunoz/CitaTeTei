@@ -47,7 +47,7 @@
             </a>
             <br> <br>
 
-            <a th:if="${paginaAnterior}" th:href="@{paginados(numeroPagina=${paginaAnterior}, tamanoPagina=${tamanoPagina})}">
+            <a th:if="${paginaAnterior >= 0}" th:href="@{paginados(numeroPagina=${paginaAnterior}, tamanoPagina=${tamanoPagina})}">
                 Página anterior
             </a>
             <br> <br>
