@@ -2,17 +2,13 @@ package com.eoi.CitaTe.controllers;
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
 
-import com.eoi.CitaTe.dto.ClienteDTO;
-import com.eoi.CitaTe.dto.UsuarioDTO;
 import com.eoi.CitaTe.dto.ValoracionDTO;
 import com.eoi.CitaTe.entities.Valoracion;
 import com.eoi.CitaTe.errorcontrol.exceptions.MiEntidadNoEncontradaException;
-import com.eoi.CitaTe.services.Valoracion1Service;
-import com.eoi.CitaTe.services.mapper.ValoracionMapper;
+import com.eoi.CitaTe.services.ValoracionMapperService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +28,7 @@ public class ValoracionController extends MiControladorGenerico<Valoracion> {
     }
 
     @Autowired
-    Valoracion1Service valoracion1Service;
+    ValoracionMapperService valoracionMapperService;
 
     @PostConstruct
     private void init() {
@@ -49,7 +45,7 @@ public class ValoracionController extends MiControladorGenerico<Valoracion> {
        // List<Valoracion> entities = service.listAll();
 
 // o tras mucho trabajo tambien podemos mostrar  como dto
-        List<ValoracionDTO> entities = valoracion1Service.buscarTodos();
+        List<ValoracionDTO> entities = valoracionMapperService.buscarTodos();
 
         model.addAttribute("entities", entities);
         return url + "all-entities"; // Nombre de la plantilla para mostrar todas las entidades
@@ -70,7 +66,7 @@ public class ValoracionController extends MiControladorGenerico<Valoracion> {
 
     @PostMapping(value = {"/actualizar"})
     public String update(@ModelAttribute ValoracionDTO entity) {
-        valoracion1Service.CrearValoracion(entity);
+        valoracionMapperService.CrearValoracion(entity);
 
         return "redirect:/" + url  + "all";
 
