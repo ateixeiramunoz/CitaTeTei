@@ -2,9 +2,15 @@ package com.eoi.CitaTe.controllers;
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
 
+import com.eoi.CitaTe.dto.ClienteDTO;
+import com.eoi.CitaTe.dto.UsuarioDTO;
+import com.eoi.CitaTe.dto.ValoracionDTO;
 import com.eoi.CitaTe.entities.Valoracion;
 import com.eoi.CitaTe.errorcontrol.exceptions.MiEntidadNoEncontradaException;
+import com.eoi.CitaTe.services.Valoracion1Service;
+import com.eoi.CitaTe.services.mapper.ValoracionMapper;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -25,6 +31,9 @@ public class ValoracionController extends MiControladorGenerico<Valoracion> {
         super();
     }
 
+    @Autowired
+    Valoracion1Service valoracion1Service;
+
     @PostConstruct
     private void init() {
         super.entityName = urlBase;
@@ -35,9 +44,14 @@ public class ValoracionController extends MiControladorGenerico<Valoracion> {
     @GetMapping("/all")
     public String getAll(Model model) {
         this.url = entityName + "/";
-        List<Valoracion> entities = service.listAll();
+
+// O bien mostramos todas todos los elementos como entidades
+       // List<Valoracion> entities = service.listAll();
+
+// o tras mucho trabajo tambien podemos mostrar  como dto
+        List<ValoracionDTO> entities = valoracion1Service.buscarTodos();
+
         model.addAttribute("entities", entities);
-  //    model.addAttribute("nombreVista", entityName);
         return url + "all-entities"; // Nombre de la plantilla para mostrar todas las entidades
     }
 
@@ -47,18 +61,19 @@ public class ValoracionController extends MiControladorGenerico<Valoracion> {
     @Override
     @GetMapping("/create")
     public String create(Model model) {
-        Valoracion entity = new Valoracion();
+        ValoracionDTO entity = new ValoracionDTO();
         model.addAttribute("entity", entity);
-        return url + "entity-details"; // Nombre de la plantilla para mostrar los detalles de la entidad creada
+        return url + "entity-details";
     }
 
 
-    @Override
-    @PostMapping(value = {"", "/"})
-    public String update(@ModelAttribute Valoracion entity, Model model) {
-    Valoracion updatedEntity = service.update((Valoracion) entity);
-    model.addAttribute("entity", updatedEntity);
-    return "redirect:/" + url  + "all"; // Nombre de la plantilla para mostrar los detalles de la entidad actualizada
+
+    @PostMapping(value = {"/actualizar"})
+    public String update(@ModelAttribute ValoracionDTO entity) {
+        valoracion1Service.CrearValoracion(entity);
+
+        return "redirect:/" + url  + "all";
+
     }
 
 

@@ -25,7 +25,7 @@
 
 <div class="container">
     <h1>Editar Valoracion</h1>
-    <form th:object="${entity}" th:action="@{/valoraciones}" method="POST" th:method="POST">
+    <form th:object="${entity}" th:action="@{/valoraciones/actualizar}" method="POST" th:method="POST">
 
 <!--        Metemos el ID de la valoracion como oculto para que cuando realicemos el post no cree un nuevo registro-->
 <!--        con otro ID auto incrementado-->

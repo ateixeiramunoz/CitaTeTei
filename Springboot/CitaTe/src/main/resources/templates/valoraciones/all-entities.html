@@ -36,14 +36,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="valoracion : ${entities}">
-            <td th:text="${valoracion.comentario}"></td>
-           <td th:text="${valoracion.puntuacion}"></td>   <!--   por si hay tiempo pintarlo con estrellas
+        <tr th:each="valoraciondto : ${entities}">
+            <td th:text="${valoraciondto.comentario}"></td>
+           <td th:text="${valoraciondto.puntuacion}"></td>   <!--   por si hay tiempo pintarlo con estrellas
                                                             http://w3.unpocodetodo.info/css3/estrellas.php   -->
 
             <td>
-                <a th:href="@{/valoraciones/{id}(id=${valoracion.id})}" class="btn btn-primary">Editar</a>
-                <a th:href="@{/valoraciones/delete/{id}(id=${valoracion.id})}" class="btn btn-danger">Eliminar</a>
+                <a th:href="@{/valoraciones/{id}(id=${valoraciondto.id})}" class="btn btn-primary">Editar</a>
+                <a th:href="@{/valoraciones/delete/{id}(id=${valoraciondto.id})}" class="btn btn-danger">Eliminar</a>
             </td> <!-- Columna para los botones de edición y eliminación -->
         </tr>
         </tbody>

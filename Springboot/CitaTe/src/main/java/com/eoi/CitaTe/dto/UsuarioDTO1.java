@@ -1,26 +1,25 @@
 package com.eoi.CitaTe.dto;
 
-import com.eoi.CitaTe.entities.Reserva;
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ValoracionDTO {
-
+public class UsuarioDTO1 {
     private Long id;
-
-    private String comentario;
-
+    private String email;
+    private String pass;
     private boolean activo;
 
-    private int puntuacion;
+    String tipoAlta;
+    private ClienteDTO clienteDTO;
 
-//    private Reserva reserva;
+    private EmpleadoDTO empleadoDTO;
+
+
 }
