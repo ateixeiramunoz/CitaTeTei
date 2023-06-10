@@ -42,6 +42,16 @@ public class EmpresaController extends MiControladorGenerico<Empresa> {
     @Autowired
     EmpresaMapperService empresaMapperService;
 
+
+    @GetMapping("/all2")
+    public String getAllentities(Model model) {
+        this.url = entityName + "/";
+        List<Empresa> entities = service.listAll();
+        model.addAttribute("entities", entities);
+        //    model.addAttribute("nombreVista", entityName);
+        return url + "all-entities2"; // Nombre de la plantilla para mostrar todas las entidades
+    }
+
     @Override
     @GetMapping("/all")
     public String getAll(Model model) {

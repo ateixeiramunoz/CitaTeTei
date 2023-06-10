@@ -3,6 +3,7 @@ package com.eoi.CitaTe.controllers;
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
 
 import com.eoi.CitaTe.dto.ValoracionDTO;
+import com.eoi.CitaTe.entities.Empresa;
 import com.eoi.CitaTe.entities.Valoracion;
 import com.eoi.CitaTe.errorcontrol.exceptions.MiEntidadNoEncontradaException;
 import com.eoi.CitaTe.services.ValoracionMapperService;
@@ -35,6 +36,7 @@ public class ValoracionController extends MiControladorGenerico<Valoracion> {
         super.entityName = urlBase;
         super.url = entityName + "/";
     }
+
 
     @Override
     @GetMapping("/all")
