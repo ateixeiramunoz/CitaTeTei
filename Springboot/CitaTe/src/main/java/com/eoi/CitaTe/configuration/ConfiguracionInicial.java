@@ -88,12 +88,18 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
 //          empresa2.setContacto(new Contacto("612314123","","ayuda@gmail.com"));
             empresaRepository.save(empresa2);
 
-            empresa3.setCif("B999999997");
-            empresa3.setNombreEmpresa("Loly");
-            empresa3.setDireccion(new Direccion("principal",72,"Malaga","Malaga",28001));
-            empresa3.setDescripcionEmpresa("Una buena peluqueria");
-//          empresa3.setContacto(new Contacto("612314123","","ayuda@gmail.com"));
-            empresaRepository.save(empresa3);
+            // Bucle para dar de alta varias empresas
+
+            for (int i = 0; i <30 ; i++) {
+
+                empresa3 = new Empresa();
+                empresa3.setCif("B999999" + i + "98");
+                empresa3.setNombreEmpresa("Imnova" + i);
+                empresa3.setDireccion(new Direccion("prudencio",i,"Almeria","Almeria",04010));
+                empresa3.setDescripcionEmpresa("La mejor barberia" + i);
+                empresaRepository.save(empresa3);
+
+            }
             // Empresas ///////////////////////////////////////////////////
 
             // Empleado ///////////////////////////////////////////////////
@@ -171,16 +177,18 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
 
             // Creamos un bucle para añadir un par de usuarios mas y poder comprobar paginacion
 
-//            for (int i = 0; i <30 ; i++) {
-//
-//                usuario2 = new Usuario();
-//
-//                usuario2.setEmail("empleado" + i + "@citate.com");
-//                usuario2.setActivo(true);
-//                usuario2.setPass(codificadorContraseña.encode("prueba"));
-//                usuarioRepository.save(usuario2);
-//
-//            }
+            for (int i = 0; i <30 ; i++) {
+
+                usuario2 = new Usuario();
+
+                usuario2.setEmail("empleado" + i + "@citate.com");
+                usuario2.setActivo(true);
+                usuario2.setPass(codificadorContraseña.encode("prueba"));
+                usuarioRepository.save(usuario2);
+
+            }
+
+
 
 
 

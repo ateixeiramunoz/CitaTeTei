@@ -28,7 +28,7 @@
 
 
 
-    <div class="text-center">-->
+    <div class="text-center">
 
                         <label class="col-6" for="calle">Provincia: </label>
                         <input class="col-6" type="text" name="provincia" id="provincia" value="" size="20" th:field="${direccionDTO.provincia}"/><br><br>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="text-center">
                             <label class="col-6" for="calle">CP: </label>
-                            <input class="col-6" type="text" name="cp" id="cp" value="" size="20" th:field="${direccionDTO.codigoPostal}" /><br><br>
+                            <input class="col-6" type="number" name="cp" id="cp" value="" size="20" th:field="${direccionDTO.codigoPostal}" /><br><br>
                         </div>
                         <div class="text-center">
                             <label class="col-6" for="calle">Calle: </label>
@@ -47,7 +47,11 @@
                         </div>
                         <div class="text-center">
                             <label class="col-6" for="calle">Número: </label>
-                            <input class="col-6" type="text" name="numero" id="numero" value="" size="20" th:field="${direccionDTO.numero}" /><br><br>
+                            <input class="col-6" type="number" name="numero" id="numero" value="" size="20" th:field="${direccionDTO.numero}" /><br><br>
+                        </div>
+
+                        <div class="text-center">
+                        <input  class="btn btn-dark" type="submit" name="registrarse" value="Continuar" /> <br><br>
                         </div>
                     </div>
 
@@ -56,8 +60,7 @@
 
 
 
-    <!--                CAMPOS REGISTRO EMPRESA 2-->
-
+    <!--        Campos arrastrados        -->
     <input type="hidden" name="Nombre de Empresa" id="nombreEmpresa" th:field="${empresaDTO.nombreEmpresa}" >
     <input type="hidden" name="cif" id="cif" th:field="${empresaDTO.cif}" />
     <input type="hidden" name="email" id="email" th:field="${usuarioDTO.email}" >
@@ -69,8 +72,9 @@
 
     <input type="hidden" name="descripcion" id="descripcion" th:field="${empresaDTO.descripcionEmpresa}" />
     <input type="hidden" name="peluqieria" id="peluqieria" th:field="${empresaDTO.tipoNegocio}"  />
+    <!--        Campos arrastrados        -->
 
-    <input  class="btn btn-dark" type="submit" name="registrarse" value="Continuar" /> <br><br>
+
 </form>
 
 
