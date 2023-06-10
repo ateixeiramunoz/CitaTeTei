@@ -71,13 +71,29 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             // Empresas///////////////////////////////////////////////////
 
             Empresa empresa = new Empresa();
+            Empresa empresa2 = new Empresa();
+            Empresa empresa3 = new Empresa();
 
             empresa.setCif("B999999999");
             empresa.setNombreEmpresa("Ache");
             empresa.setDireccion(new Direccion("principal",5,"Madrid","Getafe",28001));
             empresa.setDescripcionEmpresa("La mejor peluqueria");
-//            empresa.setContacto(new Contacto("612314123","","ayuda@gmail.com"));
+//          empresa.setContacto(new Contacto("612314123","","ayuda@gmail.com"));
             empresaRepository.save(empresa);
+
+            empresa2.setCif("B999999998");
+            empresa2.setNombreEmpresa("Imnova");
+            empresa2.setDireccion(new Direccion("prudencio",20,"Almeria","Almeria",04010));
+            empresa2.setDescripcionEmpresa("La mejor barberia");
+//          empresa2.setContacto(new Contacto("612314123","","ayuda@gmail.com"));
+            empresaRepository.save(empresa2);
+
+            empresa3.setCif("B999999997");
+            empresa3.setNombreEmpresa("Loly");
+            empresa3.setDireccion(new Direccion("principal",72,"Malaga","Malaga",28001));
+            empresa3.setDescripcionEmpresa("Una buena peluqueria");
+//          empresa3.setContacto(new Contacto("612314123","","ayuda@gmail.com"));
+            empresaRepository.save(empresa3);
             // Empresas ///////////////////////////////////////////////////
 
             // Empleado ///////////////////////////////////////////////////

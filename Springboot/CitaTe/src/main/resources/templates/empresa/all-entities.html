@@ -1,42 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Peluquerias</title>
+
+    <link rel="stylesheet" th:href="@{/CitaTe.css}">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
+    <script th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+
 </head>
 <body>
 
+<!--Header-->
 
-<h1>Todas las entidades</h1>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Fecha de Nacimiento</th>
-        <th>Acciones</th> <!-- Nueva columna para las acciones -->
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="usuario : ${entities}">
-        <td th:text="${usuario.id}"></td>
-        <td th:text="${usuario.username}"></td>
-        <td th:text="${usuario.nombre}"></td>
-        <td th:text="${usuario.apellido}"></td>
-        <td th:text="${usuario.fechaNacimiento}"></td>
-        <td>
-            <a th:href="@{/usuarios/{id}(id=${usuario.id})}" class="btn btn-primary">Editar</a>
-            <a th:href="@{/usuarios/delete/{id}(id=${usuario.id})}" class="btn btn-danger">Eliminar</a>
-        </td> <!-- Columna para los botones de edición y eliminación -->
-    </tr>
-    </tbody>
-</table>
-<a th:href="@{/usuarios/create}" class="btn btn-alert">Nuevo</a>
+<div th:replace="~{fragmentos/headerRegistroEmpresa :: header}"></div>
+
+<!--Header-->
+
+
+
+</br></br></br>
+
+<div class="container">
+    <h1>Peluquerias</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombre de la empresa</th>
+            <th>Cif</th>
+            <th>Descripcion</th>
+            <th>Provincia</th>
+
+ <!-- Nueva columna para las acciones -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="empresadto : ${entities}">
+            <td th:text="${empresadto.NombreEmpresa}"></td>
+            <td th:text="${empresadto.Cif}"></td>
+            <td th:text="${empresadto.DescripcionEmpresa}"></td>
+            <td > aqui que se vea la provincia </td>
+                        <td>
+                            <a th:href="@{/citaTeP1}" class="btn btn-primary">Ver</a>
+
+                        </td> <!-- Columna para los botones de edición y eliminación -->
+
+
+
+            <!--            <td>-->
+<!--                <a th:href="@{/valoraciones/{id}(id=${empresadto.id})}" class="btn btn-primary">Editar</a>-->
+<!--                <a th:href="@{/valoraciones/delete/{id}(id=${empresadto.id})}" class="btn btn-danger">Eliminar</a>-->
+<!--            </td> &lt;!&ndash; Columna para los botones de edición y eliminación &ndash;&gt;-->
+        </tr>
+        </tbody>
+    </table>
+
+
 </div>
 
+</br></br></br></br></br></br></br>
 
+<!--foooooooooooooooooooooooooooooooooooooooter-->
 
+<div th:replace="~{fragmentos/footer1 :: footer}"></div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ import com.eoi.CitaTe.entities.Empresa;
 import com.eoi.CitaTe.repositories.EmpresaRepository;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
 import com.eoi.CitaTe.services.EmpleadoService;
+import com.eoi.CitaTe.services.EmpresaMapperService;
 import com.eoi.CitaTe.services.EmpresaService;
 import com.eoi.CitaTe.services.UsuarioService;
 import jakarta.annotation.PostConstruct;
@@ -16,6 +17,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("${url.empresa}")
@@ -35,6 +38,26 @@ public class EmpresaController extends MiControladorGenerico<Empresa> {
         super.entityName = entityName;
         super.url = url;
     }
+
+    @Autowired
+    EmpresaMapperService empresaMapperService;
+
+    @Override
+    @GetMapping("/all")
+    public String getAll(Model model) {
+        this.url = entityName + "/";
+
+// O bien mostramos todas todos los elementos como entidades
+        // List<Valoracion> entities = service.listAll();
+
+// o tras mucho trabajo tambien podemos mostrar  como dto
+        List<EmpresaDTO> entities = empresaMapperService.buscarTodos();
+
+        model.addAttribute("entities", entities);
+        return url + "all-entities"; // Nombre de la plantilla para mostrar todas las entidades
+    }
+
+
 
 
     //Enviar los datos al registro de empresa
