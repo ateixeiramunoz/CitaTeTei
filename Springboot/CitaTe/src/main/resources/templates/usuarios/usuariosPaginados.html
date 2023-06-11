@@ -40,21 +40,25 @@
         </tbody>
     </table>
 
-    <!--añadimos botones para cambiar de pagina-->
-<!--    <div class="pagination">-->
-<!--        <ul>-->
-<!--            <li th:class="${usuarios.first ? 'disabled' : ''}">-->
-<!--                <a th:href="@{/?numeroPagina=${usuarios.number - 1}}">&laquo;</a>-->
-<!--            </li>-->
-<!--            <li th:each="page : ${usuarios.number.sequence(usuarios.totalPages)}"-->
-<!--                th:class="${page == usuarios.number ? 'active' : ''}">-->
-<!--                <a th:href="@{/?numeroPagina=${page}}">[[${page}]]</a>-->
-<!--            </li>-->
-<!--            <li th:class="${usuarios.last ? 'disabled' : ''}">-->
-<!--                <a th:href="@{/?numeroPagina=${usuarios.number + 1}}">&raquo;</a>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </div>-->
+<!--Botones para cambio de pagina-->
+
+            <a th:href="@{paginados(numeroPagina=${primeraPagina}, tamanoPagina=${tamanoPagina})}">
+                Ir a la primera página
+            </a>
+            <br> <br>
+
+            <a th:if="${paginaAnterior >= 0}" th:href="@{paginados(numeroPagina=${paginaAnterior}, tamanoPagina=${tamanoPagina})}">
+                Página anterior
+            </a>
+            <br> <br>
+
+            <a th:if="${siguientePagina}" th:href="@{paginados(numeroPagina=${siguientePagina}, tamanoPagina=${tamanoPagina})}">
+                Siguiente página
+            </a>
+
+
+        </ul>
+    </div>
 
 </div>
 

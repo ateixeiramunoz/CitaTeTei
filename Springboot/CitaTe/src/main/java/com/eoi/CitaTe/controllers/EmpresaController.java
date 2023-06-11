@@ -3,6 +3,7 @@ package com.eoi.CitaTe.controllers;
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
 import com.eoi.CitaTe.dto.*;
 import com.eoi.CitaTe.entities.Empresa;
+import com.eoi.CitaTe.entities.Usuario;
 import com.eoi.CitaTe.repositories.EmpresaRepository;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
 import com.eoi.CitaTe.services.EmpleadoService;
@@ -14,11 +15,16 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("${url.empresa}")
@@ -41,6 +47,63 @@ public class EmpresaController extends MiControladorGenerico<Empresa> {
 
     @Autowired
     EmpresaMapperService empresaMapperService;
+
+//    @GetMapping("/paginados")
+//    public String getAllPaginated(@RequestParam(defaultValue = "1") int page,
+//                                  @RequestParam(defaultValue = "10") int size,
+//                                  Model model) {
+//
+//        Pageable pageable = PageRequest.of(page-1, size);
+//        Page<Usuario> usuariosPage = usuarioRepository.findAll(pageable);
+//
+//        model.addAttribute("usuarios", usuariosPage);
+//
+//        int totalPages = usuariosPage.getTotalPages();
+//
+//        if (totalPages > 0) {
+//            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
+//                    .boxed()
+//                    .collect(Collectors.toList());
+//            model.addAttribute("pageNumbers", pageNumbers);
+//        }
+//
+//        return entityName + "/" + "paginas";
+//    }
+
+
+    @GetMapping("/paginados")
+    public String paginados(Model model,
+                            @RequestParam(defaultValue = "0") int numeroPagina,
+                            @RequestParam(defaultValue = "5") int tamanoPagina) {
+        this.url = entityName + "/";
+        // Creamos un pageable con numero de pagina y tamaño
+        Pageable pageable = PageRequest.of(numeroPagina, tamanoPagina);
+
+        // En lugar meter los DTO en una lista los metemos en una page
+        Page<EmpresaDTO> entitiesPage = empresaMapperService.buscarTodos(pageable);
+
+        //Pasamos dto al model
+        model.addAttribute("entities", entitiesPage);
+
+        // Verificar si hay una página anterior
+        if (entitiesPage.hasPrevious()) {
+            model.addAttribute("paginaAnterior", numeroPagina - 1);
+        }
+
+
+        // Verificar si hay una página siguiente
+        if (entitiesPage.hasNext()) {
+            model.addAttribute("siguientePagina", numeroPagina + 1);
+        }
+
+        // Agregar pagina de inicio, para utilizar como enlace y poder volver al inicio
+        model.addAttribute("Inicio", 0);
+
+        return entityName + "/" + "paginas";
+
+    }
+
+
 
     @Override
     @GetMapping("/all")

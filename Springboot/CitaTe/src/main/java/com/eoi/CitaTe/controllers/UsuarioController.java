@@ -182,14 +182,41 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     // controlador para devolver los usuario paginados
 
 
+//    @GetMapping("/paginados")
+//    public String obtenerUsuariosPaginados(
+//            @RequestParam(defaultValue = "0") int numeroPagina,
+//            @RequestParam(defaultValue = "10") int tamanoPagina,
+//            Model model) {
+//        Pageable pageable = PageRequest.of(numeroPagina, tamanoPagina);
+//        Page<Usuario> usuarioPage = usuarioRepository.findAll(pageable);
+//        model.addAttribute("usuarios", usuarioPage);
+//        return "usuarios/usuariosPaginados";
+//    }
+
     @GetMapping("/paginados")
     public String obtenerUsuariosPaginados(
             @RequestParam(defaultValue = "0") int numeroPagina,
-            @RequestParam(defaultValue = "10") int tamanoPagina,
+            @RequestParam(defaultValue = "7") int tamanoPagina,
             Model model) {
         Pageable pageable = PageRequest.of(numeroPagina, tamanoPagina);
         Page<Usuario> usuarioPage = usuarioRepository.findAll(pageable);
+
         model.addAttribute("usuarios", usuarioPage);
+
+        // Verificar si hay una página anterior
+        if (usuarioPage.hasPrevious()) {
+            model.addAttribute("paginaAnterior", numeroPagina - 1);
+        }
+
+
+        // Verificar si hay una página siguiente
+        if (usuarioPage.hasNext()) {
+            model.addAttribute("siguientePagina", numeroPagina + 1);
+        }
+
+        // Agregar pagina de inicio, para utilizar como enlace y poder volver al inicio
+        model.addAttribute("Inicio", 0);
+
         return "usuarios/usuariosPaginados";
     }
 

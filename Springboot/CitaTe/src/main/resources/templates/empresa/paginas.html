@@ -23,7 +23,7 @@
 
 
 
-</br></br></br>
+</br></br>
 
 <div class="container">
     <h1>Peluquerias</h1>
@@ -66,6 +66,49 @@
         </tr>
         </tbody>
     </table>
+
+    <!--Botones para cambio de pagina-->
+
+
+<!--    <div> -->
+<!--    <a th:href="@{paginados(numeroPagina=${primeraPagina}, tamanoPagina=${tamanoPagina})}">-->
+<!--        Ir a la primera página-->
+<!--    </a>-->
+<!--    <br> <br>-->
+
+<!--    <a th:if="${paginaAnterior}" th:href="@{paginados(numeroPagina=${paginaAnterior}, tamanoPagina=${tamanoPagina})}">-->
+<!--        Página anterior-->
+<!--    </a>-->
+<!--    <br> <br>-->
+
+<!--    <a th:if="${siguientePagina}" th:href="@{paginados(numeroPagina=${siguientePagina}, tamanoPagina=${tamanoPagina})}">-->
+<!--        Siguiente página-->
+<!--    </a>-->
+<!--    </div>-->
+
+
+    <div class="col">
+        <div class="col-11" >
+                <div class="btn ">
+                    <a th:href="@{paginados(numeroPagina=${primeraPagina}, tamanoPagina=${tamanoPagina})}">
+                        Ir a la primera página
+                    </a>
+                </div>
+                <div class="btn ">
+                    <a th:if="${paginaAnterior >= 0}" th:href="@{paginados(numeroPagina=${paginaAnterior}, tamanoPagina=${tamanoPagina})}">
+                        Página anterior
+                    </a>
+                </div>
+                <div class="btn ">
+                    <a th:if="${siguientePagina}" th:href="@{paginados(numeroPagina=${siguientePagina}, tamanoPagina=${tamanoPagina})}">
+                        Siguiente página
+                    </a>
+                </div>
+        </div>
+    </div>
+
+
+
 
 
 </div>

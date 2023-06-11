@@ -1,29 +1,31 @@
 package com.eoi.CitaTe.services.mapper;
 
-import com.eoi.CitaTe.dto.EmpleadoDTO;
+import com.eoi.CitaTe.dto.ServicioDTO;
 import com.eoi.CitaTe.dto.ValoracionDTO;
-import com.eoi.CitaTe.entities.Cliente;
-import com.eoi.CitaTe.entities.Empleado;
+import com.eoi.CitaTe.entities.Servicio;
 import com.eoi.CitaTe.entities.Valoracion;
-import com.eoi.CitaTe.repositories.EmpleadoRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+public class ServicioMapper extends AbstractServiceMapper <Servicio, ServicioDTO> {
 
-    public EmpleadoDTO toDto(Empleado entidad){
-        final EmpleadoDTO dto = new EmpleadoDTO();
+    @Override
+    public ServicioDTO toDto(Servicio entidad){
+        final ServicioDTO dto = new ServicioDTO();
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.map(entidad,dto);
         return dto;
     }
     //Convertir de dto a entidad
-    public Empleado toEntity(EmpleadoDTO dto){
-        final Empleado entidad = new Empleado();
+    @Override
+    public Servicio toEntity(ServicioDTO dto){
+        final Servicio entidad = new Servicio();
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.map(dto,entidad);
         return entidad;
     }
 
+    public ServicioMapper() {
+    }
 }
