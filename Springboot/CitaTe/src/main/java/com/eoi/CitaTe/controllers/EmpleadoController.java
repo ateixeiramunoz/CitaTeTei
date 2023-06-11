@@ -59,15 +59,6 @@ public class EmpleadoController extends MiControladorGenerico<Empleado> {
     @Override
     @GetMapping("/create")
     public String create(Model model) {
-        EmpleadoDTO entity = new EmpleadoDTO();
-        model.addAttribute("entity", entity);
-        return url + "entity-details";
-    }
-    @PostMapping(value = {"/actualizar"})
-    public String update(@ModelAttribute EmpleadoDTO entity) {
-        empleadoMapperService.CrearEmpleado(entity);
-
-        return "redirect:/" + url  + "all";
 
     }
     @Override

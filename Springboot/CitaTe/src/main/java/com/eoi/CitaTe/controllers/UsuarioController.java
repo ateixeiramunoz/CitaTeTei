@@ -3,11 +3,18 @@ package com.eoi.CitaTe.controllers;
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
 import com.eoi.CitaTe.dto.ClienteDTO;
+import com.eoi.CitaTe.dto.DisponibilidadDTO;
 import com.eoi.CitaTe.dto.UsuarioDTO;
+import com.eoi.CitaTe.entities.Disponibilidad;
 import com.eoi.CitaTe.entities.Usuario;
+import com.eoi.CitaTe.errorcontrol.exceptions.MiEntidadNoEncontradaException;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
+import com.eoi.CitaTe.services.DisponibilidadMapperService;
+import com.eoi.CitaTe.services.UsuarioMapperService;
 import com.eoi.CitaTe.services.UsuarioService;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,6 +22,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Controlador para la entidad Usuario.
@@ -43,20 +52,24 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UsuarioController extends MiControladorGenerico<Usuario> {
 
-    @Value("${url.usuario}")
-    private String urlBase;
-
-
-    private String url = "usuarios";
-    private String entityName = "usuario";
+//    @Value("${url.usuario}")
+//    private String urlBase;
+//
+//
+//    private String url = "usuarios";
+//    private String entityName = "usuario";
     private final UsuarioRepository usuarioRepository;
-    private final UsuarioService usuarioService;
+//    private final UsuarioService usuarioService;
 
     /**
      * Constructor de la clase UsuarioController.
      * Se utiliza para crear una instancia del controlador.
      */
 
+
+//    public UsuarioController() {
+//        super();
+//    }
 
     /**
      * Método de inicialización para establecer el valor de entityName y entityPrefix.
@@ -69,30 +82,100 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
      * @Author Alejandro Teixeira Muñoz
      */
 
+    @Value("${url.disponibilidad}")
+    private String urlBase;
+    private String entityName = "disponibilidades";
 
+
+
+
+    @Autowired
+    UsuarioMapperService usuarioMapperService;
+
+    @PostConstruct
+    private void init() {
+        super.entityName = entityName;
+        super.url = url;
+    }
+
+    @Override
+    @GetMapping("/all")
+    public String getAll(Model model) {
+        this.url = entityName + "/";
+        List<UsuarioDTO> entities = usuarioMapperService.buscarTodos();
+        model.addAttribute("entities", entities);
+        return url + "all-entities";
+    }
 
     @Override
     @GetMapping("/create")
     public String create(Model model) {
-        UsuarioDTO usuarioDTO = new UsuarioDTO();
-        ClienteDTO clienteDTO = new ClienteDTO();
-        model.addAttribute("usuarioDTO", usuarioDTO);
-        model.addAttribute("clienteDTO", clienteDTO);
-//        model.addAttribute("url", url);
-        model.addAttribute("entityName", entityName);
-
-        return "usuarios/altaUsuario"; // Nombre de la plantilla para mostrar todas las entidades
+        UsuarioDTO entity = new UsuarioDTO();
+        model.addAttribute("entity", entity);
+        return url + "entity-details";
     }
 
-    @PostMapping(value = {"/alta"})
-    public String update(@ModelAttribute UsuarioDTO usuarioDTO,
-                         @ModelAttribute ClienteDTO clienteDTO) {
-        usuarioService.CrearCliente(usuarioDTO, clienteDTO);
 
-
-        return "registroEmpresa/registroEmpresa12";
+    @PostMapping(value = {"/actualizar"})
+    public String update(@ModelAttribute UsuarioDTO entity) {
+        usuarioMapperService.CrearUsuario(entity);
+        return "redirect:/" + url + "all";
 
     }
+
+    @Override
+    @GetMapping("/{id}")
+    public String getById(@PathVariable Object id, Model model) throws MiEntidadNoEncontradaException {
+        this.url = entityName + "/";
+        try {
+            Usuario entity = service.getById(id);
+            model.addAttribute("entity", entity);
+            return url + "entity-details";
+        } catch (MiEntidadNoEncontradaException ex) {
+            model.addAttribute("mensaje", "Entidad no encontrada");
+            model.addAttribute("error", ex.getMessage());
+            return "error/error.html";
+        }
+    }
+
+    @Override
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Object id) {
+        service.delete(id);
+        return "redirect:/" + url + "all";
+    }
+
+
+
+
+
+
+
+
+
+
+//    @Override
+//    @GetMapping("/create")
+//    public String create(Model model) {
+//        UsuarioDTO usuarioDTO = new UsuarioDTO();
+//        ClienteDTO clienteDTO = new ClienteDTO();
+//        model.addAttribute("usuarioDTO", usuarioDTO);
+//        model.addAttribute("clienteDTO", clienteDTO);
+////        model.addAttribute("url", url);
+//        model.addAttribute("entityName", entityName);
+//
+//        return "usuarios/altaUsuario"; // Nombre de la plantilla para mostrar todas las entidades
+//    }
+//
+//    @PostMapping(value = {"/alta"})
+//    public String update(@ModelAttribute UsuarioDTO usuarioDTO,
+//                         @ModelAttribute ClienteDTO clienteDTO) {
+//        usuarioService.CrearCliente(usuarioDTO, clienteDTO);
+//
+//
+//        return "registroEmpresa/registroEmpresa12";
+//
+//    }
 
 
 
@@ -136,13 +219,6 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
 
         return "usuarios/usuariosPaginados";
     }
-
-
-
-
-
-
-
 
 
 

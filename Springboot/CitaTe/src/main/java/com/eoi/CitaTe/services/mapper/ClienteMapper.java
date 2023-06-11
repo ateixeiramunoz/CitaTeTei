@@ -8,16 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClienteMapper {
-    @Autowired
-    private ClienteRepository clienteRepository;
+public class ClienteMapper extends AbstractServiceMapper<Cliente, ClienteDTO>{
+
     public ClienteDTO toDto(Cliente entidad){
         final ClienteDTO dto = new ClienteDTO();
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.map(entidad,dto);
         return dto;
     }
-    //Convertir de dto a entidad
+
     public Cliente toEntity(ClienteDTO dto){
         final Cliente entidad = new Cliente();
         ModelMapper modelMapper = new ModelMapper();
@@ -26,5 +25,7 @@ public class ClienteMapper {
         //Buscamos las reservas
        // entidad.setReservas(clienteRepository.findById(id).get().getReservas());
         return entidad;
+    }
+    public ClienteMapper() {
     }
 }

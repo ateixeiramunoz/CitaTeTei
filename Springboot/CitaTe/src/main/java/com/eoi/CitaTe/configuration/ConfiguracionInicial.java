@@ -163,6 +163,15 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
 
             /// valoraciones///////////////////////////////////////////////
 
+            /// DISPONIBILIDADES///////////////////////////////////////////////
+
+
+
+
+
+            /// DISPONIBILIDADES///////////////////////////////////////////////
+
+
 
 
             //// Usuarios ////////////////////////////////////////////////
@@ -181,6 +190,7 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             usuario2.setEmpleado(empleado);
             usuario2.setPass(codificadorContraseña.encode("prueba"));
             usuarioRepository.save(usuario2);
+
             // Creamos un bucle para añadir un par de usuarios mas y poder comprobar paginacion
 
             for (int i = 0; i <30 ; i++) {

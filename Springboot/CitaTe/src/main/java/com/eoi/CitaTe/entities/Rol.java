@@ -17,4 +17,6 @@ public class Rol {
     private Long id;
     private String nombreRol;
 
+//    private Usuario usuario;
+
 }
