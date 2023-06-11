@@ -5,6 +5,8 @@ import com.eoi.CitaTe.entities.Pago;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -24,4 +26,11 @@ public class PagoController extends MiControladorGenerico<Pago> {
         super.entityName = entityName;
         super.url = url;
     }
+
+
+
+
+
+
+
 }

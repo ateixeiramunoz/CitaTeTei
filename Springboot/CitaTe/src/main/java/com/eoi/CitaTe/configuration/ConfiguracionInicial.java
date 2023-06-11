@@ -23,25 +23,18 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
     boolean configuracionRealizada = false;
     @Autowired
     private UsuarioRepository usuarioRepository;
-
     @Autowired
     private ClienteRepository clienteRepository;
-
     @Autowired
     private DisponibilidadRepository disponibilidadRepository;
     @Autowired
     private EmpleadoRepository empleadoRepository;
-
-
     @Autowired
     private EmpresaRepository empresaRepository;
-
     @Autowired
     private FacturacionRepository facturacionRepository;
-
     @Autowired
     private MenuRepository menuRepository;
-
     @Autowired
     private MetodoPagoMensualRepository metodoPagoMensualRepository;
     @Autowired
@@ -54,7 +47,8 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
     private ServicioRepository servicioRepository;
     @Autowired
     private ValoracionRepository valoracionRepository;
-
+    @Autowired
+    private CatalogoDeServicioRepository catalogoDeServicioRepository;
     @Autowired
     private PasswordEncoder codificadorContraseña;
 
@@ -152,6 +146,21 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             valoracionRepository.save(valoracion);
             valoracionRepository.save(valoracion2);
 
+
+            CatalogoDeServicio catalogoDeServicio = new CatalogoDeServicio();
+            catalogoDeServicio.setNombre("Antonio");
+            catalogoDeServicio.setDescripcion("viendo peliculas");
+            catalogoDeServicio.setPrecio("gratis");
+
+
+            CatalogoDeServicio catalogoDeServicio2 = new CatalogoDeServicio();
+            catalogoDeServicio2.setNombre("Bertin Osborne");
+            catalogoDeServicio2.setDescripcion("en los toros");
+            catalogoDeServicio2.setPrecio("sincuenta eruo");
+
+            catalogoDeServicioRepository.save(catalogoDeServicio);
+            catalogoDeServicioRepository.save(catalogoDeServicio2);
+
             /// valoraciones///////////////////////////////////////////////
 
 
@@ -165,8 +174,6 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             usuario.setPass(codificadorContraseña.encode("prueba"));
 
             usuarioRepository.save(usuario);
-
-
             Usuario usuario2 = new Usuario();
 
             usuario2.setEmail("empleado@citate.com");
@@ -174,7 +181,6 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             usuario2.setEmpleado(empleado);
             usuario2.setPass(codificadorContraseña.encode("prueba"));
             usuarioRepository.save(usuario2);
-
             // Creamos un bucle para añadir un par de usuarios mas y poder comprobar paginacion
 
             for (int i = 0; i <30 ; i++) {
@@ -190,19 +196,7 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
 
 
 
-
-
-
             configuracionRealizada = true;
-
-
-
-
-
         }
-
-
-
-
 }
 
