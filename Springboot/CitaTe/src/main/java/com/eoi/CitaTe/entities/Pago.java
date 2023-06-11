@@ -16,6 +16,10 @@ public class Pago {
     @Column(name = "id_pago", nullable = false)
     private Long id;
 
+
+
+
+
    // @OneToOne(cascade = CascadeType.ALL)
    // @JoinColumn(name = "facturacion_id", referencedColumnName = "id_facturacion")
    // private Facturacion facturacion;

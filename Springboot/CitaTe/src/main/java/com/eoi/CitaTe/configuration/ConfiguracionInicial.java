@@ -54,6 +54,8 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
     private ServicioRepository servicioRepository;
     @Autowired
     private ValoracionRepository valoracionRepository;
+    @Autowired
+    private CatalogoDeServicioRepository catalogoDeServicioRepository;
 
     @Autowired
     private PasswordEncoder codificadorContraseña;
@@ -145,6 +147,28 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
 
             valoracionRepository.save(valoracion);
             valoracionRepository.save(valoracion2);
+
+
+            CatalogoDeServicio catalogoDeServicio = new CatalogoDeServicio();
+            catalogoDeServicio.setNombre("Antonio");
+            catalogoDeServicio.setDescripcion("viendo peliculas");
+            catalogoDeServicio.setPrecio("gratis");
+
+
+            CatalogoDeServicio catalogoDeServicio2 = new CatalogoDeServicio();
+            catalogoDeServicio2.setNombre("Bertin Osborne");
+            catalogoDeServicio2.setDescripcion("en los toros");
+            catalogoDeServicio2.setPrecio("sincuenta eruo");
+
+            catalogoDeServicioRepository.save(catalogoDeServicio);
+            catalogoDeServicioRepository.save(catalogoDeServicio2);
+
+
+
+
+
+
+
 
             /// valoraciones///////////////////////////////////////////////
 

@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmpleadoMapper {
-    @Autowired
-    EmpleadoRepository empleadoRepository;
-    public EmpleadoDTO toDto(Cliente entidad){
+public class EmpleadoMapper extends AbstractServiceMapper<Empleado, EmpleadoDTO> {
+
+    @Override
+    public EmpleadoDTO toDto(Empleado entidad){
         final EmpleadoDTO dto = new EmpleadoDTO();
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.map(entidad,dto);
@@ -23,7 +23,9 @@ public class EmpleadoMapper {
         final Empleado entidad = new Empleado();
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.map(dto,entidad);
-        entidad.setEmpresa(empleadoRepository.findById(dto.getId()).get().getEmpresa());
         return entidad;
+    }
+
+    public EmpleadoMapper() {
     }
 }

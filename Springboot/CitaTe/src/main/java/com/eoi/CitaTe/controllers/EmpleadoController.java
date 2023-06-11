@@ -2,14 +2,22 @@ package com.eoi.CitaTe.controllers;
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
 import com.eoi.CitaTe.dto.ClienteDTO;
+import com.eoi.CitaTe.dto.EmpleadoDTO;
 import com.eoi.CitaTe.dto.UsuarioDTO;
+import com.eoi.CitaTe.dto.ValoracionDTO;
 import com.eoi.CitaTe.entities.Empleado;
+import com.eoi.CitaTe.entities.Valoracion;
+import com.eoi.CitaTe.errorcontrol.exceptions.MiEntidadNoEncontradaException;
+import com.eoi.CitaTe.services.EmpleadoMapperService;
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("${url.empleado}")
@@ -23,24 +31,74 @@ public class EmpleadoController extends MiControladorGenerico<Empleado> {
         super();
     }
 
+
+    @Autowired
+    EmpleadoMapperService empleadoMapperService;
+
     @PostConstruct
     private void init() {
-        super.entityName = entityName;
-        super.url = url;
+        super.entityName = urlBase;
+        super.url = entityName + "/";
     }
 
     @Override
+    @GetMapping("/all")
+    public String getAll(Model model) {
+        this.url = entityName + "/";
+
+// O bien mostramos todas todos los elementos como entidades
+        // List<Valoracion> entities = service.listAll();
+
+// o tras mucho trabajo tambien podemos mostrar  como dto
+        List<EmpleadoDTO> entities = empleadoMapperService.buscarTodos();
+
+
+        model.addAttribute("entities", entities);
+        return url + "all-entities"; // Nombre de la plantilla para mostrar todas las entidades
+    }
+    @Override
     @GetMapping("/create")
     public String create(Model model) {
-        UsuarioDTO usuarioDTO = new UsuarioDTO();
-        ClienteDTO clienteDTO = new ClienteDTO();
-        model.addAttribute("usuarioDTO", usuarioDTO);
-        model.addAttribute("clienteDTO", clienteDTO);
-//        model.addAttribute("url", url);
-        model.addAttribute("entityName", entityName);
-
-        return "usuarios/altaUsuario"; // Nombre de la plantilla para mostrar todas las entidades
+        EmpleadoDTO entity = new EmpleadoDTO();
+        model.addAttribute("entity", entity);
+        return url + "entity-details";
     }
+    @PostMapping(value = {"/actualizar"})
+    public String update(@ModelAttribute EmpleadoDTO entity) {
+        empleadoMapperService.CrearEmpleado(entity);
+
+        return "redirect:/" + url  + "all";
+
+    }
+    @Override
+    @GetMapping("/{id}")
+    public String getById(@PathVariable Object id, Model model) throws MiEntidadNoEncontradaException {
+        this.url = entityName + "/";
+        try {
+            Empleado entity = service.getById(id);
+            model.addAttribute("entity", entity);
+            return url + "entity-details"; // Nombre de la plantilla para mostrar los detalles de la entidad
+        } catch (MiEntidadNoEncontradaException ex) {
+            model.addAttribute("mensaje", "Entidad no encontrada");
+            model.addAttribute("error", ex.getMessage());
+            return "error/error.html"; // Nombre de la plantilla para mostrar la página de error
+        }
+    }
+
+
+
+    @Override
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Object id) {
+        service.delete(id);
+        return "redirect:/" + url +  "all";
+    }
+
+
+
+
+
+
 
 
 
