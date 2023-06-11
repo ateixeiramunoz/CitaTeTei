@@ -27,8 +27,8 @@
     <h1>Editar Empleado</h1>
     <form th:object="${entity}" th:action="@{/empleados/actualizar}" method="POST" th:method="POST">
 
-<!--        Metemos el ID de la valoracion como oculto para que cuando realicemos el post no cree un nuevo registro-->
-<!--        con otro ID auto incrementado-->
+        <!--        Metemos el ID de la valoracion como oculto para que cuando realicemos el post no cree un nuevo registro-->
+        <!--        con otro ID auto incrementado-->
 
 
         <input type="hidden" name="id" id="id"th:field="*{id}">

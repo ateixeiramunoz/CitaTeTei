@@ -34,13 +34,13 @@
             <th>Apellido 1</th>
             <th>Apellido 2</th>
 
- <!-- Nueva columna para las acciones -->
+            <!-- Nueva columna para las acciones -->
         </tr>
         </thead>
         <tbody>
         <tr th:each="empleadodto : ${entities}">
             <td th:text="${empleadodto.nombreEmpleado}"></td>
-           <td th:text="${empleadodto.apellido1Empleado}"></td>
+            <td th:text="${empleadodto.apellido1Empleado}"></td>
             <td th:text="${empleadodto.apellido2Empleado}"></td>
 
             <td>

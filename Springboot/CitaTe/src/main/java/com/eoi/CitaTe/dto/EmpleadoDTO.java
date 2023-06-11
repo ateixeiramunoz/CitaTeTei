@@ -25,7 +25,7 @@ public class EmpleadoDTO {
     private String apellido1Empleado;
     private String apellido2Empleado;
     //private Empresa empresa;
-   // private Usuario usuario;
+    // private Usuario usuario;
 //    private Disponibilidad disponibilidad;
 //    private Set<Servicio> servicios = new HashSet<>();
 }
