@@ -19,4 +19,7 @@ public class MenuDTO {
 
     private boolean activo;
 
+
+
+
 }

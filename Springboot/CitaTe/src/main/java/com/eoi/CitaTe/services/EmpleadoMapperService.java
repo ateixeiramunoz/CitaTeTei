@@ -20,10 +20,10 @@ public class EmpleadoMapperService extends AbstractBusinessService<Empleado, Lon
     public void CrearEmpleado (EmpleadoDTO empleadoDTO ){
         Empleado empleado = new Empleado();
 
-        empleado.setNombreEmpleado(empleado.getNombreEmpleado());
-        empleado.setApellido1Empleado(empleado.getApellido1Empleado());
-        empleado.setApellido2Empleado(empleado.getApellido2Empleado());
-        empleado.setId(empleado.getId());
+        empleado.setNombreEmpleado(empleadoDTO.getNombreEmpleado());
+        empleado.setApellido1Empleado(empleadoDTO.getApellido1Empleado());
+        empleado.setApellido2Empleado(empleadoDTO.getApellido2Empleado());
+        empleado.setId(empleadoDTO.getId());
         //empleado.setEmpresa();
         //empleado.setUsuario();
         //empleado.setServicios();

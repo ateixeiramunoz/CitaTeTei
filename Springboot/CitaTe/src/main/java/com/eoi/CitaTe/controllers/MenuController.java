@@ -65,6 +65,7 @@ public class MenuController extends MiControladorGenerico<Menu> {
 
     }
 
+
     @Override
     @GetMapping("/{id}")
     public String getById(@PathVariable Object id, Model model) throws MiEntidadNoEncontradaException {
@@ -79,6 +80,7 @@ public class MenuController extends MiControladorGenerico<Menu> {
             return "error/error.html"; // Nombre de la plantilla para mostrar la página de error
         }
     }
+
     @Override
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Object id) {

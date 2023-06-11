@@ -19,6 +19,8 @@ import java.util.List;
 @Controller
 @RequestMapping("${url.catalogoDeServicio}")
 public class CatalogoDeServicioController extends MiControladorGenerico<CatalogoDeServicio> {
+
+
     @Value("${url.catalogoDeServicio}")
     private String urlBase;
     private String entityName = "catalogoDeServicios";
