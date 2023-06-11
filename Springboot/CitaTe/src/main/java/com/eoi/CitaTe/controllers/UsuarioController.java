@@ -52,24 +52,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UsuarioController extends MiControladorGenerico<Usuario> {
 
-//    @Value("${url.usuario}")
-//    private String urlBase;
-//
-//
-//    private String url = "usuarios";
-//    private String entityName = "usuario";
+    @Value("${url.usuario}")
+    private String urlBase;
+
+
+    private String url = "usuarios";
+    private String entityName = "usuario";
+
     private final UsuarioRepository usuarioRepository;
-//    private final UsuarioService usuarioService;
+
 
     /**
      * Constructor de la clase UsuarioController.
      * Se utiliza para crear una instancia del controlador.
      */
-
-
-//    public UsuarioController() {
-//        super();
-//    }
 
     /**
      * Método de inicialización para establecer el valor de entityName y entityPrefix.
@@ -81,12 +77,6 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
      * En este caso, se utiliza para asegurar que entityName y entityPrefix se establezcan correctamente después de la construcción del objeto.
      * @Author Alejandro Teixeira Muñoz
      */
-
-    @Value("${url.disponibilidad}")
-    private String urlBase;
-    private String entityName = "disponibilidades";
-
-
 
 
     @Autowired
