@@ -27,68 +27,102 @@
 
 <div class="container">
     <h1>Peluquerias</h1>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Nombre de la empresa</th>
-            <th>Cif</th>
-            <th>Descripcion</th>
-            <th>Provincia</th>
 
- <!-- Nueva columna para las acciones -->
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td><input type="search" id="Nombre" name="Nombre"></td>
-            <td><input type="search" id="CIF" name="CIF"></td>
-            <td><input type="search" id="Descripcion" name="Descripcion"></td>
-            <td><input type="search" id="Provincia" name="Provincia"></td>
-        </tr>
-        <tr th:each="empresadto : ${entities}">
+    <form th:action="@{/empresas/paginados}" th:method="GET">
 
-            <td th:text="${empresadto.NombreEmpresa}"></td>
-            <td th:text="${empresadto.Cif}"></td>
-            <td th:text="${empresadto.DescripcionEmpresa}"></td>
-            <td th:text="${empresadto.direccion.provincia}"></td>
-                        <td>
-                            <a th:href="@{/citaTeP1}" class="btn btn-primary">Ver</a>
+        <td><input type="search" id="Provincia" name="Provincia" ></td>
+        <td><button type="submit">Buscar</button></td>
+
+    </form>
 
 
-                        </td> <!-- Columna para los botones de edición y eliminación -->
+    <!-- Tabla para todos-->
+    <div th:if="${provinciaFiltro =='Todos'}">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Nombre de la empresa</th>
+                    <th>Cif</th>
+                    <th>Descripcion</th>
+                    <th>Provincia</th>
+         <!-- Nueva columna para las acciones -->
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
 
+                    <tr  th:each="empresadto : ${entities}">
 
+                                    <td th:text="${empresadto.NombreEmpresa}"></td>
+                                    <td th:text="${empresadto.Cif}"></td>
+                                    <td th:text="${empresadto.DescripcionEmpresa}"></td>
+                                    <td th:text="${empresadto.direccion.provincia}"></td>
+                                    <td>
+                                        <a th:href="@{/citaTeP1}" class="btn btn-primary">Ver</a>
+                                    </td>
 
-            <!--            <td>-->
-<!--                <a th:href="@{/valoraciones/{id}(id=${empresadto.id})}" class="btn btn-primary">Editar</a>-->
-<!--                <a th:href="@{/valoraciones/delete/{id}(id=${empresadto.id})}" class="btn btn-danger">Eliminar</a>-->
-<!--            </td> &lt;!&ndash; Columna para los botones de edición y eliminación &ndash;&gt;-->
-        </tr>
-        </tbody>
-    </table>
+                    </tr>
+                </tbody>
+            </table>
 
-    <!--Botones para cambio de pagina-->
+            <!--Botones para cambio de pagina-->
+            <div class="col">
+                <div class="col-11" >
+                        <div class="btn ">
+                            <a th:href="@{paginados(numeroPagina=${primeraPagina}, tamanoPagina=${tamanoPagina})}">
+                                Ir a la primera página
+                            </a>
+                        </div>
+                        <div class="btn ">
+                            <a th:if="${paginaAnterior >= 0}" th:href="@{paginados(numeroPagina=${paginaAnterior}, tamanoPagina=${tamanoPagina})}">
+                                Página anterior
+                            </a>
+                        </div>
+                        <div class="btn ">
+                            <a th:if="${siguientePagina}" th:href="@{paginados(numeroPagina=${siguientePagina}, tamanoPagina=${tamanoPagina})}">
+                                Siguiente página
+                            </a>
+                        </div>
+                </div>
+            </div>
+    </div>
+    <!-- FIN TABLA TODOS-->
 
+    <!-- Tabla para filtrado -->
+    <div th:if="${provinciaFiltro !='Todos'}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nombre de la empresa</th>
+                <th>Cif</th>
+                <th>Descripcion</th>
+                <th>Provincia</th>
+                <!-- Nueva columna para las acciones -->
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            </tr>
 
-<!--    <div> -->
-<!--    <a th:href="@{paginados(numeroPagina=${primeraPagina}, tamanoPagina=${tamanoPagina})}">-->
-<!--        Ir a la primera página-->
-<!--    </a>-->
-<!--    <br> <br>-->
+            <tr  th:each="empresadto : ${entities}">
+                <div th:if="${empresadto.direccion.provincia == provinciaFiltro}">
 
-<!--    <a th:if="${paginaAnterior}" th:href="@{paginados(numeroPagina=${paginaAnterior}, tamanoPagina=${tamanoPagina})}">-->
-<!--        Página anterior-->
-<!--    </a>-->
-<!--    <br> <br>-->
+                <td th:text="${empresadto.NombreEmpresa}"></td>
+                <td th:text="${empresadto.Cif}"></td>
+                <td th:text="${empresadto.DescripcionEmpresa}"></td>
+                <td th:text="${empresadto.direccion.provincia}"></td>
+                <td>
+                    <a th:href="@{/citaTeP1}" class="btn btn-primary">Ver</a>
+                </td>
 
-<!--    <a th:if="${siguientePagina}" th:href="@{paginados(numeroPagina=${siguientePagina}, tamanoPagina=${tamanoPagina})}">-->
-<!--        Siguiente página-->
-<!--    </a>-->
-<!--    </div>-->
+            </tr>
+            </tbody>
+        </table>
 
-
-    <div class="col">
-        <div class="col-11" >
+        <!--Botones para cambio de pagina-->
+        <div class="col">
+            <div class="col-11" >
                 <div class="btn ">
                     <a th:href="@{paginados(numeroPagina=${primeraPagina}, tamanoPagina=${tamanoPagina})}">
                         Ir a la primera página
@@ -104,8 +138,10 @@
                         Siguiente página
                     </a>
                 </div>
+            </div>
         </div>
     </div>
+</div>
 
 
 

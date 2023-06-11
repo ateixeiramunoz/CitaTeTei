@@ -74,7 +74,8 @@ public class EmpresaController extends MiControladorGenerico<Empresa> {
     @GetMapping("/paginados")
     public String paginados(Model model,
                             @RequestParam(defaultValue = "0") int numeroPagina,
-                            @RequestParam(defaultValue = "5") int tamanoPagina) {
+                            @RequestParam(defaultValue = "5") int tamanoPagina,
+                            @RequestParam(value = "Provincia", defaultValue = "Todos") String provincia) {
         this.url = entityName + "/";
         // Creamos un pageable con numero de pagina y tamaño
         Pageable pageable = PageRequest.of(numeroPagina, tamanoPagina);
@@ -98,6 +99,13 @@ public class EmpresaController extends MiControladorGenerico<Empresa> {
 
         // Agregar pagina de inicio, para utilizar como enlace y poder volver al inicio
         model.addAttribute("Inicio", 0);
+
+        ///////////// PRUEBAS/////////////////////////////////////
+
+        //provincia = "Todos";
+
+        // Para el filtro
+        model.addAttribute("provinciaFiltro", provincia);
 
         return entityName + "/" + "paginas";
 
