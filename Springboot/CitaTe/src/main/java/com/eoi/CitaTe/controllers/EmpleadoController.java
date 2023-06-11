@@ -39,6 +39,7 @@ public class EmpleadoController extends MiControladorGenerico<Empleado> {
 //        model.addAttribute("url", url);
         model.addAttribute("entityName", entityName);
 
+
         return "usuarios/altaUsuario"; // Nombre de la plantilla para mostrar todas las entidades
     }
 

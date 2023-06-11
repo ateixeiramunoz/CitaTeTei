@@ -1,22 +1,20 @@
 package com.eoi.CitaTe.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UsuarioDTO {
+public class FacturacionDTO {
 
     private Long id;
-    private String email;
-    private String pass;
-    private boolean activo;
-//    private Long cliente;
-//    private Long empleado;
+    private Date fecha;
 
+    //private Pago pago;
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Disponibilidades</title>
+
+    <link rel="stylesheet" th:href="@{/CitaTe.css}">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
+    <script th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+
+<!--Header-->
+
+<div th:replace="~{fragmentos/headerRegistroEmpresa :: header}"></div>
+
+<!--Header-->
+
+</br></br></br>
+
+<div class="container">
+    <h1>Editar Disponibilidad</h1>
+    <form th:object="${entity}" th:action="@{/disponibilidades/actualizar}" th:method="POST">
+
+        <input type="hidden" name="id" id="id" th:field="*{id}">
+
+
+            <h2>HORARIO DE APERTURA</h2> <br>
+            <div>
+                <label for="lunes">Lunes</label>
+
+<!--                <input type="checkbox" name="lunes" id="lunes" th:field="*{fecha}">-->
+
+                <input type="time" name="comienzo" id="comienzo1" th:field="*{hora_inicio_mañana}">
+                <input type="time" name="final" id="final1" th:field="*{hora_fin_mañana}">
+                <input type="time" name="comienzo" id="comienzo34" th:field="*{hora_inicio_tarde}">
+                <input type="time" name="final" id="final34" th:field="*{hora_fin_tarde}">
+
+            </div><br>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+
+</div>
+
+</br></br></br></br></br></br></br>
+
+
+<!--foooooooooooooooooooooooooooooooooooooooter-->
+
+<div th:replace="~{fragmentos/footer1 :: footer}"></div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

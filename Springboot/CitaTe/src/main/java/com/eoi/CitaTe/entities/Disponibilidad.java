@@ -20,8 +20,11 @@ public class Disponibilidad {
     private Long id;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
-    private Time hora_inicio;
-    private Time hora_fin;
+
+    private Time hora_inicio_mañana;
+    private Time hora_fin_mañana;
+    private Time hora_inicio_tarde;
+    private Time hora_fin_tarde;
 
 
    @OneToOne(mappedBy = "disponibilidad")

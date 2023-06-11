@@ -26,34 +26,38 @@
 </br></br></br>
 
 <div class="container">
-    <h1>Valoraciones</h1>
+    <h1>Disponibilidad</h1>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Comentario</th>
-            <th>Puntuacion</th>
- <!-- Nueva columna para las acciones -->
+            <th>Dia</th>
+            <th>Hora inicio mañana</th>
+            <th>Hora fin tarde</th>
+            <th>Hora inicio tarde</th>
+            <th>Hora fin tarde</th>
+
+            <!-- Nueva columna para las acciones -->
         </tr>
         </thead>
         <tbody>
-        <tr th:each="valoraciondto : ${entities}">
-            <td th:text="${valoraciondto.comentario}"></td>
-           <td th:text="${valoraciondto.puntuacion}"></td>   <!--   por si hay tiempo pintarlo con estrellas
-                                                            http://w3.unpocodetodo.info/css3/estrellas.php   -->
+        <tr th:each="disponibilidaddto : ${entities}">
+            <td th:text="${disponibilidad.fecha}"></td>
+            <td th:text="${disponibilidad.hora_inicio_mañana}"></td>
+            <td th:text="${disponibilidad.hora_fin_mañana}"></td>
+            <td th:text="${disponibilidad.hora_inicio_tarde}"></td>
+            <td th:text="${disponibilidad.hora_fin_tarde}"></td>
 
             <td>
-                <a th:href="@{/valoraciones/{id}(id=${valoraciondto.id})}" class="btn btn-primary">Editar</a>
-                <a th:href="@{/valoraciones/delete/{id}(id=${valoraciondto.id})}" class="btn btn-danger">Eliminar</a>
-            </td> <!-- Columna para los botones de edición y eliminación -->
+                <a th:href="@{/disponibilidades/{id}(id=${disponibilidaddto.id})}" class="btn btn-primary">Editar</a>
+                <a th:href="@{/disponibilidades/delete/{id}(id=${disponibilidaddto.id})}" class="btn btn-danger">Eliminar</a>
+            </td>
         </tr>
         </tbody>
     </table>
 
 
-
-
     <div class=" btn" style="background-color: #3f4c63">
-        <a th:class="nolink" href="/valoraciones/create" >Añadir nueva valoracion</a>
+        <a th:class="nolink" href="/disponibilidades/create" >Añadir nueva valoracion</a>
     </div>
 </div>
 
