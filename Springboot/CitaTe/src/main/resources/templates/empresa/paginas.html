@@ -31,13 +31,15 @@
     <form th:action="@{/empresas/paginados}" th:method="GET">
 
         <td><input type="search" id="Provincia" name="Provincia" ></td>
+
+        <label  class="form-label">Fecha de Nacimiento</label>
         <td><button type="submit">Buscar</button></td>
 
     </form>
 
 
     <!-- Tabla para todos-->
-    <div th:if="${provinciaFiltro =='Todos'}">
+<!--    <div th:if="${provinciaFiltro =='Todos'}">-->
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -86,61 +88,9 @@
                         </div>
                 </div>
             </div>
-    </div>
+<!--    </div>-->
     <!-- FIN TABLA TODOS-->
 
-    <!-- Tabla para filtrado -->
-    <div th:if="${provinciaFiltro !='Todos'}">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Nombre de la empresa</th>
-                <th>Cif</th>
-                <th>Descripcion</th>
-                <th>Provincia</th>
-                <!-- Nueva columna para las acciones -->
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            </tr>
-
-            <tr  th:each="empresadto : ${entities}">
-                <div th:if="${empresadto.direccion.provincia == provinciaFiltro}">
-
-                <td th:text="${empresadto.NombreEmpresa}"></td>
-                <td th:text="${empresadto.Cif}"></td>
-                <td th:text="${empresadto.DescripcionEmpresa}"></td>
-                <td th:text="${empresadto.direccion.provincia}"></td>
-                <td>
-                    <a th:href="@{/citaTeP1}" class="btn btn-primary">Ver</a>
-                </td>
-
-            </tr>
-            </tbody>
-        </table>
-
-        <!--Botones para cambio de pagina-->
-        <div class="col">
-            <div class="col-11" >
-                <div class="btn ">
-                    <a th:href="@{paginados(numeroPagina=${primeraPagina}, tamanoPagina=${tamanoPagina})}">
-                        Ir a la primera página
-                    </a>
-                </div>
-                <div class="btn ">
-                    <a th:if="${paginaAnterior >= 0}" th:href="@{paginados(numeroPagina=${paginaAnterior}, tamanoPagina=${tamanoPagina})}">
-                        Página anterior
-                    </a>
-                </div>
-                <div class="btn ">
-                    <a th:if="${siguientePagina}" th:href="@{paginados(numeroPagina=${siguientePagina}, tamanoPagina=${tamanoPagina})}">
-                        Siguiente página
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 
