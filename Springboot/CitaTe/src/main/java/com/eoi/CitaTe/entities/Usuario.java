@@ -21,6 +21,8 @@ public class Usuario {
     @Basic(optional = false)
     private boolean activo;
 
+    private String token;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "empleado_id", referencedColumnName = "id_empleado")
     private Empleado empleado;
@@ -28,6 +30,8 @@ public class Usuario {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id_cliente")
     private Cliente cliente;
+
+
 
     //@OneToMany
     //private Rol rol;
