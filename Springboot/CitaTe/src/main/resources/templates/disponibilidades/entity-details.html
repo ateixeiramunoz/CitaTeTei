@@ -25,21 +25,21 @@
 
 <div class="container">
     <h1>Editar Disponibilidad</h1>
-    <form th:object="${entity}" th:action="@{/disponibilidades/actualizar}" th:method="POST">
+    <form th:object="${entity}" th:action="@{/disponibilidades/actualizar}" method="POST" th:method="POST">
 
         <input type="hidden" name="id" id="id" th:field="*{id}">
 
 
             <h2>HORARIO DE APERTURA</h2> <br>
             <div>
-                <label for="lunes">Lunes</label>
+                <label>Lunes</label>
 
 <!--                <input type="checkbox" name="lunes" id="lunes" th:field="*{fecha}">-->
 
-                <input type="time" name="comienzo" id="comienzo1" th:field="*{hora_inicio_mañana}">
-                <input type="time" name="final" id="final1" th:field="*{hora_fin_mañana}">
-                <input type="time" name="comienzo" id="comienzo34" th:field="*{hora_inicio_tarde}">
-                <input type="time" name="final" id="final34" th:field="*{hora_fin_tarde}">
+                <input type="time" name="comienzo" id="comienzo1" th:field="${entity.horaInicioManiana}">
+                <input type="time" name="final" id="final1" th:field="${entity.horaFinManiana}">
+                <input type="time" name="comienzo" id="comienzo34" th:field="${entity.horaInicioTarde}">
+                <input type="time" name="final" id="final34" th:field="${entity.horaFinTarde}">
 
             </div><br>
 

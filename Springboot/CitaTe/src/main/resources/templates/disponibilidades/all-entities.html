@@ -30,7 +30,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Dia</th>
+<!--            <th>Dia</th>-->
             <th>Hora inicio mañana</th>
             <th>Hora fin tarde</th>
             <th>Hora inicio tarde</th>
@@ -41,11 +41,11 @@
         </thead>
         <tbody>
         <tr th:each="disponibilidaddto : ${entities}">
-            <td th:text="${disponibilidad.fecha}"></td>
-            <td th:text="${disponibilidad.hora_inicio_mañana}"></td>
-            <td th:text="${disponibilidad.hora_fin_mañana}"></td>
-            <td th:text="${disponibilidad.hora_inicio_tarde}"></td>
-            <td th:text="${disponibilidad.hora_fin_tarde}"></td>
+<!--            <td th:text="${disponibilidad.fecha}"></td>-->
+            <td th:text="${disponibilidaddto.horaInicioManiana}"></td>
+            <td th:text="${disponibilidaddto.horaFinManiana}"></td>
+            <td th:text="${disponibilidaddto.horaInicioTarde}"></td>
+            <td th:text="${disponibilidaddto.horaFinTarde}"></td>
 
             <td>
                 <a th:href="@{/disponibilidades/{id}(id=${disponibilidaddto.id})}" class="btn btn-primary">Editar</a>
@@ -57,7 +57,7 @@
 
 
     <div class=" btn" style="background-color: #3f4c63">
-        <a th:class="nolink" href="/disponibilidades/create" >Añadir nueva valoracion</a>
+        <a th:class="nolink" href="/disponibilidades/create" >Añadir nueva Disponibilidad</a>
     </div>
 </div>
 

@@ -26,7 +26,7 @@
 </br></br></br>
 
 <div class="container">
-    <h1>Disponibilidad</h1>
+    <h1>Roles</h1>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -34,7 +34,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="rolvaloraciondto : ${entities}">
+        <tr th:each="roldto : ${entities}">
             <td th:text="${roldto.nombreRol}"></td>
 
             <td>
@@ -49,7 +49,7 @@
 
 
     <div class=" btn" style="background-color: #3f4c63">
-        <a th:class="nolink" href="/valoraciones/create" >Añadir nueva valoracion</a>
+        <a th:class="nolink" href="/roles/create" >Añadir nuevo rol</a>
     </div>
 </div>
 

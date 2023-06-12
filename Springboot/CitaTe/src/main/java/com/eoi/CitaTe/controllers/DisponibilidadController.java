@@ -48,6 +48,7 @@ public class DisponibilidadController extends MiControladorGenerico<Disponibilid
     @GetMapping("/create")
     public String create(Model model) {
         DisponibilidadDTO entity = new DisponibilidadDTO();
+
         model.addAttribute("entity", entity);
 
         return url + "entity-details";
@@ -58,6 +59,7 @@ public class DisponibilidadController extends MiControladorGenerico<Disponibilid
     public String update(@ModelAttribute DisponibilidadDTO entity) {
 
         disponibilidadMapperService.CrearDisponibilidad(entity);
+
         return "redirect:/" + url + "all";
 
     }
