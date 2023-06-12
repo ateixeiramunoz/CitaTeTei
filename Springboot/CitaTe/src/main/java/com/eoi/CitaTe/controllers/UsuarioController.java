@@ -2,16 +2,19 @@ package com.eoi.CitaTe.controllers;
 
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
+import com.eoi.CitaTe.dto.CambioPswDto;
 import com.eoi.CitaTe.dto.ClienteDTO;
 import com.eoi.CitaTe.dto.UsuarioDTO;
 import com.eoi.CitaTe.entities.Usuario;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
 import com.eoi.CitaTe.services.UsuarioService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -51,6 +54,9 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     private String entityName = "usuario";
     private final UsuarioRepository usuarioRepository;
     private final UsuarioService usuarioService;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     /**
      * Constructor de la clase UsuarioController.
@@ -135,6 +141,31 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
         model.addAttribute("Inicio", 0);
 
         return "usuarios/usuariosPaginados";
+    }
+
+    //Controlador de cambio de password
+    @GetMapping("/usuarios/cambiopass")
+    public String vistaCambiopasword(){
+        return "usuarios/cambiopasword";
+    }
+    @PostMapping("/usuarios/cambiopass")
+    public String cambioPasswordPst(@ModelAttribute(name = "loginForm" ) CambioPswDto cambioPswDto) throws Exception {
+        //Encriptamos las passwords
+        String passwordAnt =  passwordEncoder.encode(cambioPswDto.getPasswordant());
+        String passwordNueva =  passwordEncoder.encode(cambioPswDto.getPasswordnueva());
+        //Comprobamos que existe el usuario por email y passweord
+        if (usuarioService.getRepo().repValidarPassword(cambioPswDto.getUsername(), passwordAnt) > 0)
+        {
+            //Modificicamos la passsword
+            Usuario usuario = service.getRepo().findUsuarioByEmailAndPassword(cambioPswDto.getUsername(),
+                    passwordAnt );
+            usuario.setPass(passwordNueva);
+            //Guardamos el usuario
+            Usuario usuario1 = service.guardarEntidadEntidad(usuario);
+            return "usuarios/login";
+        }else {
+            return "usuarios/cambiopasword";
+        }
     }
 
 
