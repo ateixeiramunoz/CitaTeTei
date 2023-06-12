@@ -44,6 +44,7 @@ public class FacturacionController extends MiControladorGenerico<Facturacion> {
         List<FacturacionDTO> entities = facturacionMapperService.buscarTodos();
         model.addAttribute("entities", entities);
         return url + "all-entities";
+
     }
 
     @Override
@@ -51,12 +52,14 @@ public class FacturacionController extends MiControladorGenerico<Facturacion> {
     public String create(Model model) {
         FacturacionDTO entity = new FacturacionDTO();
         model.addAttribute("entity", entity);
+
         return url + "entity-details";
     }
 
 
     @PostMapping(value = {"/actualizar"})
     public String update(@ModelAttribute FacturacionDTO entity) {
+
         facturacionMapperService.CrearFacturacion(entity);
         return "redirect:/" + url + "all";
 
