@@ -25,11 +25,11 @@ public class FacturacionMapperService extends AbstractBusinessService<Facturacio
 
         Facturacion facturacion = new Facturacion();
 
-
         facturacion.setId(facturacionDTO.getId());
-        facturacion.setFecha(facturacionDTO.getFecha());
-//        facturacion.setPago(facturacionDTO.getpago());
+        facturacion.setFecha(LocalDate.now());
 
+
+//        facturacion.setPago(facturacionDTO.getpago())
 
         facturacionRepository.save(facturacion);
 
