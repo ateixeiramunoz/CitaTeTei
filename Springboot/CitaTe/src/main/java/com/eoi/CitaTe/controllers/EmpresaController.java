@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -74,30 +75,77 @@ public class EmpresaController extends MiControladorGenerico<Empresa> {
     @GetMapping("/paginados")
     public String paginados(Model model,
                             @RequestParam(defaultValue = "0") int numeroPagina,
-                            @RequestParam(defaultValue = "5") int tamanoPagina) {
+                            @RequestParam(defaultValue = "5") int tamanoPagina,
+                            @RequestParam(value = "Provincia", required = false) String provincia) {
         this.url = entityName + "/";
         // Creamos un pageable con numero de pagina y tamaño
         Pageable pageable = PageRequest.of(numeroPagina, tamanoPagina);
 
-        // En lugar meter los DTO en una lista los metemos en una page
+        // Pasamos todos los empresaDTO como una page
         Page<EmpresaDTO> entitiesPage = empresaMapperService.buscarTodos(pageable);
 
-        //Pasamos dto al model
-        model.addAttribute("entities", entitiesPage);
+        // Hacemos una lista de empresaDTO filtrando por
+        List<EmpresaDTO> listaFiltradaProvincia = entitiesPage.getContent().stream()
+                .filter(empresaDTO -> empresaDTO.getDireccion().getProvincia().equalsIgnoreCase(provincia))
+                .collect(Collectors.toList());
 
-        // Verificar si hay una página anterior
-        if (entitiesPage.hasPrevious()) {
-            model.addAttribute("paginaAnterior", numeroPagina - 1);
-        }
+//        int totalElements = listaFiltradaProvincia.size(); // Total de elementos en la lista filtrada
+//
+//        int startIndex = numeroPagina * tamanoPagina;
+//        int endIndex = Math.min(startIndex + tamanoPagina, totalElements);
+//
+//        // Obtiene la sublista de elementos para la página actual
+//        List<EmpresaDTO> pageElements = listaFiltradaProvincia.subList(startIndex, endIndex);
 
 
-        // Verificar si hay una página siguiente
-        if (entitiesPage.hasNext()) {
-            model.addAttribute("siguientePagina", numeroPagina + 1);
-        }
+
+
+        if (provincia != null){
+
+            // no hace ni puto caso al tamanio
+            tamanoPagina = 10;
+            Pageable pageableProvincia = PageRequest.of(2, 15);
+
+
+
+            Page<EmpresaDTO> filteredEntitiesPage = new PageImpl<>(listaFiltradaProvincia, pageableProvincia, listaFiltradaProvincia.size());
+
+            //Pasamos dto al model
+            model.addAttribute("entities", filteredEntitiesPage);
+
+            // Verificar si hay una página anterior
+            if (filteredEntitiesPage.hasPrevious()) {
+                model.addAttribute("paginaAnterior", numeroPagina - 1);
+            }
+            // Verificar si hay una página siguiente
+            if (filteredEntitiesPage.hasNext()) {
+                model.addAttribute("siguientePagina", numeroPagina + 1);
+            }
+
+
+        }else {
+                    //Pasamos dto al model
+                    model.addAttribute("entities", entitiesPage);
+
+                    // Verificar si hay una página anterior
+                    if (entitiesPage.hasPrevious()) {
+                        model.addAttribute("paginaAnterior", numeroPagina - 1);
+                    }
+                    // Verificar si hay una página siguiente
+                    if (entitiesPage.hasNext()) {
+                        model.addAttribute("siguientePagina", numeroPagina + 1);
+                    }
+                }
 
         // Agregar pagina de inicio, para utilizar como enlace y poder volver al inicio
         model.addAttribute("Inicio", 0);
+
+        ///////////// PRUEBAS/////////////////////////////////////
+
+        //provincia = "Todos";
+
+        // Para el filtro
+        model.addAttribute("provinciaFiltro", provincia);
 
         return entityName + "/" + "paginas";
 

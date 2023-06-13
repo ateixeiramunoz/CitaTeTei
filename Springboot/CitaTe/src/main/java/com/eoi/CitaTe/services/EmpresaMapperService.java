@@ -10,7 +10,11 @@ import com.eoi.CitaTe.repositories.ValoracionRepository;
 import com.eoi.CitaTe.services.mapper.EmpresaMapper;
 import com.eoi.CitaTe.services.mapper.ValoracionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.stereotype.Service;
+
+import java.awt.print.Pageable;
 
 @Service
 public class EmpresaMapperService extends AbstractBusinessService<Empresa, Long, EmpresaDTO, EmpresaRepository, EmpresaMapper> {
@@ -18,6 +22,7 @@ public class EmpresaMapperService extends AbstractBusinessService<Empresa, Long,
     public EmpresaMapperService(EmpresaRepository repo, EmpresaMapper serviceMapper) {
         super(repo, serviceMapper);
     }
+
 
 
 
