@@ -5,6 +5,7 @@ import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
 import com.eoi.CitaTe.dto.CambioPswDto;
 import com.eoi.CitaTe.dto.ClienteDTO;
 import com.eoi.CitaTe.dto.UsuarioDTO;
+import com.eoi.CitaTe.dto.UsuarioDTOPsw;
 import com.eoi.CitaTe.entities.Usuario;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
 import com.eoi.CitaTe.services.UsuarioMapperService;
@@ -149,39 +150,43 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     }
 
     // Controlador para Reset password o ¿Has olvidado tu contraseña?
-    @GetMapping("/usuarios/resetpass/{usrname}/{token}")
-    public String cambiopass(@PathVariable("usrname") String username, @PathVariable("token") String token, ModelMap intefrazConPantalla) {
-        Optional<Usuario> usuario = usuarioMapperService.getRepo().findByEmailAndTokenAndActiveTrue(username,token );
-        System.out.println(username + ":" + token );
-        UsuarioCambioPsw usuarioCambioPsw = new UsuarioCambioPsw();
+    @GetMapping("/resetpass/{email}/{token}")
+    public String cambiopass(@PathVariable("email") String email, @PathVariable("token") String token, ModelMap intefrazConPantalla) {
+        Optional<Usuario> usuario = usuarioMapperService.getRepo().findByEmailAndTokenAndActivoTrue(email,token );
+        System.out.println(email + ":" + token );
+        UsuarioDTOPsw usuarioCambioPsw = new UsuarioDTOPsw();
 
         if (usuario.isPresent()){
-            usuarioCambioPsw.setUsuario(usuario.get().getEmail());
-            usuarioCambioPsw.setPassword("******************");
+            usuarioCambioPsw.setEmail(usuario.get().getEmail());
+            usuarioCambioPsw.setPass("******************");
             usuarioCambioPsw.setNewpassword("******************");
             intefrazConPantalla.addAttribute("datos", usuarioCambioPsw);
             return "usuarios/resetearpasswordlogin";
         }else {
+
             //Mostrar página usuario no existe
             return "usuarios/detallesusuarionoencontrado";
         }
     }
-    @PostMapping("/usuarios/resetpass")
-    public String saveListaUsuariuos(@ModelAttribute  UsuarioCambioPsw  dto) throws Exception {
+    @PostMapping("/resetpass")
+    public String saveListaUsuariuos(@ModelAttribute  UsuarioDTOPsw  dto, Model model) throws Exception {
         //Si las password no coinciden a la pag de error
-        if (dto.getpass().equals(dto.getNewpassword())){
+        if (dto.getPass().equals(dto.getNewpassword())){
             //Buscamnos el usuario
-            Usuario usuario = usuarioMapperService.getRepo().findByEmailAndActiveTrue(dto.getUsuario());
+            Usuario usuario = usuarioMapperService.getRepo().findUsuarioByEmailAndActivoTrue(dto.getEmail());
             //Actualizo la password despues de codificarla
-            usuario.setPass(passwordEncoder.encode(dto.getPassword()));
+            usuario.setPass(passwordEncoder.encode(dto.getPass()));
             //Guardo el usuario
             Usuario usuarioguarado = usuarioMapperService.guardarEntidadEntidad(usuario);
-            return "redirect:/usuarios/login";
+            return "redirect:/login";
         }else {
-            //Mostrar página usuario no existe
-            return "usuarios/detallesusuarionoencontrado";
-        }
 
+            /// Si las pass no coinciden
+            model.addAttribute("error", true);
+            //return "/resetpass";
+            return "usuarios/detallesusuarionoencontrado";
+
+        }
     }
 
     //Controlador de cambio de password

@@ -173,6 +173,7 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             usuario.setActivo(true);
             usuario.setCliente(cliente);
             usuario.setPass(codificadorContraseña.encode("prueba"));
+            usuario.setToken("pepe");
 
             usuarioRepository.save(usuario);
 

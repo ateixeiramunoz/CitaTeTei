@@ -2,7 +2,7 @@ package com.eoi.CitaTe.services;
 
 
 import com.eoi.CitaTe.dto.UsuarioDTO;
-import com.eoi.CitaTe.dto.UsuarioDtoPsw;
+import com.eoi.CitaTe.dto.UsuarioDTOPsw;
 import com.eoi.CitaTe.entities.Usuario;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
 import com.eoi.CitaTe.services.mapper.UsuarioMapper;
@@ -35,7 +35,7 @@ public class UsuarioMapperService extends AbstractBusinessService<Usuario,Long, 
         //Traducir la entidad a DTO para devolver el DTO
         return getMapper().toDto(entidadGuardada);
     }
-    public UsuarioDTO guardar(UsuarioDtoPsw usuarioDtoPsw){
+    public UsuarioDTO guardar(UsuarioDTOPsw usuarioDtoPsw){
         System.out.println("usuarioDto:" +usuarioDtoPsw.getEmail() );
         //Traduzco del dto con datos de entrada a la entidad
         final Usuario entidad = getMapper().toEntityPsw(usuarioDtoPsw);

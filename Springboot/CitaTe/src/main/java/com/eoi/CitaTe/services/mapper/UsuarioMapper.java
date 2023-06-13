@@ -1,7 +1,7 @@
 package com.eoi.CitaTe.services.mapper;
 
 import com.eoi.CitaTe.dto.UsuarioDTO;
-import com.eoi.CitaTe.dto.UsuarioDtoPsw;
+import com.eoi.CitaTe.dto.UsuarioDTOPsw;
 import com.eoi.CitaTe.entities.Usuario;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class UsuarioMapper extends AbstractServiceMapper<Usuario, UsuarioDTO> {
         modelMapper.map(dto,entidad);
         return entidad;
     }
-    public Usuario toEntityPsw(UsuarioDtoPsw dto){
+    public Usuario toEntityPsw(UsuarioDTOPsw dto){
         final Usuario entidad = new Usuario();
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.map(dto,entidad);

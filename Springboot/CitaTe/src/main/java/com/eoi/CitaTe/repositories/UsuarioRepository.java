@@ -13,8 +13,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
    // Optional<Usuario> findByUsername(String email);
     Optional<Usuario> findByEmail(String email);
 
-    // Gaginacion
-
+    // Paginacion
     Page<Usuario> findAll(Pageable pageable);
 
 
@@ -23,4 +22,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     Integer repValidarPassword(String email, String pass);
 
     Usuario findUsuarioByEmailAndPass(String email, String pass);
+
+    Usuario findUsuarioByEmailAndActivoTrue(String email);
+
+    //Lo utilizamos para el reset pass via email
+    Optional<Usuario> findByEmailAndTokenAndActivoTrue(String name, String token);
 }
