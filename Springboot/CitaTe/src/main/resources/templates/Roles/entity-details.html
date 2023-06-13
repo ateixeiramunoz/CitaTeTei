@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Valoraciones</title>
+    <title>Roles</title>
 
     <link rel="stylesheet" th:href="@{/CitaTe.css}">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
@@ -24,8 +24,8 @@
 </br></br></br>
 
 <div class="container">
-    <h1>Editar Valoracion</h1>
-    <form th:object="${entity}" th:action="@{/valoraciones/actualizar}" method="POST" th:method="POST">
+    <h1>Editar Rol</h1>
+    <form th:object="${entity}" th:action="@{/roles/actualizar}" method="POST" th:method="POST">
 
 <!--        Metemos el ID de la valoracion como oculto para que cuando realicemos el post no cree un nuevo registro-->
 <!--        con otro ID auto incrementado-->
@@ -34,13 +34,10 @@
         <input type="hidden" name="id" id="id"th:field="*{id}">
 
         <div class="mb-3">
-            <label for="Comentario" class="form-label">Comentario</label>
-            <input type="text" class="form-control" id="Comentario" name="Comentario" th:field="*{comentario}">
+            <label for="nombreRol" class="form-label">Nombre del Rol</label>
+            <input type="text" class="form-control" id="nombreRol" name="nombreRol" th:field="*{nombreRol}">
         </div>
-        <div class="mb-3">
-            <label for="Puntuacion" class="form-label">Puntuacion</label>
-            <input type="text" class="form-control" id="Puntuacion" name="Puntuacion" th:field="*{puntuacion}">
-        </div>
+
 
 
 

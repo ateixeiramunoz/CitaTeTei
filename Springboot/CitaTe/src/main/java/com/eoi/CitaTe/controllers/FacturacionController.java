@@ -15,6 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -44,6 +47,7 @@ public class FacturacionController extends MiControladorGenerico<Facturacion> {
         List<FacturacionDTO> entities = facturacionMapperService.buscarTodos();
         model.addAttribute("entities", entities);
         return url + "all-entities";
+
     }
 
     @Override
@@ -51,12 +55,14 @@ public class FacturacionController extends MiControladorGenerico<Facturacion> {
     public String create(Model model) {
         FacturacionDTO entity = new FacturacionDTO();
         model.addAttribute("entity", entity);
+
         return url + "entity-details";
     }
 
 
     @PostMapping(value = {"/actualizar"})
     public String update(@ModelAttribute FacturacionDTO entity) {
+
         facturacionMapperService.CrearFacturacion(entity);
         return "redirect:/" + url + "all";
 

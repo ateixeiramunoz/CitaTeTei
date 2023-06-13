@@ -8,6 +8,9 @@ import com.eoi.CitaTe.services.mapper.FacturacionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 @Service
 public class FacturacionMapperService extends AbstractBusinessService<Facturacion, Long, FacturacionDTO, FacturacionRepository, FacturacionMapper> {
 
@@ -22,11 +25,11 @@ public class FacturacionMapperService extends AbstractBusinessService<Facturacio
 
         Facturacion facturacion = new Facturacion();
 
-
         facturacion.setId(facturacionDTO.getId());
-        facturacion.setFecha(facturacionDTO.getFecha());
-//        facturacion.setPago(facturacionDTO.getpago());
+        facturacion.setFecha(LocalDate.now());
 
+
+//        facturacion.setPago(facturacionDTO.getpago())
 
         facturacionRepository.save(facturacion);
 

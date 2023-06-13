@@ -17,11 +17,11 @@ import java.util.Date;
 public class DisponibilidadDTO {
 
     private Long id;
-    private String fecha;
-    private Time hora_inicio_mañana;
-    private Time hora_fin_mañana;
-    private Time hora_inicio_tarde;
-    private Time hora_fin_tarde;
+//    private Date fecha;
+    private String horaInicioManiana;
+    private String horaFinManiana;
+    private String horaInicioTarde;
+    private String horaFinTarde;
 
     //private Empleado empleado;
 }

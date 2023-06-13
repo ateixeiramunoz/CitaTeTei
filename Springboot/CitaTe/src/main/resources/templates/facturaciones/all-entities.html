@@ -26,30 +26,22 @@
 </br></br></br>
 
 <div class="container">
-    <h1>Disponibilidad</h1>
+    <h1>Facturación</h1>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Dia</th>
-            <th>Hora inicio mañana</th>
-            <th>Hora fin tarde</th>
-            <th>Hora inicio tarde</th>
-            <th>Hora fin tarde</th>
+            <th>Fecha</th>
 
             <!-- Nueva columna para las acciones -->
         </tr>
         </thead>
         <tbody>
-        <tr th:each="disponibilidaddto : ${entities}">
-            <td th:text="${disponibilidad.fecha}"></td>
-            <td th:text="${disponibilidad.hora_inicio_mañana}"></td>
-            <td th:text="${disponibilidad.hora_fin_mañana}"></td>
-            <td th:text="${disponibilidad.hora_inicio_tarde}"></td>
-            <td th:text="${disponibilidad.hora_fin_tarde}"></td>
+        <tr th:each="facturaciondto : ${entities}">
+            <td th:text="${facturaciondto.fecha}"></td>
 
             <td>
-                <a th:href="@{/disponibilidades/{id}(id=${disponibilidaddto.id})}" class="btn btn-primary">Editar</a>
-                <a th:href="@{/disponibilidades/delete/{id}(id=${disponibilidaddto.id})}" class="btn btn-danger">Eliminar</a>
+                <a th:href="@{/facturaciones/{id}(id=${facturaciondto.id})}" class="btn btn-primary">Editar</a>
+                <a th:href="@{/facturaciones/delete/{id}(id=${facturaciondto.id})}" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
         </tbody>
@@ -57,7 +49,7 @@
 
 
     <div class=" btn" style="background-color: #3f4c63">
-        <a th:class="nolink" href="/valoraciones/create" >Añadir nueva valoracion</a>
+        <a th:class="nolink" href="/facturaciones/create" >Añadir nueva facturación</a>
     </div>
 </div>
 

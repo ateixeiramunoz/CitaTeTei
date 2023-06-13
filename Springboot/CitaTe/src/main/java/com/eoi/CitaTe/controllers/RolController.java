@@ -31,8 +31,8 @@ public class RolController extends MiControladorGenerico<Rol> {
 
     @PostConstruct
     private void init() {
-        super.entityName = entityName;
-        super.url = url;
+        super.entityName = urlBase;
+        super.url = entityName + "/";
     }
 
     @Autowired

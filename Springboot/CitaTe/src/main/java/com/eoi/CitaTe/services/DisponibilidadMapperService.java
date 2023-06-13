@@ -22,11 +22,11 @@ public class DisponibilidadMapperService extends AbstractBusinessService<Disponi
         Disponibilidad disponibilidad = new Disponibilidad();
 
         disponibilidad.setId(disponibilidadDTO.getId());
-        //disponibilidad.setFecha(disponibilidadDTO.getFecha());
-        disponibilidad.setHora_inicio_mañana(disponibilidadDTO.getHora_inicio_mañana());
-        disponibilidad.setHora_fin_mañana(disponibilidadDTO.getHora_fin_mañana());
-        disponibilidad.setHora_inicio_tarde(disponibilidadDTO.getHora_inicio_tarde());
-        disponibilidad.setHora_fin_tarde(disponibilidadDTO.getHora_fin_tarde());
+//        disponibilidad.setFecha(disponibilidadDTO.getFecha());
+        disponibilidad.setHoraInicioManiana(disponibilidadDTO.getHoraInicioManiana());
+        disponibilidad.setHoraFinManiana(disponibilidadDTO.getHoraFinManiana());
+        disponibilidad.setHoraInicioTarde(disponibilidadDTO.getHoraInicioTarde());
+        disponibilidad.setHoraFinTarde(disponibilidadDTO.getHoraFinTarde());
 
         disponibilidadRepository.save(disponibilidad);
 

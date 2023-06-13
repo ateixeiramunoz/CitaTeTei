@@ -18,13 +18,13 @@ public class Disponibilidad {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_disponibilidad", nullable = false)
     private Long id;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fecha;
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date fecha;
 
-    private Time hora_inicio_mañana;
-    private Time hora_fin_mañana;
-    private Time hora_inicio_tarde;
-    private Time hora_fin_tarde;
+    private String horaInicioManiana;
+    private String horaFinManiana;
+    private String horaInicioTarde;
+    private String horaFinTarde;
 
 
    @OneToOne(mappedBy = "disponibilidad")
