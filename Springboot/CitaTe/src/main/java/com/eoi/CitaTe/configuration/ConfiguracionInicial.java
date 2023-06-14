@@ -12,6 +12,8 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -113,6 +115,7 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             empleado.setNombreEmpleado("Antonio");
             empleado.setApellido1Empleado("Martinez");
             empleado.setApellido2Empleado("Sanchez");
+
             empleado.setEmpresa(empresa);
             empleadoRepository.save(empleado);
 
@@ -181,6 +184,44 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
 
             /// DISPONIBILIDADES///////////////////////////////////////////////
 
+
+            /// Facturación /////
+
+            Facturacion facturacion = new Facturacion();
+            facturacion.setFecha(LocalDate.parse("2023-06-14"));
+            facturacionRepository.save(facturacion);
+
+            /// Facturación /////
+
+            /// Menu ///
+            Menu menu = new Menu();
+            menu.setUrl("url en cuestión");
+            menu.setDescripcion("Este es el primer menu");
+            menu.setActivo(true);
+            menuRepository.save(menu);
+            /// Menu ///
+
+            /// Reserva //
+
+            Reserva reserva = new Reserva();
+            reserva.setEstadoReserva(true);
+            reserva.setFechaReserva(LocalDate.parse("2023-06-14"));
+            reserva.setHora_inicio("09:00");
+            reserva.setHora_fin("12:00");
+            reserva.setCliente(cliente);
+            reserva.setValoracion(valoracion);
+            reservaRepository.save(reserva);
+
+            /// Reserva //
+
+            /// Servicio ///
+
+            Servicio servicio= new Servicio();
+            servicio.setTiempo(10);
+            //servicio.setEmpleados();
+            servicioRepository.save(servicio);
+
+            /// Servicio ///
 
 
 

@@ -104,7 +104,15 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     public String update(@ModelAttribute UsuarioDTO usuarioDTO,
                          @ModelAttribute ClienteDTO clienteDTO) {
         usuarioService.CrearCliente(usuarioDTO, clienteDTO);
-        emailService.sendMail(new Email());
+
+        Email correoConfirmacion = new Email();
+        correoConfirmacion.setFrom("correoRemitente@example.com");
+        correoConfirmacion.setTo(usuarioDTO.getEmail());
+        correoConfirmacion.setSubject("Confirmación de registro");
+        correoConfirmacion.setContent("Hola " + usuarioDTO.getEmail() + ", tu registro se ha efectuado correctamente.");
+
+        emailService.sendMail(correoConfirmacion);
+
 
 
         return "registroEmpresa/registroEmpresa12";

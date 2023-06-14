@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -15,9 +16,9 @@ public class ReservaDTO {
 
     private Long id;
     private boolean estadoReserva;
-    private Date fechaReserva;
-    private double hora_inicio;
-    private double hora_fin;
+    private LocalDate fechaReserva;
+    private String hora_inicio;
+    private String hora_fin;
 
 
 
