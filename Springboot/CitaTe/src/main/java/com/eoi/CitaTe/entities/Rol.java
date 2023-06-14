@@ -17,6 +17,7 @@ public class Rol {
     private Long id;
     private String nombreRol;
 
-//    private Usuario usuario;
+    @OneToOne(mappedBy = "rol", cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private Usuario usuario;
 
 }

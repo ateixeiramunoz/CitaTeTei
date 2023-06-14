@@ -31,7 +31,8 @@ public class Disponibilidad {
     private String horaFinTarde;
 
 
-   @OneToOne(mappedBy = "disponibilidad")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "empleado_id", referencedColumnName = "id_empleado")
    private Empleado empleado;
 
 }
