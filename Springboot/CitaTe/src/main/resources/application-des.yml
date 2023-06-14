@@ -10,10 +10,9 @@ spring:
   jpa:
     defer-datasource-initialization: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
       show-sql: false
-    properties:
       hibernate:
-        format-sql: false
+        format-sql: true
 server:
    port: 8093
