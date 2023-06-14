@@ -106,7 +106,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
         usuarioService.CrearCliente(usuarioDTO, clienteDTO);
 
         Email correoConfirmacion = new Email();
-        correoConfirmacion.setFrom("correoRemitente@example.com");
+        correoConfirmacion.setFrom("notificaciones@agestturnos.es");
         correoConfirmacion.setTo(usuarioDTO.getEmail());
         correoConfirmacion.setSubject("Confirmación de registro");
         correoConfirmacion.setContent("Hola " + usuarioDTO.getEmail() + ", tu registro se ha efectuado correctamente.");

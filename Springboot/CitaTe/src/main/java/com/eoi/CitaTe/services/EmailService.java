@@ -42,7 +42,7 @@ public class EmailService {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", "8080");
+        props.put("mail.smtp.port", "587");
         //create the Session object
         session = Session.getInstance(props,
                 new jakarta.mail.Authenticator() {
@@ -75,40 +75,6 @@ public class EmailService {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-
-        // sendAPIMail en la clase EmailService se encarga de enviar un correo electrónico
-        // utilizando una API en lugar del protocolo SMTP estándar.
-
-
-//        public void sendAPIMail(Email mail) throws IOException {
-//            OkHttpClient client = new OkHttpClient().newBuilder()
-//                    .build();
-//            MediaType mediaType = MediaType.parse("application/json");
-//            //Creamos el json para el email
-//            JSONObject jsonObject = new JSONObject();
-//            String jsontext = "{\"from\":{\"email\":\"" + mail.getFrom()+ "\"," +
-//                    "\"name\":\"Gestion turnos\"},\"to\":[{\"email\":\""+ mail.getTo() +
-//                    "\"}],\"subject\":\""+ mail.getSubject()+ "\"," +
-//                    "\"text\":\""+ mail.getContent()+"\",\"category\":\"Integration Test\"}";
-//            System.out.println(jsontext);
-//
-//            RequestBody body = RequestBody.create(mediaType, jsontext);
-//            Request request = new Request.Builder()
-//                    .url("https://send.api.mailtrap.io/api/send")
-//                    .method("POST", body)
-//                    .addHeader("Authorization", "Bearer b411b9132ea86b8cb2cbada15bfcbfd1")
-//                    .addHeader("Content-Type", "application/json")
-//                    .build();
-//            Response response = client.newCall(request).execute();
-//            System.out.println("Respuesta tras el envio:" + response );
-//            //Controlar el objeto response
-//            if (response.isSuccessful() == false ){
-//                Exception e = new Exception(response.message());
-//                throw new RuntimeException(e);
-//            }
-//
-//        }
-
     }
 }
 
