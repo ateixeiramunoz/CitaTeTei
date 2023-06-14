@@ -205,7 +205,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
         }else {
 
             /// Si las pass no coinciden
-            model.addAttribute("error", true);
+            //model.addAttribute("error", true);
             //return "/resetpass";
             return "usuarios/resetearpasswordlogin";
 
