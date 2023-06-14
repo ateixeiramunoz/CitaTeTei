@@ -182,7 +182,8 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
         }
     }
     @PostMapping("/resetpass")
-    public String saveListaUsuariuos(@ModelAttribute  UsuarioDTOPsw  dto, Model model) throws Exception {
+    public String saveListaUsuariuos(@ModelAttribute  UsuarioDTOPsw  dto,
+                                     @ModelAttribute UsuarioDTO usuarioDTO, Model model) throws Exception {
         //Si las password no coinciden a la pag de error
         if (dto.getPass().equals(dto.getNewpassword())){
             //Buscamnos el usuario
@@ -191,6 +192,14 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
             usuario.setPass(passwordEncoder.encode(dto.getPass()));
             //Guardo el usuario
             Usuario usuarioguarado = usuarioMapperService.guardarEntidadEntidad(usuario);
+
+            Email correoCambioContrasenia = new Email();
+            correoCambioContrasenia.setFrom("notificaciones@agestturnos.es");
+            correoCambioContrasenia.setTo(usuarioDTO.getEmail());
+            correoCambioContrasenia.setSubject("Confirmación de cambio de contraseña");
+            correoCambioContrasenia.setContent("Hola " + usuarioDTO.getEmail() + ", tu contraseña se ha cambiado correctamente.");
+
+            emailService.sendMail(correoCambioContrasenia);
 
             return "redirect:/login";
         }else {

@@ -316,6 +316,15 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             usuario4.setPass(codificadorContraseña.encode("prueba"));
             usuario4.setRol(rolAdmin);
             usuarioRepository.save(usuario4);
+//
+//            Usuario usuario5 = new Usuario();
+//            usuario.setEmail("antgarramm@gmail.com");
+//            usuario.setActivo(true);
+//            usuario.setCliente(cliente);
+//            usuario.setPass(codificadorContraseña.encode("12345"));
+//            usuario.setToken("b2a633f2-ce2a-4c24-89e2-b580403c240f");
+//            usuario.setRol(rolCliente);
+//            usuarioRepository.save(usuario);
 
 
 
