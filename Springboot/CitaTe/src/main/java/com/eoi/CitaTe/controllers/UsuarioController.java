@@ -6,8 +6,10 @@ import com.eoi.CitaTe.dto.CambioPswDto;
 import com.eoi.CitaTe.dto.ClienteDTO;
 import com.eoi.CitaTe.dto.UsuarioDTO;
 import com.eoi.CitaTe.dto.UsuarioDTOPsw;
+import com.eoi.CitaTe.entities.Email;
 import com.eoi.CitaTe.entities.Usuario;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
+import com.eoi.CitaTe.services.EmailService;
 import com.eoi.CitaTe.services.UsuarioMapperService;
 import com.eoi.CitaTe.services.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -63,6 +65,8 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private EmailService emailService;
 
     /**
      * Constructor de la clase UsuarioController.
@@ -100,6 +104,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     public String update(@ModelAttribute UsuarioDTO usuarioDTO,
                          @ModelAttribute ClienteDTO clienteDTO) {
         usuarioService.CrearCliente(usuarioDTO, clienteDTO);
+        emailService.sendMail(new Email());
 
 
         return "registroEmpresa/registroEmpresa12";
@@ -178,13 +183,14 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
             usuario.setPass(passwordEncoder.encode(dto.getPass()));
             //Guardo el usuario
             Usuario usuarioguarado = usuarioMapperService.guardarEntidadEntidad(usuario);
+
             return "redirect:/login";
         }else {
 
             /// Si las pass no coinciden
             model.addAttribute("error", true);
             //return "/resetpass";
-            return "usuarios/detallesusuarionoencontrado";
+            return "usuarios/resetearpasswordlogin";
 
         }
     }
