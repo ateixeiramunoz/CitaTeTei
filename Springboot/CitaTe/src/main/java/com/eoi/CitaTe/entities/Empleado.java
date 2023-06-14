@@ -30,8 +30,8 @@ public class Empleado {
     @OneToOne(mappedBy ="empleado")
     private Usuario usuario;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "disponibilidad_id", referencedColumnName = "id_disponibilidad")
+
+    @OneToOne(mappedBy = "empleado")
     private Disponibilidad disponibilidad;
 
 

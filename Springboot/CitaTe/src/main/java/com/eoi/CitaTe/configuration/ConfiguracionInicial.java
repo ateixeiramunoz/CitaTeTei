@@ -3,6 +3,7 @@ package com.eoi.CitaTe.configuration;
 import com.eoi.CitaTe.entities.*;
 import com.eoi.CitaTe.repositories.*;
 
+import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -12,6 +13,8 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -109,12 +112,28 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             // Empleado ///////////////////////////////////////////////////
 
             Empleado empleado = new Empleado();
+            Empleado empleado2 = new Empleado();
+            Empleado empleado3 = new Empleado();
 
             empleado.setNombreEmpleado("Antonio");
             empleado.setApellido1Empleado("Martinez");
             empleado.setApellido2Empleado("Sanchez");
+
             empleado.setEmpresa(empresa);
             empleadoRepository.save(empleado);
+
+            empleado2.setNombreEmpleado("Jose");
+            empleado2.setApellido1Empleado("Martinez");
+            empleado2.setApellido2Empleado("Muños");
+            empleado2.setEmpresa(empresa);
+            empleadoRepository.save(empleado2);
+
+            empleado3.setNombreEmpleado("Ana");
+            empleado3.setApellido1Empleado("Jimenez");
+            empleado3.setApellido2Empleado("Sanchez");
+            empleado3.setEmpresa(empresa);
+            //empleado3.setDisponibilidad();
+            empleadoRepository.save(empleado3);
 
 
             // Empleado ///////////////////////////////////////////////////
@@ -174,13 +193,93 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             /// valoraciones///////////////////////////////////////////////
 
             /// DISPONIBILIDADES///////////////////////////////////////////////
+            Disponibilidad disponibilidad = new Disponibilidad();
+            Disponibilidad disponibilidad2 = new Disponibilidad();
+            Disponibilidad disponibilidad3 = new Disponibilidad();
 
+            disponibilidad.setFecha(LocalDate.parse("2023-06-14"));
+            disponibilidad.setHoraInicioManiana("09:00");
+            disponibilidad.setHoraFinManiana("14:00");
+            disponibilidad.setHoraInicioTarde("17:00");
+            disponibilidad.setHoraFinTarde("20:00");
+            disponibilidad.setEmpleado(empleado);
+            disponibilidadRepository.save(disponibilidad);
 
+            disponibilidad2.setFecha(LocalDate.parse("2023-06-14"));
+            disponibilidad2.setHoraInicioManiana("09:00");
+            disponibilidad2.setHoraFinManiana("14:00");
+            disponibilidad2.setHoraInicioTarde("17:00");
+            disponibilidad2.setHoraFinTarde("20:00");
+            disponibilidad2.setEmpleado(empleado2);
+            disponibilidadRepository.save(disponibilidad2);
 
-
-
+            disponibilidad3.setFecha(LocalDate.parse("2023-06-14"));
+            disponibilidad3.setHoraInicioManiana("09:00");
+            disponibilidad3.setHoraFinManiana("14:00");
+            disponibilidad3.setHoraInicioTarde("17:00");
+            disponibilidad3.setHoraFinTarde("20:00");
+            disponibilidad3.setEmpleado(empleado3);
+            disponibilidadRepository.save(disponibilidad3);
             /// DISPONIBILIDADES///////////////////////////////////////////////
 
+            /// ROL  ///////////////////////////////////////////////
+            Rol rolCliente = new Rol();
+            Rol rolEmpleado = new Rol();
+            Rol rolEncargado = new Rol();
+            Rol rolJefe = new Rol();
+            Rol rolAdmin = new Rol();
+
+            rolCliente.setNombreRol("rolCliente");
+            rolEmpleado.setNombreRol("rolEmpleado");
+            rolEncargado.setNombreRol("rolEncargado");
+            rolJefe.setNombreRol("rolJefe");
+            rolAdmin.setNombreRol("rolAdmin");
+
+            rolRepository.save(rolCliente);
+            rolRepository.save(rolEmpleado);
+            rolRepository.save(rolJefe);
+            rolRepository.save(rolAdmin);
+            /// ROL  ///////////////////////////////////////////////
+
+
+
+            /// Facturación /////
+
+            Facturacion facturacion = new Facturacion();
+            facturacion.setFecha(LocalDate.parse("2023-06-14"));
+            facturacionRepository.save(facturacion);
+
+            /// Facturación /////
+
+            /// Menu ///
+            Menu menu = new Menu();
+            menu.setUrl("url en cuestión");
+            menu.setDescripcion("Este es el primer menu");
+            menu.setActivo(true);
+            menuRepository.save(menu);
+            /// Menu ///
+
+            /// Reserva //
+
+            Reserva reserva = new Reserva();
+            reserva.setEstadoReserva(true);
+            reserva.setFechaReserva(LocalDate.parse("2023-06-14"));
+            reserva.setHora_inicio("09:00");
+            reserva.setHora_fin("12:00");
+            reserva.setCliente(cliente);
+            reserva.setValoracion(valoracion);
+            reservaRepository.save(reserva);
+
+            /// Reserva //
+
+            /// Servicio ///
+
+            Servicio servicio= new Servicio();
+            servicio.setTiempo(10);
+            //servicio.setEmpleados();
+            servicioRepository.save(servicio);
+
+            /// Servicio ///
 
 
 
@@ -192,15 +291,42 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
             usuario.setCliente(cliente);
             usuario.setPass(codificadorContraseña.encode("prueba"));
             usuario.setToken("pepe");
-
+            usuario.setRol(rolCliente);
             usuarioRepository.save(usuario);
-            Usuario usuario2 = new Usuario();
 
+            Usuario usuario2 = new Usuario();
             usuario2.setEmail("empleado@citate.com");
             usuario2.setActivo(true);
             usuario2.setEmpleado(empleado);
             usuario2.setPass(codificadorContraseña.encode("prueba"));
+            usuario2.setRol(rolEmpleado);
             usuarioRepository.save(usuario2);
+
+            Usuario usuario3 = new Usuario();
+            usuario3.setEmail("jefe@citate.com");
+            usuario3.setActivo(true);
+            usuario3.setEmpleado(empleado2);
+            usuario3.setPass(codificadorContraseña.encode("prueba"));
+            usuario3.setRol(rolJefe);
+            usuarioRepository.save(usuario3);
+
+            Usuario usuario4 = new Usuario();
+            usuario4.setEmail("admin@citate.com");
+            usuario4.setActivo(true);
+            usuario4.setPass(codificadorContraseña.encode("prueba"));
+            usuario4.setRol(rolAdmin);
+            usuarioRepository.save(usuario4);
+//
+//            Usuario usuario5 = new Usuario();
+//            usuario.setEmail("antgarramm@gmail.com");
+//            usuario.setActivo(true);
+//            usuario.setCliente(cliente);
+//            usuario.setPass(codificadorContraseña.encode("12345"));
+//            usuario.setToken("b2a633f2-ce2a-4c24-89e2-b580403c240f");
+//            usuario.setRol(rolCliente);
+//            usuarioRepository.save(usuario);
+
+
 
             // Creamos un bucle para añadir un par de usuarios mas y poder comprobar paginacion
 
@@ -211,6 +337,7 @@ public class ConfiguracionInicial implements ApplicationListener<ContextRefreshe
                 usuario2.setEmail("empleado" + i + "@citate.com");
                 usuario2.setActivo(true);
                 usuario2.setPass(codificadorContraseña.encode("prueba"));
+                usuario2.setRol(rolEmpleado);
                 usuarioRepository.save(usuario2);
 
             }

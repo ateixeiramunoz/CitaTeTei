@@ -135,11 +135,24 @@
 			<version>2.3.1</version>
 		</dependency>
 
+		<!-- ///////////////////Email///////////////////-->
+
+		<!-- La dependencia freemarker me obliga a ponerla en el EmailService.java.
+		He buscado: Configuration se utiliza para configurar la plantilla
+		de correo electrónico utilizando FreeMarker, una biblioteca de generación de plantillas.-->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
+		<!-- ///////////////////Email///////////////////-->
 
 
 	</dependencies>

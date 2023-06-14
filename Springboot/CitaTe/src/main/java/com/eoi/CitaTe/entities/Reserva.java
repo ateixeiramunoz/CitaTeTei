@@ -7,6 +7,7 @@ import org.springframework.format.datetime.standard.DateTimeFormatterRegistrar;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,9 +22,9 @@ public class Reserva {
     @Column(name = "id_reserva", nullable = false)
     private Long id;
     private boolean estadoReserva;
-    private Date fechaReserva;
-    private double hora_inicio;
-    private double hora_fin;
+    private LocalDate fechaReserva;
+    private String hora_inicio;
+    private String hora_fin;
 
 
     @OneToOne(cascade = CascadeType.REFRESH)

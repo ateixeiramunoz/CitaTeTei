@@ -6,8 +6,10 @@ import com.eoi.CitaTe.dto.CambioPswDto;
 import com.eoi.CitaTe.dto.ClienteDTO;
 import com.eoi.CitaTe.dto.UsuarioDTO;
 import com.eoi.CitaTe.dto.UsuarioDTOPsw;
+import com.eoi.CitaTe.entities.Email;
 import com.eoi.CitaTe.entities.Usuario;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
+import com.eoi.CitaTe.services.EmailService;
 import com.eoi.CitaTe.services.UsuarioMapperService;
 import com.eoi.CitaTe.services.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -63,6 +65,8 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private EmailService emailService;
 
     /**
      * Constructor de la clase UsuarioController.
@@ -100,6 +104,15 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     public String update(@ModelAttribute UsuarioDTO usuarioDTO,
                          @ModelAttribute ClienteDTO clienteDTO) {
         usuarioService.CrearCliente(usuarioDTO, clienteDTO);
+
+        Email correoConfirmacion = new Email();
+        correoConfirmacion.setFrom("notificaciones@agestturnos.es");
+        correoConfirmacion.setTo(usuarioDTO.getEmail());
+        correoConfirmacion.setSubject("Confirmación de registro");
+        correoConfirmacion.setContent("Hola " + usuarioDTO.getEmail() + ", tu registro se ha efectuado correctamente.");
+
+        emailService.sendMail(correoConfirmacion);
+
 
 
         return "registroEmpresa/registroEmpresa12";
@@ -169,7 +182,8 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
         }
     }
     @PostMapping("/resetpass")
-    public String saveListaUsuariuos(@ModelAttribute  UsuarioDTOPsw  dto, Model model) throws Exception {
+    public String saveListaUsuariuos(@ModelAttribute  UsuarioDTOPsw  dto,
+                                     @ModelAttribute UsuarioDTO usuarioDTO, Model model) throws Exception {
         //Si las password no coinciden a la pag de error
         if (dto.getPass().equals(dto.getNewpassword())){
             //Buscamnos el usuario
@@ -178,6 +192,15 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
             usuario.setPass(passwordEncoder.encode(dto.getPass()));
             //Guardo el usuario
             Usuario usuarioguarado = usuarioMapperService.guardarEntidadEntidad(usuario);
+
+            Email correoCambioContrasenia = new Email();
+            correoCambioContrasenia.setFrom("notificaciones@agestturnos.es");
+            correoCambioContrasenia.setTo(usuarioDTO.getEmail());
+            correoCambioContrasenia.setSubject("Confirmación de cambio de contraseña");
+            correoCambioContrasenia.setContent("Hola " + usuarioDTO.getEmail() + ", tu contraseña se ha cambiado correctamente.");
+
+            emailService.sendMail(correoCambioContrasenia);
+
             return "redirect:/login";
         }else {
 
