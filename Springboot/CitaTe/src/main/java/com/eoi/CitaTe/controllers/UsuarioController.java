@@ -8,6 +8,8 @@ import com.eoi.CitaTe.dto.UsuarioDTO;
 import com.eoi.CitaTe.dto.UsuarioDTOPsw;
 import com.eoi.CitaTe.entities.Email;
 import com.eoi.CitaTe.entities.Usuario;
+import com.eoi.CitaTe.entities.Valoracion;
+import com.eoi.CitaTe.errorcontrol.exceptions.MiEntidadNoEncontradaException;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
 import com.eoi.CitaTe.services.EmailService;
 import com.eoi.CitaTe.services.UsuarioMapperService;
@@ -211,6 +213,11 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
 
         }
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Controlador de cambio de password
     @GetMapping("/cambiopass")
