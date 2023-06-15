@@ -183,6 +183,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
             return "usuarios/detallesusuarionoencontrado";
         }
     }
+
     @PostMapping("/resetpass")
     public String saveListaUsuariuos(@ModelAttribute  UsuarioDTOPsw  dto,
                                      @ModelAttribute UsuarioDTO usuarioDTO, Model model) throws Exception {
@@ -213,11 +214,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
 
         }
     }
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Controlador de cambio de password
     @GetMapping("/cambiopass")
