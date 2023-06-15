@@ -165,7 +165,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     }
 
 
-// Controlador para enviar email y tokken
+// Controlador para enviar email y tokken por correo y poder hacer el /resetpass
     @GetMapping("/hasOlvidadoTuPassword")
     public String hasOlvidadoTuPassword(@RequestParam(value = "email", required = false) String email){
 
