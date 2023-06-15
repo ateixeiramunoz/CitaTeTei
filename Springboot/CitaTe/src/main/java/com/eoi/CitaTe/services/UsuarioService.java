@@ -132,4 +132,5 @@ public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
 
 
     }
+
 }

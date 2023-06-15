@@ -164,6 +164,38 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
         return "usuarios/usuariosPaginados";
     }
 
+
+// Controlador para enviar email y tokken
+    @GetMapping("/hasOlvidadoTuPassword")
+    public String hasOlvidadoTuPassword(@RequestParam(value = "email", required = false) String email){
+
+        if (email!= null) {
+
+            Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
+
+            if (usuario.isPresent()) {
+                String token = usuario.get().getToken();
+                System.out.println("------------------------- --------------"+ email + " token: "  + token);
+
+                Email correoCambioContrasenia = new Email();
+                correoCambioContrasenia.setFrom("notificaciones@agestturnos.es");
+                correoCambioContrasenia.setTo(email);
+                correoCambioContrasenia.setSubject("Cambio de contraseña");
+                correoCambioContrasenia.setContent("http://localhost:8080/resetpass/" + email +"/" + token);
+
+                emailService.sendMail(correoCambioContrasenia);
+
+            } else {
+                email=null;
+                return "redirect:/usuarios/hasOlvidadoTuPassword";
+            }
+
+            return "usuarios/emailEnviadoParaCambioPass";
+        }
+        return "usuarios/hasolvidado";
+    }
+
+
     // Controlador para Reset password o ¿Has olvidado tu contraseña?
     @GetMapping("/resetpass/{email}/{token}")
     public String cambiopass(@PathVariable("email") String email, @PathVariable("token") String token, ModelMap intefrazConPantalla) {
@@ -240,14 +272,6 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
             return "usuarios/cambiopass";
         }
     }
-
-
-
-
-
-
-
-
 
 
 }
