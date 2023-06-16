@@ -2,18 +2,11 @@ package com.eoi.CitaTe.controllers;
 
 
 import com.eoi.CitaTe.abstraccomponents.MiControladorGenerico;
-import com.eoi.CitaTe.dto.CambioPswDto;
-import com.eoi.CitaTe.dto.ClienteDTO;
-import com.eoi.CitaTe.dto.UsuarioDTO;
-import com.eoi.CitaTe.dto.UsuarioDTOPsw;
-import com.eoi.CitaTe.entities.Email;
-import com.eoi.CitaTe.entities.Usuario;
-import com.eoi.CitaTe.entities.Valoracion;
+import com.eoi.CitaTe.dto.*;
+import com.eoi.CitaTe.entities.*;
 import com.eoi.CitaTe.errorcontrol.exceptions.MiEntidadNoEncontradaException;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
-import com.eoi.CitaTe.services.EmailService;
-import com.eoi.CitaTe.services.UsuarioMapperService;
-import com.eoi.CitaTe.services.UsuarioService;
+import com.eoi.CitaTe.services.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -70,6 +64,26 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    EmpresaService empresaService;
+
+    @Autowired
+    DisponibilidadService disponibilidadService;
+
+    @Autowired
+    ServicioService servicioService;
+
+    @Autowired
+    ClienteService clienteService;
+
+    @Autowired
+    EmpleadoService empleadoService;
+
+    @Autowired
+    CatalogoDeServicioService catalogoDeServicioService;
+
+
+
     /**
      * Constructor de la clase UsuarioController.
      * Se utiliza para crear una instancia del controlador.
@@ -87,7 +101,110 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
      * @Author Alejandro Teixeira Muñoz
      */
 
+    @GetMapping("/create/nuevaalta")
+    public String createEmp(Model model) {
 
+        AltaGenericaDto altaGenericaDto = new AltaGenericaDto();
+
+//        altaGenericaDto.setEmpresa(empresaService.getById(1));
+
+        List<Disponibilidad> disponibilidadList = disponibilidadService.listAll();
+        List<CatalogoDeServicio> catalogoDeServicioList = catalogoDeServicioService.listAll();
+        List<Servicio> servicioList = servicioService.listAll();
+
+        model.addAttribute("datos",altaGenericaDto);
+
+        model.addAttribute("listadisponibilidad" ,disponibilidadList );
+
+
+        return "registroEmpresa/nuevaalta";
+    }
+
+
+    @PostMapping(value = {"/createJM"})
+    public String update(@ModelAttribute AltaGenericaDto altaGenericaDto,
+                         @ModelAttribute CatalogoDeServicioDTO catalogoDeServicioDTO,
+                         @ModelAttribute DisponibilidadDTO disponibilidadDTO) {
+
+        //Buscamos el tipo de alta
+
+        if (altaGenericaDto.getTipoalta().equals("cliente")){
+
+            //si el tipo de alta es cliente guardo el cliente y el usuario respectivamente
+            //guardo el cliente
+            Cliente clienteguardado = clienteService.CrearCliente(altaGenericaDto.getCliente());
+            //guardo el usuario
+            altaGenericaDto.getUsuario().setCliente(clienteguardado);
+
+        } else if (altaGenericaDto.getTipoalta().equals("empleado")) {
+
+            //si el tipo de alta es empleado guardaré empleado y usuario
+            //guardo empleado
+            Empleado empleadoguardado = empleadoService.CrearEmpleado(altaGenericaDto.getEmpleado());
+            //guardo usuario
+            altaGenericaDto.getUsuario().setEmpleado(empleadoguardado);
+
+
+        } else if (altaGenericaDto.getTipoalta().equals("empresa")){
+
+            //si el tipo de alta es empresa, guardo: empresa, empleado y usuario
+            //Tambien disponibilidad, catalogo de servicios etc
+
+            //guardamos el catalogo de servicios
+            CatalogoDeServicio catalogoDeServicio = catalogoDeServicioService.CrearCatalogoDeServicio(catalogoDeServicioDTO);
+
+            //guardamos disponibilidad
+            Disponibilidad disponibilidad = disponibilidadService.CrearDisponibilidad(disponibilidadDTO);
+
+            //guardo empresa
+            Empresa empresaguardada = empresaService.CrearEmpresa(altaGenericaDto.getEmpresa());
+            //guardo empleado
+            Empleado empleadoguardado = empleadoService.CrearEmpleado(altaGenericaDto.getEmpleado());
+            //guardo usuario
+            altaGenericaDto.getUsuario().setEmpleado(empleadoguardado);
+
+        } else {
+            System.out.println("Suave suavesito ya queda poquito");
+        }
+
+        Usuario usuarioguardado = usuarioService.CrearUsuario(altaGenericaDto.getUsuario());
+
+        return "registroEmpresa/registroEmpresa12";
+
+    }
+
+
+
+
+
+    @GetMapping("/create/cliente")
+    public String createCl(Model model) {
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        List<Empresa> empresaList = empresaService.listAll();
+        List<Disponibilidad> disponibilidadList = disponibilidadService.listAll();
+        List<Servicio> servicioList = servicioService.listAll();
+
+        usuarioDTO.setTipoAlta("cliente");
+        model.addAttribute("entity", usuarioDTO);
+        model.addAttribute("empresas",empresaList);
+        model.addAttribute("disponibilidades",disponibilidadList);
+        model.addAttribute("servicios",servicioList);
+        //        model.addAttribute("url", url);
+        model.addAttribute("entityName", entityName);
+
+        return "usuarios/altaUsuario"; // Nombre de la plantilla para mostrar todas las entidades
+    }
+
+    @GetMapping("/create/empleado")
+    public String createEmpl(Model model) {
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        usuarioDTO.setTipoAlta("empleado");
+        model.addAttribute("entity", usuarioDTO);
+//        model.addAttribute("url", url);
+        model.addAttribute("entityName", entityName);
+
+        return "usuarios/altaUsuario"; // Nombre de la plantilla para mostrar todas las entidades
+    }
 
     @Override
     @GetMapping("/create")
@@ -105,7 +222,8 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     @PostMapping(value = {"/alta"})
     public String update(@ModelAttribute UsuarioDTO usuarioDTO,
                          @ModelAttribute ClienteDTO clienteDTO) {
-        usuarioService.CrearCliente(usuarioDTO, clienteDTO);
+        usuarioService.CrearUsuario(usuarioDTO);
+
 
         Email correoConfirmacion = new Email();
         correoConfirmacion.setFrom("notificaciones@agestturnos.es");
@@ -199,7 +317,7 @@ public class UsuarioController extends MiControladorGenerico<Usuario> {
     // Controlador para Reset password o ¿Has olvidado tu contraseña?
     @GetMapping("/resetpass/{email}/{token}")
     public String cambiopass(@PathVariable("email") String email, @PathVariable("token") String token, ModelMap intefrazConPantalla) {
-        Optional<Usuario> usuario = usuarioMapperService.getRepo().findByEmailAndTokenAndActivoTrue(email,token );
+        Optional<Usuario> usuario = usuarioMapperService.getRepo().findByEmailAndTokenAndActivoTrue(email,token);
         System.out.println(email + ":" + token );
         UsuarioDTOPsw usuarioCambioPsw = new UsuarioDTOPsw();
 

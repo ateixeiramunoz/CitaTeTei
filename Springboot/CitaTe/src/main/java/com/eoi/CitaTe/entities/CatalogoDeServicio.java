@@ -19,7 +19,11 @@ public class CatalogoDeServicio {
     private  String precio;
     private String descripcion;
 
-    @OneToOne(mappedBy = "catalogoDeServicio")
+//    @OneToOne(mappedBy = "catalogoDeServicio")
+//    private Empresa empresa;
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.REMOVE })
+    @JoinColumn(name = "empresa_id", referencedColumnName = "id_empresa")
     private Empresa empresa;
 
 

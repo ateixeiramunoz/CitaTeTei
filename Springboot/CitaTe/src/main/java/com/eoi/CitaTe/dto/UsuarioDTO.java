@@ -1,22 +1,23 @@
 package com.eoi.CitaTe.dto;
 
 
-import lombok.AllArgsConstructor;
+import com.eoi.CitaTe.entities.Cliente;
+import com.eoi.CitaTe.entities.Empleado;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class UsuarioDTO {
-
     private Long id;
     private String email;
     private String pass;
     private boolean activo;
-//    private Long cliente;
-//    private Long empleado;
+
+    String tipoAlta;
+    private Cliente cliente;
+
+    private Empleado empleado;
+
 
 }

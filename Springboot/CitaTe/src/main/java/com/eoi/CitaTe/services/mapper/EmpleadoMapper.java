@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmpleadoMapper extends AbstractServiceMapper<Empleado, EmpleadoDTO> {
 
+
     @Override
     public EmpleadoDTO toDto(Empleado entidad){
         final EmpleadoDTO dto = new EmpleadoDTO();

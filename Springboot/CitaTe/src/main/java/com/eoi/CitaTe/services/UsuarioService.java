@@ -3,9 +3,11 @@ package com.eoi.CitaTe.services;
 import com.eoi.CitaTe.abstraccomponents.GenericServiceConJPA;
 import com.eoi.CitaTe.dto.*;
 import com.eoi.CitaTe.entities.*;
+import com.eoi.CitaTe.repositories.ClienteRepository;
 import com.eoi.CitaTe.repositories.EmpleadoRepository;
 import com.eoi.CitaTe.repositories.EmpresaRepository;
 import com.eoi.CitaTe.repositories.UsuarioRepository;
+import com.eoi.CitaTe.services.mapper.UsuarioMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,34 +23,21 @@ public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
     @Autowired
     UsuarioRepository usuarioRepository;
 
+    @Autowired
+    EmpleadoRepository empleadoRepository;
+
+    @Autowired
+    EmpresaRepository empresaRepository;
+    @Autowired
+    private UsuarioMapper usuarioMapper;
+
 
     @Autowired
     private PasswordEncoder codificadorContraseñas;
-    @Autowired
-    private EmpleadoRepository empleadoRepository;
-    @Autowired
-    private EmpresaRepository empresaRepository;
-
-    public void CrearCliente(UsuarioDTO usuarioDTO, ClienteDTO clienteDTO){
-        Usuario usuario = new Usuario();
-        Cliente cliente = new Cliente();
-
-        usuario.setEmail(usuarioDTO.getEmail());
-        usuario.setPass(codificadorContraseñas.encode(usuarioDTO.getPass()));
-        usuario.setActivo(true);
-
-        cliente.setNombreCliente(clienteDTO.getNombreCliente());
-        cliente.setApellido1Cliente(clienteDTO.getApellido1Cliente());
-        cliente.setApellido2Cliente(clienteDTO.getApellido2Cliente());
-        cliente.setTelefono(clienteDTO.getTelefono());
-
-        usuario.setCliente(cliente);
-
-
-        usuarioRepository.save(usuario);
+    public Usuario CrearUsuario(UsuarioDTO usuarioDTO ){
+        Usuario usuario = usuarioMapper.toEntity(usuarioDTO);
+        return usuarioRepository.save(usuario);
     }
-
-
 
     public void CrearEmpresa(UsuarioDTO usuarioDTO, EmpresaDTO empresaDTO, EmpleadoDTO empleadoDTO, DireccionDTO direccionDTO){
 
@@ -99,38 +88,15 @@ public class UsuarioService extends GenericServiceConJPA<Usuario, Long> {
 
         usuarioRepository.save(usuario);
 
-      //  private Set<Empleado> empleados = new HashSet<>();
-      //  private CatalogoDeServicio catalogoDeServicio;
+        //  private Set<Empleado> empleados = new HashSet<>();
+        //  private CatalogoDeServicio catalogoDeServicio;
 
         //private Disponibilidad disponibilidad;
         //private Set<Servicio> servicios = new HashSet<>();
 
     }
 
-    // Hecho el registro de la empresa como "Propietario" añadimos este método para poder añadir empleados.
-    public void CrearEmpleado(UsuarioDTO usuarioDTO, EmpleadoDTO empleadoDTO){
-
-        Empleado empleado = new Empleado();
-        Usuario usuario = new Usuario();
-
-        usuario.setEmail(usuarioDTO.getEmail());
-        usuario.setPass(codificadorContraseñas.encode(usuarioDTO.getPass()));
-        usuario.setActivo(true);
-
-        empleado.setNombreEmpleado(empleadoDTO.getNombreEmpleado());
-        empleado.setApellido1Empleado(empleadoDTO.getApellido1Empleado());
-        empleado.setApellido2Empleado(empleadoDTO.getApellido2Empleado());
-
-        //empleado.setEmpresa(empleadoDTO.getEmpresa());  PREGUNTAR en tutorio
-
-        usuario.setEmpleado(empleado);
-        //usuario.setRol(empleado)
-
-        usuarioRepository.save(usuario);
 
 
-
-
-    }
 
 }

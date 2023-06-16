@@ -6,6 +6,7 @@ import com.eoi.CitaTe.dto.ValoracionDTO;
 import com.eoi.CitaTe.entities.Disponibilidad;
 import com.eoi.CitaTe.entities.Valoracion;
 import com.eoi.CitaTe.repositories.DisponibilidadRepository;
+import com.eoi.CitaTe.services.mapper.DisponibilidadMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,5 +16,13 @@ public class DisponibilidadService extends GenericServiceConJPA<Disponibilidad, 
 
     @Autowired
     DisponibilidadRepository disponibilidadRepository;
+
+    @Autowired
+    DisponibilidadMapper disponibilidadMapper;
+
+    public Disponibilidad CrearDisponibilidad(DisponibilidadDTO disponibilidadDTO){
+        Disponibilidad disponibilidad = disponibilidadMapper.toEntity(disponibilidadDTO);
+        return disponibilidadRepository.save(disponibilidad);
+    }
 
 }
