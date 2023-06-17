@@ -13,15 +13,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @Configuration
-@EnableMethodSecurity        //habilitamos la security también en los metodos para desde el propio metodo configurar el rol de quien lo puede usar
 @EnableWebSecurity
 public class MiSecurityConfig {
-
-///nos saltamos la restricion para entrar a h2-console///
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers(new AntPathRequestMatcher("/h2-console/**"));
-    }
 
 ///////////////////////////////
 
@@ -41,13 +34,8 @@ public class MiSecurityConfig {
                 .requestMatchers("/img/**").permitAll()
                 .requestMatchers("/usuarios/**").permitAll()
                 .requestMatchers("/empresas/**").permitAll()
-
-
-
-
-                .anyRequest().authenticated()
-
-
+                .requestMatchers("/api/**").permitAll()
+                .anyRequest().permitAll()
         );
 
         // Configuramos la página personalizada de inicio de sesión.
@@ -72,9 +60,6 @@ public class MiSecurityConfig {
     public static BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
-
 
     @Bean
     MiUserDetailService miUserDetailService() {return  new MiUserDetailService();}
