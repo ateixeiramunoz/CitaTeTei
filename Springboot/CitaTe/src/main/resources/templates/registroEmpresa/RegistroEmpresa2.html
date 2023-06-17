@@ -13,21 +13,15 @@
 
 </head>
 
-
 <body class="container-fluid">
 
-
 <!--Header-->
-
 <div th:replace="~{fragmentos/headerRegistroEmpresa :: header}"></div>
-
 <!--Header-->
-
-        <main class="d-flex flex-wrap justify-content-center " id="main">
-            <div class="row">
+        <main class="d-flex flex-wrap justify-content-center container " id="main">
 
                 <form th:object="${empresaDTO}" th:action="@{/empresas/createEmpresa3}" th:method="POST">
-                    <div class="modal-body text-center" id="registroempresas" >
+                    <div class="text-center" id="registroempresas" >
                         <label for="nombreEmpresa">Nombre de Empresa:</label><br>
                         <input type="text" name="Nombre de Empresa" id="nombreEmpresa" th:field="${empresaDTO.nombreEmpresa}" required/> <br><br>
 
@@ -77,11 +71,6 @@
 
                 </form>
 
-
-
-
-
-            </div>
         </main>
 
   <!--foooooooooooooooooooooooooooooooooooooooter-->
