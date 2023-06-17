@@ -34,12 +34,15 @@ public class MiUserDetailService  implements UserDetailsService {
         Optional<Usuario> usuarioObtenidoDeLaBD = usuarioRepository.findByEmail(email);
 
         if (usuarioObtenidoDeLaBD.isPresent()){
+
             userDetails.setUsername(usuarioObtenidoDeLaBD.get().getEmail());
             userDetails.setPassword(usuarioObtenidoDeLaBD.get().getPass());
 
             // Para establecer el nombre del usuario dependera de si es cliente o empleado por lo que configuramos if else
 
+            /*
             if(usuarioObtenidoDeLaBD.get().getEmpleado()==null){
+
 
                 userDetails.setNombreUsuario(usuarioObtenidoDeLaBD.get().getCliente().getNombreCliente());
                 userDetails.setApellidoUsuario(usuarioObtenidoDeLaBD.get().getCliente().getApellido1Cliente());
@@ -47,7 +50,7 @@ public class MiUserDetailService  implements UserDetailsService {
                 userDetails.setNombreUsuario(usuarioObtenidoDeLaBD.get().getEmpleado().getNombreEmpleado());
                 userDetails.setApellidoUsuario(usuarioObtenidoDeLaBD.get().getEmpleado().getApellido1Empleado());
             }
-
+             */
 
 
 

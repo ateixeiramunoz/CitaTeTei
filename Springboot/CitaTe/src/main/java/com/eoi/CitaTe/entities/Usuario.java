@@ -18,6 +18,7 @@ public class Usuario {
     @Column(name = "id_usuario", nullable = true)
     private Long id;
 
+
     private String email;
     private String pass;
     @Basic(optional = false)

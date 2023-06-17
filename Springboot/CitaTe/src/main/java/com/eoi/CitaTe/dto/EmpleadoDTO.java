@@ -1,5 +1,6 @@
 package com.eoi.CitaTe.dto;
 
+import com.eoi.CitaTe.entities.Empresa;
 import com.eoi.CitaTe.entities.Servicio;
 import lombok.*;
 
@@ -15,7 +16,7 @@ public class EmpleadoDTO {
     private String nombreEmpleado;
     private String apellido1Empleado;
     private String apellido2Empleado;
-    private Long empresa_id;
+    private Empresa empresa;
     private Long disponibilidad_id;
     private Set<Servicio> serviciosdto = new HashSet<>();
 

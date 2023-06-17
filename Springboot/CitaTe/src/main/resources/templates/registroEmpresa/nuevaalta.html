@@ -12,7 +12,10 @@
 
     <link rel="stylesheet" th:href="@{/CitaTe.css}">
     <link th:href="@{/css/nuevoestilo.css}" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"></script>
     <script src="/js/registro.js">
     </script>
 
@@ -22,40 +25,46 @@
 <!--Header-->
 <div th:replace="~{fragmentos/headerRegistroEmpresa :: header}"></div>
 <div class="container">
-
-
     <div id="crearUsuario" >
-
-        <form id="formularioAltaUsuario" action="/api/crearUsuario" method="post">
+        <form id="formularioAltaUsuario">
             <label for="email">Correo electrónico:</label><br>
             <input type="text" name="email" id="email"  required><br><br>
 
-            <label for="password">Contraseña:</label><br>
-            <input type="password" name="password" id="password"  required/> <br><br>
+            <label for="pass">Contraseña:</label><br>
+            <input type="pass" name="pass" id="pass"  required/> <br><br>
 
             <label for="repetirpassword">Repita la contraseña:</label><br>
             <input type="password" name="repetirpassword" id="repetirpassword" required/><br><br>
 
-            <button id="botonCrearUsuario" type="submit" class="btn btn-primary">Guardar</button>
+            <button id="botonCrearUsuario" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+    <div id="crearEmpresa" style="display:none">
+        <form id="formularioAltaEmpresa">
+
+            <label for="nombreEmpresa">Nombre de Empresa</label><input name="Nombre de Empresa" id="nombreEmpresa"  >
+            <label for="cif">CIF</label><input name="cif" id="cif" />
+            <label for="descripcionEmpresa">Descripción</label><input name="descripcionEmpresa" id="descripcionEmpresa" />
+            <label for="calle">Calle</label><input name="calle" id="calle" />
+            <label for="numero">Número</label><input name="numero" id="numero" />
+            <label for="provincia">Provincia</label><input name="provincia" id="provincia" />
+            <label for="ciudad">Ciudad</label><input name="ciudad" id="ciudad" />
+            <label for="codigoPostal">Código Postal</label><input name="codigoPostal" id="codigoPostal" />
+            <button type="submit" id="botonCrearEmpresa" class="btn btn-primary">Guardar</button>
+
         </form>
 
-    </div>
-
-    <div id="crearEmpresa" >
-
-        nombre
 
     </div>
 
-    <div id="crearEmpleado" >
-
-
-
+    <div id="crearJefeEmpresa"  style="display:none" >
+        <form id="formularioAltaJefe">
+            <label for="nombreEmpleado">Nombre</label><input name="nombreEmpleado" id="nombreEmpleado" />
+            <label for="apellido1Empleado">Apellido</label><input name="apellido1Empleado" id="apellido1Empleado" />
+            <label for="apellido2Empleado">Apellido 2</label><input name="apellido2Empleado" id="apellido2Empleado" />
+            <button type="submit" id="botonCrearEmpleado" class="btn btn-primary">Guardar</button>
+        </form>
     </div>
-
-
-
-
 
 </div>
 <div th:replace="~{fragmentos/footer1 :: footer}"></div>

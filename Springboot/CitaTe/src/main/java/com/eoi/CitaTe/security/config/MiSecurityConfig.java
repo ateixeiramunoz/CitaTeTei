@@ -14,7 +14,16 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class MiSecurityConfig {
+public class MiSecurityConfig
+{
+
+    @Bean
+
+    public WebSecurityCustomizer webSecurityCustomizer() {
+
+        return (web) -> web.ignoring().requestMatchers(new AntPathRequestMatcher("/h2-console/**"));
+
+    }
 
 ///////////////////////////////
 
@@ -51,10 +60,14 @@ public class MiSecurityConfig {
         http.logout((logout) -> logout.permitAll()
                 .logoutSuccessUrl("/"));
 
+        http.csrf().disable();
+
+
         // Devolvemos el objeto HttpSecurity configurado para que Spring Boot y Spring Security realicen su magia.
         return http.build();
 
     }
+
 
     @Bean
     public static BCryptPasswordEncoder passwordEncoder() {
@@ -62,6 +75,8 @@ public class MiSecurityConfig {
     }
 
     @Bean
-    MiUserDetailService miUserDetailService() {return  new MiUserDetailService();}
-
+    MiUserDetailService miUserDetailService() {
+        return  new MiUserDetailService();
     }
+
+}
